@@ -15,15 +15,15 @@
           "version": "",
           "millis": [
             17.700000002980232,
-            17.799999997019768,
-            22.200000002980232,
-            17.399999991059303,
-            18,
+            17.700000002980232,
+            18.299999997019768,
+            18.200000002980232,
             17,
-            17.5,
-            18.30000001192093,
-            17.5,
-            18.19999998807907
+            18.200000002980232,
+            18.299999997019768,
+            17.599999994039536,
+            17.600000008940697,
+            17.399999991059303
           ],
           "bytesSent": 171995,
           "browser": {
@@ -53,14 +53,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 18.159999999403954,
+          "mean": 17.8,
           "meanCI": {
-            "low": 17.10691515378072,
-            "high": 19.21308484502719
+            "low": 17.487272738052134,
+            "high": 18.112727261947867
           },
-          "variance": 2.1671111154953646,
-          "standardDeviation": 1.4721111084070266,
-          "relativeStandardDeviation": 0.08106338702947931
+          "variance": 0.19111111150847546,
+          "standardDeviation": 0.43716256874128123,
+          "relativeStandardDeviation": 0.024559694873105685
         }
       },
       "startup": {
@@ -75,16 +75,16 @@
           "queryString": "?bench=react/fields/dist/exome.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            66.90000000596046,
-            71.5,
-            67.09999999403954,
-            65.6000000089407,
-            14.799999997019768,
-            67,
-            66.79999999701977,
+            66.29999999701977,
+            66.40000000596046,
+            67.20000000298023,
             66,
-            65.6000000089407,
-            66.40000000596046
+            67.3999999910593,
+            67.5,
+            67.3999999910593,
+            67.20000000298023,
+            68.29999999701977,
+            15
           ],
           "bytesSent": 171995,
           "browser": {
@@ -114,14 +114,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 61.77000000178814,
+          "mean": 61.869999998807906,
           "meanCI": {
-            "low": 49.90259284319248,
-            "high": 73.6374071603838
+            "low": 50.07921241817375,
+            "high": 73.66078757944206
           },
-          "variance": 275.2112222710848,
-          "standardDeviation": 16.58949132044394,
-          "relativeStandardDeviation": 0.2685687440499223
+          "variance": 271.66899998389346,
+          "standardDeviation": 16.482384535736735,
+          "relativeStandardDeviation": 0.26640349985541156
         }
       },
       "memory": {
@@ -136,16 +136,16 @@
           "queryString": "?bench=react/fields/dist/exome.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            4438220,
-            4435312,
-            4436569,
-            4440077,
-            4435973,
-            4442357,
-            4603460,
-            4433545,
-            4437419,
-            4438952
+            4440745,
+            4440312,
+            4435377,
+            4435791,
+            4437780,
+            4438553,
+            4459614,
+            4437943,
+            4434084,
+            4436668
           ],
           "bytesSent": 171995,
           "browser": {
@@ -175,578 +175,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 4454188.4,
+          "mean": 4439686.7,
           "meanCI": {
-            "low": 4416626.15463371,
-            "high": 4491750.645366291
+            "low": 4434457.998620149,
+            "high": 4444915.401379852
           },
-          "variance": 2757131906.2666664,
-          "standardDeviation": 52508.39843555188,
-          "relativeStandardDeviation": 0.011788544560789541
-        }
-      }
-    }
-  ],
-  [
-    "simpler-state-v1.2.1",
-    {
-      "performance": {
-        "result": {
-          "name": "simpler-state-v1.2.1 [performance]",
-          "measurement": {
-            "mode": "expression",
-            "name": "performance",
-            "expression": "window.tachometerResultPerformance"
-          },
-          "measurementIndex": 0,
-          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            18.5,
-            18.299999997019768,
-            18.69999998807907,
-            18.700000002980232,
-            19.099999994039536,
-            18.299999997019768,
-            18.600000008940697,
-            18.900000005960464,
-            18.700000002980232,
-            18.5
-          ],
-          "bytesSent": 173727,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 18.629999999701976,
-          "meanCI": {
-            "low": 18.451399385024907,
-            "high": 18.808600614379046
-          },
-          "variance": 0.0623333333532016,
-          "standardDeviation": 0.24966644418744302,
-          "relativeStandardDeviation": 0.01340131208757042
-        }
-      },
-      "startup": {
-        "result": {
-          "name": "simpler-state-v1.2.1 [startup]",
-          "measurement": {
-            "mode": "expression",
-            "name": "startup",
-            "expression": "window.tachometerResultStartup"
-          },
-          "measurementIndex": 1,
-          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            68,
-            67.79999999701977,
-            67.70000000298023,
-            66.3999999910593,
-            16.900000005960464,
-            68.3999999910593,
-            67.8999999910593,
-            67.29999999701977,
-            68.5,
-            68.20000000298023
-          ],
-          "bytesSent": 173727,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 62.70999999791384,
-          "meanCI": {
-            "low": 51.18752437806896,
-            "high": 74.23247561775872
-          },
-          "variance": 259.44544435534874,
-          "standardDeviation": 16.10731027686959,
-          "relativeStandardDeviation": 0.25685393521616057
-        }
-      },
-      "memory": {
-        "result": {
-          "name": "simpler-state-v1.2.1 [memory]",
-          "measurement": {
-            "mode": "expression",
-            "name": "memory",
-            "expression": "window.tachometerResultMemory"
-          },
-          "measurementIndex": 2,
-          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            5134579,
-            5134610,
-            5133387,
-            5134637,
-            5134915,
-            5134573,
-            5134636,
-            5133407,
-            5134561,
-            5134591
-          ],
-          "bytesSent": 173727,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 5134389.6,
-          "meanCI": {
-            "low": 5134008.322420124,
-            "high": 5134770.877579875
-          },
-          "variance": 284077.6,
-          "standardDeviation": 532.9893057088482,
-          "relativeStandardDeviation": 0.0001038077254030057
-        }
-      }
-    }
-  ],
-  [
-    "jotai-v1.13.1",
-    {
-      "performance": {
-        "result": {
-          "name": "jotai-v1.13.1 [performance]",
-          "measurement": {
-            "mode": "expression",
-            "name": "performance",
-            "expression": "window.tachometerResultPerformance"
-          },
-          "measurementIndex": 0,
-          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            19.099999994039536,
-            18.400000005960464,
-            18.900000005960464,
-            18.30000001192093,
-            18.30000001192093,
-            18.599999994039536,
-            18.600000008940697,
-            18.5,
-            18.799999997019768,
-            19
-          ],
-          "bytesSent": 179639,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 18.65000000298023,
-          "meanCI": {
-            "low": 18.444183759091533,
-            "high": 18.85581624686893
-          },
-          "variance": 0.08277777519490986,
-          "standardDeviation": 0.2877112705385555,
-          "relativeStandardDeviation": 0.015426877774401063
-        }
-      },
-      "startup": {
-        "result": {
-          "name": "jotai-v1.13.1 [startup]",
-          "measurement": {
-            "mode": "expression",
-            "name": "startup",
-            "expression": "window.tachometerResultStartup"
-          },
-          "measurementIndex": 1,
-          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            24.600000008940697,
-            80.59999999403954,
-            77.20000000298023,
-            24.599999994039536,
-            76.3999999910593,
-            75.90000000596046,
-            75.90000000596046,
-            76.40000000596046,
-            77.5,
-            77.3999999910593
-          ],
-          "bytesSent": 179639,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 66.65,
-          "meanCI": {
-            "low": 50.76677650243094,
-            "high": 82.53322349756907
-          },
-          "variance": 492.98277773512723,
-          "standardDeviation": 22.203215481887465,
-          "relativeStandardDeviation": 0.3331315151070887
-        }
-      },
-      "memory": {
-        "result": {
-          "name": "jotai-v1.13.1 [memory]",
-          "measurement": {
-            "mode": "expression",
-            "name": "memory",
-            "expression": "window.tachometerResultMemory"
-          },
-          "measurementIndex": 2,
-          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            5474878,
-            5474812,
-            5474849,
-            5474851,
-            5474847,
-            5474859,
-            5474854,
-            5474845,
-            5474822,
-            5474851
-          ],
-          "bytesSent": 179639,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 5474846.8,
-          "meanCI": {
-            "low": 5474833.64486509,
-            "high": 5474859.95513491
-          },
-          "variance": 338.1777777777778,
-          "standardDeviation": 18.389610593424152,
-          "relativeStandardDeviation": 0.000003358926973705301
-        }
-      }
-    }
-  ],
-  [
-    "signia-v0.1.4",
-    {
-      "performance": {
-        "result": {
-          "name": "signia-v0.1.4 [performance]",
-          "measurement": {
-            "mode": "expression",
-            "name": "performance",
-            "expression": "window.tachometerResultPerformance"
-          },
-          "measurementIndex": 0,
-          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            19.099999994039536,
-            19.299999997019768,
-            18.400000005960464,
-            18.600000008940697,
-            18.700000002980232,
-            18.299999997019768,
-            18.599999994039536,
-            18.899999991059303,
-            18.799999997019768,
-            18.700000002980232
-          ],
-          "bytesSent": 177744,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 18.73999999910593,
-          "meanCI": {
-            "low": 18.523546245835334,
-            "high": 18.956453752376525
-          },
-          "variance": 0.09155555404557125,
-          "standardDeviation": 0.30258148331576945,
-          "relativeStandardDeviation": 0.01614629046585941
-        }
-      },
-      "startup": {
-        "result": {
-          "name": "signia-v0.1.4 [startup]",
-          "measurement": {
-            "mode": "expression",
-            "name": "startup",
-            "expression": "window.tachometerResultStartup"
-          },
-          "measurementIndex": 1,
-          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            68.70000000298023,
-            70.20000000298023,
-            69.29999999701977,
-            68.09999999403954,
-            17.799999997019768,
-            17.599999994039536,
-            17.700000002980232,
-            69.59999999403954,
-            17.700000002980232,
-            68.5
-          ],
-          "bytesSent": 177744,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 48.519999998807904,
-          "meanCI": {
-            "low": 29.540161417064933,
-            "high": 67.49983858055087
-          },
-          "variance": 703.9462222028044,
-          "standardDeviation": 26.531984889992763,
-          "relativeStandardDeviation": 0.5468257397082571
-        }
-      },
-      "memory": {
-        "result": {
-          "name": "signia-v0.1.4 [memory]",
-          "measurement": {
-            "mode": "expression",
-            "name": "memory",
-            "expression": "window.tachometerResultMemory"
-          },
-          "measurementIndex": 2,
-          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
-          "version": "",
-          "millis": [
-            5303113,
-            5302174,
-            5304186,
-            5304319,
-            5302436,
-            5304470,
-            5302920,
-            5302259,
-            5468090,
-            5302165
-          ],
-          "bytesSent": 177744,
-          "browser": {
-            "name": "chrome",
-            "addArguments": [
-              "--no-sandbox",
-              "--no-first-run",
-              "--enable-automation",
-              "--disable-infobars",
-              "--disable-background-networking",
-              "--disable-background-timer-throttling",
-              "--disable-cache",
-              "--disable-translate",
-              "--disable-sync",
-              "--disable-extensions",
-              "--disable-default-apps",
-              "--js-flags=--expose-gc",
-              "--enable-precise-memory-info"
-            ],
-            "headless": true,
-            "windowSize": {
-              "width": 800,
-              "height": 600
-            }
-          },
-          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
-        },
-        "stats": {
-          "size": 10,
-          "mean": 5319613.2,
-          "meanCI": {
-            "low": 5282287.761461616,
-            "high": 5356938.638538385
-          },
-          "variance": 2722477451.288889,
-          "standardDeviation": 52177.36531570839,
-          "relativeStandardDeviation": 0.009808488578776439
+          "variance": 53424704.900000006,
+          "standardDeviation": 7309.220539838705,
+          "relativeStandardDeviation": 0.0016463370128884781
         }
       }
     }
@@ -766,16 +202,16 @@
           "queryString": "?bench=react/fields/dist/nanostores.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            21.099999994039536,
-            18.299999997019768,
-            19,
-            18.69999998807907,
-            19,
+            18.399999991059303,
+            18.5,
+            18.5,
             18.899999991059303,
-            18.600000008940697,
+            18.899999991059303,
             18.299999997019768,
-            18.700000002980232,
-            18.69999998807907
+            18.900000005960464,
+            18.599999994039536,
+            19.099999994039536,
+            18.600000008940697
           ],
           "bytesSent": 172471,
           "browser": {
@@ -805,14 +241,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 18.929999996721744,
+          "mean": 18.66999999731779,
           "meanCI": {
-            "low": 18.356672194115337,
-            "high": 19.50332779932815
+            "low": 18.48209111160069,
+            "high": 18.857908883034895
           },
-          "variance": 0.6423333317637444,
-          "standardDeviation": 0.8014570055615862,
-          "relativeStandardDeviation": 0.04233792951401906
+          "variance": 0.06899999955627657,
+          "standardDeviation": 0.26267850988666086,
+          "relativeStandardDeviation": 0.01406955061191207
         }
       },
       "startup": {
@@ -827,16 +263,16 @@
           "queryString": "?bench=react/fields/dist/nanostores.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            17.30000001192093,
-            16,
-            16.299999997019768,
-            15.799999997019768,
-            65.70000000298023,
+            66.79999999701977,
+            71.3999999910593,
+            16.100000008940697,
+            67.59999999403954,
+            16.399999991059303,
             66.5,
-            16,
-            15.800000011920929,
-            67.5,
-            16
+            70.09999999403954,
+            66.1000000089407,
+            67.70000000298023,
+            15.800000011920929
           ],
           "bytesSent": 172471,
           "browser": {
@@ -866,14 +302,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 31.290000002086163,
+          "mean": 52.45,
           "meanCI": {
-            "low": 13.870559140785168,
-            "high": 48.70944086338716
+            "low": 34.468569814778405,
+            "high": 70.4314301852216
           },
-          "variance": 592.9565555204352,
-          "standardDeviation": 24.350699281959752,
-          "relativeStandardDeviation": 0.7782262473741209
+          "variance": 631.8338887378244,
+          "standardDeviation": 25.13630618722298,
+          "relativeStandardDeviation": 0.47924320662007586
         }
       },
       "memory": {
@@ -888,16 +324,16 @@
           "queryString": "?bench=react/fields/dist/nanostores.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            4943036,
-            4779283,
-            4778355,
-            4779513,
-            4779083,
-            4779298,
-            4778143,
-            4779302,
-            4779067,
-            4779531
+            4778942,
+            4779138,
+            4779448,
+            4779267,
+            4778274,
+            4779035,
+            4779118,
+            4779281,
+            4779259,
+            4779525
           ],
           "bytesSent": 172471,
           "browser": {
@@ -927,14 +363,578 @@
         },
         "stats": {
           "size": 10,
-          "mean": 4795461.1,
+          "mean": 4779128.7,
           "meanCI": {
-            "low": 4758366.552040462,
-            "high": 4832555.647959537
+            "low": 4778879.445351857,
+            "high": 4779377.954648144
           },
-          "variance": 2688899804.7666664,
-          "standardDeviation": 51854.60254178665,
-          "relativeStandardDeviation": 0.010813267266788308
+          "variance": 121406.23333333332,
+          "standardDeviation": 348.43397270262454,
+          "relativeStandardDeviation": 0.00007290742613870695
+        }
+      }
+    }
+  ],
+  [
+    "jotai-v1.13.1",
+    {
+      "performance": {
+        "result": {
+          "name": "jotai-v1.13.1 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            18.700000002980232,
+            18.5,
+            18.799999997019768,
+            18.599999994039536,
+            18.899999991059303,
+            18.69999998807907,
+            18.30000001192093,
+            18.799999997019768,
+            19,
+            18.400000005960464
+          ],
+          "bytesSent": 179639,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 18.669999998807906,
+          "meanCI": {
+            "low": 18.511649000857346,
+            "high": 18.828350996758466
+          },
+          "variance": 0.04899999806616046,
+          "standardDeviation": 0.22135943184368825,
+          "relativeStandardDeviation": 0.011856423773852287
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "jotai-v1.13.1 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            77.90000000596046,
+            76.90000000596046,
+            76.79999999701977,
+            24.5,
+            77.29999999701977,
+            78.90000000596046,
+            76.90000000596046,
+            77,
+            77.30000001192093,
+            77.09999999403954
+          ],
+          "bytesSent": 179639,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 72.06000000238419,
+          "meanCI": {
+            "low": 60.097192386669086,
+            "high": 84.02280761809928
+          },
+          "variance": 279.65377780799076,
+          "standardDeviation": 16.72285196394415,
+          "relativeStandardDeviation": 0.23206844245615954
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "jotai-v1.13.1 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5474852,
+            5474847,
+            5474846,
+            5474856,
+            5474842,
+            5474810,
+            5474836,
+            5474835,
+            5474805,
+            5474816
+          ],
+          "bytesSent": 179639,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 5474834.5,
+          "meanCI": {
+            "low": 5474821.596006586,
+            "high": 5474847.403993414
+          },
+          "variance": 325.3888888888889,
+          "standardDeviation": 18.038538989865252,
+          "relativeStandardDeviation": 0.000003294809914320744
+        }
+      }
+    }
+  ],
+  [
+    "signia-v0.1.4",
+    {
+      "performance": {
+        "result": {
+          "name": "signia-v0.1.4 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            19.200000002980232,
+            18.299999997019768,
+            19.099999994039536,
+            19.299999997019768,
+            18.799999997019768,
+            18.900000005960464,
+            18.799999997019768,
+            19,
+            18.900000005960464,
+            19.5
+          ],
+          "bytesSent": 177744,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 18.979999999701977,
+          "meanCI": {
+            "low": 18.744426503270933,
+            "high": 19.215573496133022
+          },
+          "variance": 0.10844444469610849,
+          "standardDeviation": 0.32930904132153505,
+          "relativeStandardDeviation": 0.017350318299615693
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "signia-v0.1.4 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            69.29999999701977,
+            69.40000000596046,
+            69.79999999701977,
+            68.70000000298023,
+            17.5,
+            70,
+            17.5,
+            69.90000000596046,
+            17.700000002980232,
+            68.70000000298023
+          ],
+          "bytesSent": 177744,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 53.850000001490116,
+          "meanCI": {
+            "low": 35.93614487988451,
+            "high": 71.76385512309572
+          },
+          "variance": 627.0938889056775,
+          "standardDeviation": 25.041842761779286,
+          "relativeStandardDeviation": 0.46502957773605086
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "signia-v0.1.4 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5302171,
+            5304222,
+            5302151,
+            5302151,
+            5302426,
+            5301822,
+            5302442,
+            5303123,
+            5302405,
+            5304195
+          ],
+          "bytesSent": 177744,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 5302710.8,
+          "meanCI": {
+            "low": 5302097.673165497,
+            "high": 5303323.926834502
+          },
+          "variance": 734607.0666666667,
+          "standardDeviation": 857.0922159643422,
+          "relativeStandardDeviation": 0.00016163284182202475
+        }
+      }
+    }
+  ],
+  [
+    "simpler-state-v1.2.1",
+    {
+      "performance": {
+        "result": {
+          "name": "simpler-state-v1.2.1 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            18.799999997019768,
+            19.5,
+            18.899999991059303,
+            18.700000002980232,
+            18.700000002980232,
+            19.399999991059303,
+            18.700000002980232,
+            18.599999994039536,
+            20.30000001192093,
+            18.799999997019768
+          ],
+          "bytesSent": 173727,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 19.03999999910593,
+          "meanCI": {
+            "low": 18.655211563930173,
+            "high": 19.424788434281687
+          },
+          "variance": 0.28933333645926584,
+          "standardDeviation": 0.5378971430108789,
+          "relativeStandardDeviation": 0.02825090036954502
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "simpler-state-v1.2.1 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            67.59999999403954,
+            67.90000000596046,
+            68.79999999701977,
+            67.5,
+            68.29999999701977,
+            16.5,
+            69.5,
+            16.5,
+            69.5,
+            67.20000000298023
+          ],
+          "bytesSent": 173727,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 57.92999999970198,
+          "meanCI": {
+            "low": 42.29956349618419,
+            "high": 73.56043650321976
+          },
+          "variance": 477.41566665913655,
+          "standardDeviation": 21.849843630084326,
+          "relativeStandardDeviation": 0.37717665510438
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "simpler-state-v1.2.1 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5134588,
+            5133357,
+            5134545,
+            5134589,
+            5134538,
+            5134823,
+            5134527,
+            5133652,
+            5134581,
+            5134623
+          ],
+          "bytesSent": 173727,
+          "browser": {
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            }
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/117.0.5938.149 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 5134382.3,
+          "meanCI": {
+            "low": 5134042.315004528,
+            "high": 5134722.284995472
+          },
+          "variance": 225878.01111111106,
+          "standardDeviation": 475.2662528637091,
+          "relativeStandardDeviation": 0.00009256541977088639
         }
       }
     }
@@ -954,16 +954,16 @@
           "queryString": "?bench=react/fields/dist/preact-signals.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            18.799999997019768,
-            19.200000002980232,
-            19,
-            19,
-            18.899999991059303,
+            19.099999994039536,
             19.099999994039536,
             19.200000002980232,
-            19,
-            19.299999997019768,
-            18.600000008940697
+            19.100000008940697,
+            19.399999991059303,
+            19.30000001192093,
+            19.100000008940697,
+            18.400000005960464,
+            19.399999991059303,
+            18.899999991059303
           ],
           "bytesSent": 179507,
           "browser": {
@@ -993,14 +993,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 19.009999999403952,
+          "mean": 19.1,
           "meanCI": {
-            "low": 18.861277622902282,
-            "high": 19.158722375905622
+            "low": 18.892122104360602,
+            "high": 19.3078778956394
           },
-          "variance": 0.04322222170564866,
-          "standardDeviation": 0.20789954715113898,
-          "relativeStandardDeviation": 0.010936325468577462
+          "variance": 0.08444444331857899,
+          "standardDeviation": 0.2905932609655272,
+          "relativeStandardDeviation": 0.015214306856833882
         }
       },
       "startup": {
@@ -1015,16 +1015,16 @@
           "queryString": "?bench=react/fields/dist/preact-signals.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            71.69999998807907,
-            70.5,
-            17.799999997019768,
-            18.299999997019768,
-            17.700000002980232,
-            17.80000001192093,
-            17.799999997019768,
+            70.79999999701977,
+            73.5,
+            72.20000000298023,
+            70.40000000596046,
+            70.29999999701977,
             70,
-            70.20000000298023,
-            69.90000000596046
+            70,
+            70.09999999403954,
+            70.70000000298023,
+            18.100000008940697
           ],
           "bytesSent": 179507,
           "browser": {
@@ -1054,14 +1054,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 44.170000000298025,
+          "mean": 65.61000000089408,
           "meanCI": {
-            "low": 24.34257857234056,
-            "high": 63.99742142825549
+            "low": 53.64128821368018,
+            "high": 77.57871178810798
           },
-          "variance": 768.2223332763976,
-          "standardDeviation": 27.716824011354504,
-          "relativeStandardDeviation": 0.6275033735831445
+          "variance": 279.92988879608447,
+          "standardDeviation": 16.731105426602404,
+          "relativeStandardDeviation": 0.2550084655749795
         }
       },
       "memory": {
@@ -1076,16 +1076,16 @@
           "queryString": "?bench=react/fields/dist/preact-signals.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            4631117,
-            4629811,
-            4631250,
-            4631344,
-            4631298,
-            4631401,
-            4630097,
-            4630920,
-            4631085,
-            4631065
+            4629859,
+            4629847,
+            4631102,
+            4629843,
+            4630941,
+            4629854,
+            4631089,
+            4631084,
+            4629856,
+            4631279
           ],
           "bytesSent": 179507,
           "browser": {
@@ -1115,14 +1115,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 4630938.8,
+          "mean": 4630475.4,
           "meanCI": {
-            "low": 4630550.360132275,
-            "high": 4631327.2398677245
+            "low": 4630001.686886487,
+            "high": 4630949.113113514
           },
-          "variance": 294850.62222222215,
-          "standardDeviation": 543.0014937568976,
-          "relativeStandardDeviation": 0.00011725516514208688
+          "variance": 438515.82222222217,
+          "standardDeviation": 662.2052719680071,
+          "relativeStandardDeviation": 0.0001430102127241637
         }
       }
     }
@@ -1142,16 +1142,16 @@
           "queryString": "?bench=react/fields/dist/recoil.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            21.599999994039536,
-            21.599999994039536,
-            21.5,
-            21.899999991059303,
-            21.599999994039536,
-            21.5,
-            21.099999994039536,
-            21.900000005960464,
             21.700000002980232,
-            21.200000002980232
+            21.599999994039536,
+            21.5,
+            22.299999997019768,
+            21.5,
+            21.799999997019768,
+            21.599999994039536,
+            21.599999994039536,
+            21.099999994039536,
+            21.599999994039536
           ],
           "bytesSent": 262465,
           "browser": {
@@ -1181,14 +1181,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 21.559999997913838,
+          "mean": 21.629999996721743,
           "meanCI": {
-            "low": 21.374680980817427,
-            "high": 21.74531901501025
+            "low": 21.41658851681709,
+            "high": 21.843411476626397
           },
-          "variance": 0.067111111190584,
-          "standardDeviation": 0.25905812318972743,
-          "relativeStandardDeviation": 0.012015682894934791
+          "variance": 0.08900000035100514,
+          "standardDeviation": 0.2983286783918119,
+          "relativeStandardDeviation": 0.013792356839437206
         }
       },
       "startup": {
@@ -1203,16 +1203,16 @@
           "queryString": "?bench=react/fields/dist/recoil.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            73.6000000089407,
-            72.19999998807907,
-            73.20000000298023,
-            73.59999999403954,
-            73.20000000298023,
-            72.3999999910593,
-            72.70000000298023,
-            71.90000000596046,
-            72.3999999910593,
-            21.400000005960464
+            76.79999999701977,
+            72.1000000089407,
+            74.40000000596046,
+            72.5,
+            74,
+            72.79999999701977,
+            22.299999997019768,
+            74.5,
+            74.6000000089407,
+            73.90000000596046
           ],
           "bytesSent": 262465,
           "browser": {
@@ -1242,14 +1242,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 67.65999999940395,
+          "mean": 68.79000000208616,
           "meanCI": {
-            "low": 56.02493503200755,
-            "high": 79.29506496680035
+            "low": 57.066076046707806,
+            "high": 80.51392395746451
           },
-          "variance": 264.5404443725348,
-          "standardDeviation": 16.26469933237423,
-          "relativeStandardDeviation": 0.24038869838187282
+          "variance": 268.59655561070315,
+          "standardDeviation": 16.38891563254577,
+          "relativeStandardDeviation": 0.23824561174660203
         }
       },
       "memory": {
@@ -1264,16 +1264,16 @@
           "queryString": "?bench=react/fields/dist/recoil.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            6944158,
-            6944098,
-            6944102,
-            6944087,
+            6944062,
             6944086,
-            6944091,
-            6944098,
-            6944074,
-            6944090,
-            6944129
+            6944064,
+            6944346,
+            6944035,
+            7107702,
+            6944104,
+            6944104,
+            6944100,
+            6944102
           ],
           "bytesSent": 262465,
           "browser": {
@@ -1303,14 +1303,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 6944101.3,
+          "mean": 6960470.5,
           "meanCI": {
-            "low": 6944083.741586192,
-            "high": 6944118.858413808
+            "low": 6923463.69425966,
+            "high": 6997477.30574034
           },
-          "variance": 602.4555555555556,
-          "standardDeviation": 24.54497006629985,
-          "relativeStandardDeviation": 0.0000035346503465178208
+          "variance": 2676194379.388889,
+          "standardDeviation": 51731.94737673123,
+          "relativeStandardDeviation": 0.007432248635596004
         }
       }
     }
@@ -1330,16 +1330,16 @@
           "queryString": "?bench=react/fields/dist/mobx.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            216.3999999910593,
-            221,
-            215.09999999403954,
-            218.70000000298023,
-            211.6000000089407,
-            221.6000000089407,
-            218.90000000596046,
-            213.40000000596046,
-            216.79999999701977,
-            218.8999999910593
+            218.59999999403954,
+            216.70000000298023,
+            220,
+            219.20000000298023,
+            221.69999998807907,
+            208.79999999701977,
+            218.1000000089407,
+            222.1000000089407,
+            216.6000000089407,
+            210.19999998807907
           ],
           "bytesSent": 242270,
           "browser": {
@@ -1369,14 +1369,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 217.24000000059604,
+          "mean": 217.2,
           "meanCI": {
-            "low": 214.94262623143527,
-            "high": 219.5373737697568
+            "low": 214.0093691990529,
+            "high": 220.39063080094706
           },
-          "variance": 10.313777774810791,
-          "standardDeviation": 3.2115070877721554,
-          "relativeStandardDeviation": 0.014783221726032702
+          "variance": 19.89333335498969,
+          "standardDeviation": 4.460194318075132,
+          "relativeStandardDeviation": 0.02053496463202179
         }
       },
       "startup": {
@@ -1391,16 +1391,16 @@
           "queryString": "?bench=react/fields/dist/mobx.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            66.5,
-            67.20000000298023,
+            66.20000000298023,
+            65.6000000089407,
+            66.59999999403954,
+            65.5,
             66.8999999910593,
+            14.300000011920929,
+            66.5,
+            66,
             65.79999999701977,
-            14.299999997019768,
-            66.3999999910593,
-            65,
-            14,
-            66.29999999701977,
-            65.5
+            14.299999997019768
           ],
           "bytesSent": 242270,
           "browser": {
@@ -1430,14 +1430,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 55.789999997615816,
+          "mean": 55.770000000298026,
           "meanCI": {
-            "low": 40.08381281888975,
-            "high": 71.49618717634188
+            "low": 40.13152615423233,
+            "high": 71.40847384636372
           },
-          "variance": 482.0543333116241,
-          "standardDeviation": 21.95573577249517,
-          "relativeStandardDeviation": 0.3935424945946128
+          "variance": 477.9067776787215,
+          "standardDeviation": 21.861079060255044,
+          "relativeStandardDeviation": 0.3919863557492957
         }
       },
       "memory": {
@@ -1452,16 +1452,16 @@
           "queryString": "?bench=react/fields/dist/mobx.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            5551275,
-            5549468,
-            5551269,
-            5550029,
-            5551196,
-            5549472,
-            5550919,
-            5550217,
-            5550118,
-            5549519
+            5551230,
+            5549975,
+            5552933,
+            5550639,
+            5548883,
+            5553142,
+            5550061,
+            5549969,
+            5551578,
+            5550265
           ],
           "bytesSent": 242270,
           "browser": {
@@ -1491,14 +1491,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 5550348.2,
+          "mean": 5550867.5,
           "meanCI": {
-            "low": 5549806.878947939,
-            "high": 5550889.521052062
+            "low": 5549893.527672902,
+            "high": 5551841.472327098
           },
-          "variance": 572617.0666666667,
-          "standardDeviation": 756.7146533976111,
-          "relativeStandardDeviation": 0.00013633642901856338
+          "variance": 1853735.1666666667,
+          "standardDeviation": 1361.5194330844738,
+          "relativeStandardDeviation": 0.00024528047788646977
         }
       }
     }
@@ -1518,16 +1518,16 @@
           "queryString": "?bench=react/fields/dist/redux.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            222.59999999403954,
-            220.79999999701977,
-            221.40000000596046,
-            221,
-            218.5,
-            221.20000000298023,
-            218.5,
-            213.40000000596046,
-            223.20000000298023,
-            219.70000000298023
+            222.30000001192093,
+            219,
+            223.29999999701977,
+            221.3999999910593,
+            211.79999999701977,
+            221.3999999910593,
+            223.29999999701977,
+            222.79999999701977,
+            219,
+            226.5
           ],
           "bytesSent": 184575,
           "browser": {
@@ -1557,14 +1557,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 220.0300000011921,
+          "mean": 221.07999999821186,
           "meanCI": {
-            "low": 218.03238728299482,
-            "high": 222.02761271938937
+            "low": 218.27216972429477,
+            "high": 223.88783027212895
           },
-          "variance": 7.7978888806634465,
-          "standardDeviation": 2.792470032187176,
-          "relativeStandardDeviation": 0.012691314966922903
+          "variance": 15.406222226248847,
+          "standardDeviation": 3.9250760790395955,
+          "relativeStandardDeviation": 0.017754098421708622
         }
       },
       "startup": {
@@ -1579,16 +1579,16 @@
           "queryString": "?bench=react/fields/dist/redux.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            66.5,
-            64.40000000596046,
-            66.09999999403954,
-            66.09999999403954,
-            66.40000000596046,
+            67.29999999701977,
+            65.6000000089407,
             65.79999999701977,
-            66.5,
-            14.299999997019768,
-            66.80000001192093,
-            66
+            67.79999999701977,
+            14.900000005960464,
+            65.90000000596046,
+            66.3999999910593,
+            65.20000000298023,
+            66.79999999701977,
+            66.70000000298023
           ],
           "bytesSent": 184575,
           "browser": {
@@ -1618,14 +1618,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 60.89000000059605,
+          "mean": 61.24000000059605,
           "meanCI": {
-            "low": 49.170150643872056,
-            "high": 72.60984935732004
+            "low": 49.578478068199054,
+            "high": 72.90152193299303
           },
-          "variance": 268.4098889302943,
-          "standardDeviation": 16.38321973637338,
-          "relativeStandardDeviation": 0.26906256751868957
+          "variance": 265.7448888232708,
+          "standardDeviation": 16.301683619285182,
+          "relativeStandardDeviation": 0.2661933967852142
         }
       },
       "memory": {
@@ -1640,16 +1640,16 @@
           "queryString": "?bench=react/fields/dist/redux.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            5378436,
-            5378964,
-            5379617,
-            5378412,
-            5379569,
-            5374957,
-            5379931,
-            5377062,
-            5377482,
-            5377501
+            5376894,
+            5377862,
+            5375272,
+            5378427,
+            5379809,
+            5377132,
+            5376478,
+            5378407,
+            5379136,
+            5377535
           ],
           "bytesSent": 184575,
           "browser": {
@@ -1679,14 +1679,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 5378193.1,
+          "mean": 5377695.2,
           "meanCI": {
-            "low": 5377116.665751413,
-            "high": 5379269.534248586
+            "low": 5376742.812982282,
+            "high": 5378647.587017719
           },
-          "variance": 2264276.5444444446,
-          "standardDeviation": 1504.7513231243377,
-          "relativeStandardDeviation": 0.0002797875225276567
+          "variance": 1772480.1777777781,
+          "standardDeviation": 1331.3452511568057,
+          "relativeStandardDeviation": 0.00024756800109400134
         }
       }
     }
@@ -1706,16 +1706,16 @@
           "queryString": "?bench=react/fields/dist/redux-toolkit.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            229.70000000298023,
-            229.40000000596046,
-            230.3999999910593,
-            229.5,
-            220.29999999701977,
-            227.70000000298023,
-            231.69999998807907,
-            219,
-            231,
-            217.90000000596046
+            228,
+            229.09999999403954,
+            232.29999999701977,
+            225.59999999403954,
+            228.90000000596046,
+            228.09999999403954,
+            231.59999999403954,
+            230.8999999910593,
+            230.90000000596046,
+            230.09999999403954
           ],
           "bytesSent": 212813,
           "browser": {
@@ -1745,14 +1745,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 226.65999999940396,
+          "mean": 229.54999999701977,
           "meanCI": {
-            "low": 222.81519047729245,
-            "high": 230.50480952151548
+            "low": 228.11047074017682,
+            "high": 230.9895292538627
           },
-          "variance": 28.88711108926932,
-          "standardDeviation": 5.374673114643282,
-          "relativeStandardDeviation": 0.023712490579093866
+          "variance": 4.049444445172946,
+          "standardDeviation": 2.012323146309495,
+          "relativeStandardDeviation": 0.008766382689329649
         }
       },
       "startup": {
@@ -1767,16 +1767,16 @@
           "queryString": "?bench=react/fields/dist/redux-toolkit.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            66.29999999701977,
-            84.70000000298023,
-            65.90000000596046,
-            64.80000001192093,
-            14,
+            66.40000000596046,
+            66.09999999403954,
+            66,
+            14.200000002980232,
             65.40000000596046,
-            65.09999999403954,
-            13.799999997019768,
-            65,
-            13.699999988079071
+            67.59999999403954,
+            65.40000000596046,
+            63.70000000298023,
+            66.29999999701977,
+            65.29999999701977
           ],
           "bytesSent": 212813,
           "browser": {
@@ -1806,14 +1806,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 51.87000000029802,
+          "mean": 60.64000000059605,
           "meanCI": {
-            "low": 32.614388280800426,
-            "high": 71.12561171979561
+            "low": 48.945466721393664,
+            "high": 72.33453327979842
           },
-          "variance": 724.5512224139702,
-          "standardDeviation": 26.917489155082244,
-          "relativeStandardDeviation": 0.5189413756492691
+          "variance": 267.25155552377964,
+          "standardDeviation": 16.347830300189063,
+          "relativeStandardDeviation": 0.26958823054136505
         }
       },
       "memory": {
@@ -1828,16 +1828,16 @@
           "queryString": "?bench=react/fields/dist/redux-toolkit.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            5518072,
-            5519937,
-            5552575,
-            5519994,
-            5519734,
-            5517901,
-            5517864,
-            5519594,
-            5518094,
-            5519718
+            5519312,
+            5519422,
+            5519040,
+            5519655,
+            5519321,
+            5520038,
+            5637174,
+            5713532,
+            5519306,
+            5722489
           ],
           "bytesSent": 212813,
           "browser": {
@@ -1867,14 +1867,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 5522348.3,
+          "mean": 5570928.9,
           "meanCI": {
-            "low": 5514722.95877368,
-            "high": 5529973.64122632
+            "low": 5509552.815395639,
+            "high": 5632304.9846043615
           },
-          "variance": 113624770.45555557,
-          "standardDeviation": 10659.492035531317,
-          "relativeStandardDeviation": 0.0019302462388204157
+          "variance": 7361271115.877778,
+          "standardDeviation": 85797.85029869791,
+          "relativeStandardDeviation": 0.015400995388524508
         }
       }
     }
@@ -1894,16 +1894,16 @@
           "queryString": "?bench=react/fields/dist/trashly.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            255.20000000298023,
-            252.90000000596046,
-            252.8999999910593,
-            243.09999999403954,
-            252.5,
-            252.1000000089407,
+            253.79999999701977,
+            239,
+            254.20000000298023,
+            241.3999999910593,
+            251.29999999701977,
             251.5,
-            254,
-            255.40000000596046,
-            253.30000001192093
+            256,
+            255.19999998807907,
+            250,
+            241.20000000298023
           ],
           "bytesSent": 198709,
           "browser": {
@@ -1933,14 +1933,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 252.29000000208617,
+          "mean": 249.35999999791383,
           "meanCI": {
-            "low": 249.81205719282528,
-            "high": 254.76794281134707
+            "low": 244.7896462490774,
+            "high": 253.93035374675026
           },
-          "variance": 11.998777797891032,
-          "standardDeviation": 3.4639252009665324,
-          "relativeStandardDeviation": 0.013729934602790001
+          "variance": 40.81822221614255,
+          "standardDeviation": 6.38891400913665,
+          "relativeStandardDeviation": 0.025621246427615096
         }
       },
       "startup": {
@@ -1955,16 +1955,16 @@
           "queryString": "?bench=react/fields/dist/trashly.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            70,
-            65.79999999701977,
+            68.40000000596046,
+            15.5,
             67.79999999701977,
-            14.900000005960464,
-            68.5,
-            67.29999999701977,
-            67.8999999910593,
-            66.70000000298023,
-            67.20000000298023,
-            66.09999999403954
+            15.299999997019768,
+            68.20000000298023,
+            67.69999998807907,
+            68.1000000089407,
+            67.70000000298023,
+            68.09999999403954,
+            15.400000005960464
           ],
           "bytesSent": 198709,
           "browser": {
@@ -1994,14 +1994,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 62.21999999880791,
+          "mean": 52.22000000029802,
           "meanCI": {
-            "low": 50.294771774343474,
-            "high": 74.14522822327234
+            "low": 34.04333926825479,
+            "high": 70.39666073234125
           },
-          "variance": 277.8995554732879,
-          "standardDeviation": 16.67031959721492,
-          "relativeStandardDeviation": 0.2679254194396386
+          "variance": 645.6284444215828,
+          "standardDeviation": 25.409219673606326,
+          "relativeStandardDeviation": 0.4865802312037785
         }
       },
       "memory": {
@@ -2016,16 +2016,16 @@
           "queryString": "?bench=react/fields/dist/trashly.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            6467993,
-            6467987,
-            6467990,
-            6591379,
-            6468012,
-            6468050,
-            6467972,
-            6467759,
-            6468010,
-            6467985
+            6467986,
+            6467955,
+            6467978,
+            6468278,
+            6468028,
+            6468016,
+            6467979,
+            6468112,
+            6468045,
+            6467465
           ],
           "bytesSent": 198709,
           "browser": {
@@ -2055,14 +2055,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 6480313.7,
+          "mean": 6467984.2,
           "meanCI": {
-            "low": 6452397.291840192,
-            "high": 6508230.108159808
+            "low": 6467837.2530847965,
+            "high": 6468131.146915204
           },
-          "variance": 1522907524.011111,
-          "standardDeviation": 39024.44777330117,
-          "relativeStandardDeviation": 0.006021999795056398
+          "variance": 42196.4,
+          "standardDeviation": 205.4176233919573,
+          "relativeStandardDeviation": 0.00003175914118527954
         }
       }
     }
@@ -2082,16 +2082,16 @@
           "queryString": "?bench=react/fields/dist/valtio.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            1042.7999999970198,
-            950.2000000029802,
-            979.2999999970198,
-            979.7000000029802,
-            988.7999999970198,
-            954.5999999940395,
-            974.6000000089407,
+            979,
+            962.5,
+            995.4000000059605,
+            983.7999999970198,
+            972.7999999970198,
+            947.3000000119209,
+            980.2999999970198,
             978.1000000089407,
-            975.8000000119209,
-            978.2000000029802
+            985.0999999940395,
+            948.4000000059605
           ],
           "bytesSent": 178897,
           "browser": {
@@ -2121,14 +2121,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 980.2100000023842,
+          "mean": 973.2700000017882,
           "meanCI": {
-            "low": 962.352694166883,
-            "high": 998.0673058378853
+            "low": 961.9458477347952,
+            "high": 984.5941522687812
           },
-          "variance": 623.1409999388193,
-          "standardDeviation": 24.962792310533278,
-          "relativeStandardDeviation": 0.02546677988438453
+          "variance": 250.59122213240465,
+          "standardDeviation": 15.830073345768321,
+          "relativeStandardDeviation": 0.016264832313478517
         }
       },
       "startup": {
@@ -2143,16 +2143,16 @@
           "queryString": "?bench=react/fields/dist/valtio.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            72.20000000298023,
-            21.099999994039536,
-            72.59999999403954,
-            72.6000000089407,
-            71.79999999701977,
-            20.700000002980232,
-            72.5,
+            74.5,
+            72,
             71.20000000298023,
-            72.19999998807907,
-            71.90000000596046
+            72.30000001192093,
+            72.09999999403954,
+            20.799999997019768,
+            73,
+            71.69999998807907,
+            72,
+            20.80000001192093
           ],
           "bytesSent": 178897,
           "browser": {
@@ -2182,14 +2182,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 61.87999999970198,
+          "mean": 62.040000000596045,
           "meanCI": {
-            "low": 46.42634803904353,
-            "high": 77.33365196036043
+            "low": 46.478463228012735,
+            "high": 77.60153677317936
           },
-          "variance": 466.67733335954614,
-          "standardDeviation": 21.602715879248752,
-          "relativeStandardDeviation": 0.3491065914568971
+          "variance": 473.2159999123944,
+          "standardDeviation": 21.75352844741272,
+          "relativeStandardDeviation": 0.35063714453906714
         }
       },
       "memory": {
@@ -2204,16 +2204,16 @@
           "queryString": "?bench=react/fields/dist/valtio.mjs&run=react/fields/index.mjs",
           "version": "",
           "millis": [
-            11936147,
-            11762367,
-            11936041,
-            11700217,
-            11935577,
-            11833307,
-            10908768,
-            11933703,
-            10908074,
-            11898223
+            11919454,
+            11935282,
+            11937790,
+            11848141,
+            11850496,
+            11701907,
+            11935744,
+            11602285,
+            11781581,
+            11706992
           ],
           "bytesSent": 178897,
           "browser": {
@@ -2243,14 +2243,14 @@
         },
         "stats": {
           "size": 10,
-          "mean": 11675242.4,
+          "mean": 11821967.2,
           "meanCI": {
-            "low": 11380330.53000092,
-            "high": 11970154.269999081
+            "low": 11736746.594582353,
+            "high": 11907187.805417646
           },
-          "variance": 169956961989.59998,
-          "standardDeviation": 412258.36800433777,
-          "relativeStandardDeviation": 0.03531047612376234
+          "variance": 14192002657.066668,
+          "standardDeviation": 119130.19204662883,
+          "relativeStandardDeviation": 0.010077019334534174
         }
       }
     }

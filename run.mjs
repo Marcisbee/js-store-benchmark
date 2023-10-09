@@ -1,13 +1,13 @@
 // @ts-check
 import * as colorette from "colorette";
-import { writeFileSync, mkdirSync } from "node:fs";
-import { basename, resolve } from "node:path";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
+import { basename, join, resolve } from "node:path";
 import esbuild from "esbuild";
 
 import { tachometer } from "./tachometer.mjs";
 import { getStats } from "./stats.mjs";
 
-// @TODO export only `version` from package.json & `homepage` maybe
+// @TODO export `homepage` maybe from package.json
 
 /**
  * @param {{ suite: string, entryPoints: string[], outdir: string, runPath: string, manual: boolean }} config
@@ -24,11 +24,37 @@ export async function run(config) {
 		},
 		// Legal comments should not be part of bundle as we compare raw size too
 		legalComments: "none",
+		sourcemap: false,
 		define: {
 			"process.env.NODE_ENV": '"production"',
 		},
 		platform: "browser",
 		metafile: true,
+		plugins: [
+			{
+				name: 'package-json',
+				setup({ onResolve, onLoad }) {
+					onResolve({ filter: /\/package\.json$/ }, (args) => ({
+						namespace: 'package-json',
+						path: join(args.resolveDir, args.path),
+					}));
+			
+					onLoad({ filter: /./, namespace: 'package-json' }, async (args) => {
+						try {
+							const { version } = JSON.parse(readFileSync(args.path, 'utf-8'));
+			
+							return {
+								contents: JSON.stringify({ version }),
+								loader: 'json',
+							};
+						} catch (err) {
+							// err = { errors, warnings }
+							return err;
+						}
+					});
+				},
+			}
+		],
 	});
 
 	const distPaths = Object.keys(context.metafile.outputs);
