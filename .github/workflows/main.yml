@@ -1,6 +1,6 @@
 name: Deploy
 permissions:
-  contents: write
+  id-token: write
 on:
   push:
     branches: [main]
