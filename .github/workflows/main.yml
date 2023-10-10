@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: "1.0.0"
+
+    - name: Install
+      run: bun install --production
+      env:
+        CI: true
+
+    - name: Build
+      run: bun run build
+      env:
+        CI: true
+
+    - name: Upload
+      uses: actions/upload-pages-artifact@v1.0.4
+      with:
+        path: ./web/www
+
+    - id: Deploy
+      name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v1
+      with:
+        token: ${{ github.token }}

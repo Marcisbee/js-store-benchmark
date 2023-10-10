@@ -108,3 +108,5 @@ typings/
 /meta.json
 /meta.*.json
 .DS_Store
+/web/www/*
+!/web/www/index.html
