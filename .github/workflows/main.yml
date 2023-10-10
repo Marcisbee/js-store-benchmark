@@ -20,7 +20,7 @@ jobs:
         CI: true
 
     - name: Build
-      run: bun run build
+      run: bun run ./scripts/build.mjs
       env:
         CI: true
 
