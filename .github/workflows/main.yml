@@ -1,9 +1,9 @@
 name: Deploy
-
+permissions:
+  contents: write
 on:
   push:
-    branches: [ main ]
-
+    branches: [main]
 jobs:
   build:
     name: Deploy
