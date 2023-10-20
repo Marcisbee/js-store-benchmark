@@ -4,7 +4,7 @@
 export default async function run(target) {
 	for (let i = 0; i < 1000; i++) {
 		const h1 = target.querySelector("h1");
-		const elementReactPromise = elementUpdatedTo(h1, i);
+		const elementReactPromise = elementUpdatedTo(target, i + 1);
 
 		h1.click();
 
@@ -12,29 +12,29 @@ export default async function run(target) {
 	}
 }
 
-async function elementUpdatedTo(el, targetValue) {
-	function isValid(text) {
+async function elementUpdatedTo(target, targetValue) {
+	function isValid() {
 		// rome-ignore lint/suspicious/noDoubleEquals: <explanation>
-		return text == targetValue;
+		return target.querySelector("h1")?.innerText == targetValue;
 	}
 
 	return new Promise((resolve, reject) => {
-		if (isValid(el.textContent)) {
+		if (isValid()) {
 			resolve();
 			return;
 		}
 
 		new MutationObserver((mutationRecords, observer) => {
-			if (!isValid(mutationRecords.slice(-1)[0].target?.textContent)) {
+			if (!isValid()) {
 				return;
 			}
 
-			resolve();
 			observer.disconnect();
-		}).observe(el, {
+			resolve();
+		}).observe(target, {
 			characterData: true,
 			attributes: false,
-			childList: true,
+			childList: false,
 			subtree: true,
 		});
 	});

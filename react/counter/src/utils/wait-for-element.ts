@@ -11,7 +11,7 @@ export async function elementReady(selector: string) {
 			// Query for elements matching the specified selector
 			Array.from(document.querySelectorAll(selector)).forEach((element) => {
 				resolve(element);
-				//Once we have resolved we don't need the observer anymore.
+				// Once we have resolved we don't need the observer anymore.
 				observer.disconnect();
 			});
 		}).observe(document.documentElement, {

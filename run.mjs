@@ -32,20 +32,20 @@ export async function run(config) {
 		metafile: true,
 		plugins: [
 			{
-				name: 'package-json',
+				name: "package-json",
 				setup({ onResolve, onLoad }) {
 					onResolve({ filter: /\/package\.json$/ }, (args) => ({
-						namespace: 'package-json',
+						namespace: "package-json",
 						path: join(args.resolveDir, args.path),
 					}));
-			
-					onLoad({ filter: /./, namespace: 'package-json' }, async (args) => {
+
+					onLoad({ filter: /./, namespace: "package-json" }, async (args) => {
 						try {
-							const { version } = JSON.parse(readFileSync(args.path, 'utf-8'));
-			
+							const { version } = JSON.parse(readFileSync(args.path, "utf-8"));
+
 							return {
 								contents: JSON.stringify({ version }),
-								loader: 'json',
+								loader: "json",
 							};
 						} catch (err) {
 							// err = { errors, warnings }
@@ -53,7 +53,7 @@ export async function run(config) {
 						}
 					});
 				},
-			}
+			},
 		],
 	});
 
@@ -99,8 +99,7 @@ export async function run(config) {
 							width: 800,
 							height: 600,
 						},
-						// @TODO figure out why throttle breaks xstate
-						// cpuThrottlingRate: 2
+						cpuThrottlingRate: 4,
 					},
 					measurement: [
 						{
@@ -202,7 +201,9 @@ export async function run(config) {
 	}
 
 	const now = new Date();
-	const stamp = `${now.getFullYear()}${('0' + (now.getMonth() + 1)).slice(-2)}${('0' + now.getDate()).slice(-2)}`;
+	const stamp = `${now.getFullYear()}${("0" + (now.getMonth() + 1)).slice(
+		-2,
+	)}${("0" + now.getDate()).slice(-2)}`;
 
 	mkdirSync(`results/${stamp}`, { recursive: true });
 	writeFileSync(
