@@ -1,5 +1,5 @@
 import constate from "constate";
-export { version } from "../../../node_modules/constate/package.json";
+export { version, name, homepage } from "../../../node_modules/constate/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 

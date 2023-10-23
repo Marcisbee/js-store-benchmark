@@ -1,5 +1,5 @@
 import { entity, Entity } from "simpler-state";
-export { version } from "../../../node_modules/simpler-state/package.json";
+export { version, name, homepage } from "../../../node_modules/simpler-state/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 

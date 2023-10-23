@@ -3,7 +3,7 @@ import { Store } from "@tanstack/store";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 
-export { version } from "../../../node_modules/@tanstack/store/package.json";
+export { version, name, homepage } from "../../../node_modules/@tanstack/store/package.json";
 
 import { elementReady } from "./utils/wait-for-element";
 import { clickAction } from "./utils/click-action";

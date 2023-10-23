@@ -1,5 +1,5 @@
 import useChange from "use-change";
-export { version } from "../../../node_modules/use-change/package.json";
+export { version, name, homepage } from "../../../node_modules/use-change/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 

@@ -1,5 +1,5 @@
 import { atom, PrimitiveAtom, useAtom } from "jotai";
-export { version } from "../../../node_modules/jotai/package.json";
+export { version, name, homepage } from "../../../node_modules/jotai/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 

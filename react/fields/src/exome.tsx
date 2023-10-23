@@ -1,6 +1,6 @@
 import { Exome, getExomeId } from "exome";
 import { useStore } from "exome/react";
-export { version } from "../../../node_modules/exome/package.json";
+export { version, name, homepage } from "../../../node_modules/exome/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 

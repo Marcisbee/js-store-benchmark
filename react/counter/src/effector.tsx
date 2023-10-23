@@ -1,5 +1,5 @@
 import { createEvent, createStore } from "effector";
-export { version } from "../../../node_modules/effector/package.json";
+export { version, name, homepage } from "../../../node_modules/effector/package.json";
 import { useStore } from "effector-react";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";

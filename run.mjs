@@ -7,7 +7,7 @@ import esbuild from "esbuild";
 import { tachometer } from "./tachometer.mjs";
 import { getStats } from "./stats.mjs";
 
-// @TODO export `homepage` maybe from package.json
+const cpuStats = getStats();
 
 /**
  * @param {{ suite: string, entryPoints: string[], outdir: string, runPath: string, manual: boolean }} config
@@ -41,10 +41,12 @@ export async function run(config) {
 
 					onLoad({ filter: /./, namespace: "package-json" }, async (args) => {
 						try {
-							const { version } = JSON.parse(readFileSync(args.path, "utf-8"));
+							const { name, version, homepage } = JSON.parse(
+								readFileSync(args.path, "utf-8"),
+							);
 
 							return {
-								contents: JSON.stringify({ version }),
+								contents: JSON.stringify({ name, version, homepage }),
 								loader: "json",
 							};
 						} catch (err) {
@@ -66,7 +68,11 @@ export async function run(config) {
 		mode: config.manual ? "manual" : undefined,
 		benchmarks: await Promise.all(
 			distPaths.map(async (path) => {
-				const { version } = await import(resolve(path));
+				const {
+					version,
+					name: npmName,
+					homepage,
+				} = await import(resolve(path));
 
 				return {
 					name: [basename(path).replace(/\..*$/, ""), version]
@@ -78,6 +84,16 @@ export async function run(config) {
 						queryString: `?bench=${path}&run=${config.runPath}`,
 					},
 					browser: {
+						extra: {
+							npm: {
+								npmName,
+								version,
+								homepage,
+							},
+							stats: {
+								cpu: cpuStats,
+							},
+						},
 						name: "chrome",
 						addArguments: [
 							"--no-sandbox",

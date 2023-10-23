@@ -1,5 +1,5 @@
 import createStore from "teaful";
-export { version } from "../../../node_modules/teaful/package.json";
+export { version, name, homepage } from "../../../node_modules/teaful/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 

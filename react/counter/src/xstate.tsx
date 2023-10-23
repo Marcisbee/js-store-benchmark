@@ -1,6 +1,6 @@
 import { useMachine } from "@xstate/react";
 import { createMachine, assign } from "xstate";
-export { version } from "../../../node_modules/xstate/package.json";
+export { version, name, homepage } from "../../../node_modules/xstate/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 

@@ -1,5 +1,5 @@
 import { action, observable } from "mobx";
-export { version } from "../../../node_modules/mobx/package.json";
+export { version, name, homepage } from "../../../node_modules/mobx/package.json";
 import { observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";

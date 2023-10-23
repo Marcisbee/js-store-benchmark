@@ -1,5 +1,5 @@
 import resso from "resso";
-export { version } from "../../../node_modules/resso/package.json";
+export { version, name, homepage } from "../../../node_modules/resso/package.json";
 import * as React from "react";
 import { unstable_batchedUpdates as batch } from "react-dom";
 import * as ReactDom from "react-dom/client";
