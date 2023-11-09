@@ -1,0 +1,5903 @@
+[
+  [
+    "use-state",
+    {
+      "performance": {
+        "result": {
+          "name": "use-state [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/use-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            138.70000004768372,
+            146,
+            139.5,
+            143,
+            138.20000004768372,
+            137.5,
+            139.60000002384186,
+            137.20000004768372,
+            141.29999995231628,
+            136.60000002384186
+          ],
+          "bytesSent": 170373,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 139.76000001430512,
+          "meanCI": {
+            "low": 137.66617699173992,
+            "high": 141.85382303687032
+          },
+          "variance": 8.567111022313437,
+          "standardDeviation": 2.9269627640804448,
+          "relativeStandardDeviation": 0.020942778790647223
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "use-state [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/use-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.100000023841858,
+            11.299999952316284,
+            11.399999976158142,
+            11.399999976158142,
+            11,
+            11.100000023841858,
+            10.600000023841858,
+            10.5,
+            10.399999976158142,
+            10.899999976158142
+          ],
+          "bytesSent": 170373,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 10.969999992847443,
+          "meanCI": {
+            "low": 10.708679773711985,
+            "high": 11.2313202119829
+          },
+          "variance": 0.13344443919923635,
+          "standardDeviation": 0.3653004779619599,
+          "relativeStandardDeviation": 0.033299952433923405
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "use-state [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/use-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1546216,
+            1546188,
+            1546060,
+            1547388,
+            1546088,
+            1546556,
+            1546416,
+            1546724,
+            1546244,
+            1546612
+          ],
+          "bytesSent": 170373,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1546449.2,
+          "meanCI": {
+            "low": 1546162.8060197434,
+            "high": 1546735.5939802565
+          },
+          "variance": 160281.0666666667,
+          "standardDeviation": 400.35117917481733,
+          "relativeStandardDeviation": 0.0002588841451596453
+        }
+      }
+    }
+  ],
+  [
+    "use-reducer",
+    {
+      "performance": {
+        "result": {
+          "name": "use-reducer [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/use-reducer.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            139,
+            138.79999995231628,
+            138.39999997615814,
+            140.40000009536743,
+            141.29999995231628,
+            137.59999990463257,
+            142.40000009536743,
+            140.5,
+            141.20000004768372,
+            138.60000002384186
+          ],
+          "bytesSent": 170389,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 139.82000000476836,
+          "meanCI": {
+            "low": 138.70931383040502,
+            "high": 140.9306861791317
+          },
+          "variance": 2.410666791492042,
+          "standardDeviation": 1.5526322138523476,
+          "relativeStandardDeviation": 0.011104507322267181
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "use-reducer [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/use-reducer.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.5,
+            10.899999976158142,
+            11.299999952316284,
+            10.899999976158142,
+            11,
+            11,
+            10.700000047683716,
+            11.5,
+            11.200000047683716,
+            10.799999952316284
+          ],
+          "bytesSent": 170389,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.079999995231628,
+          "meanCI": {
+            "low": 10.878229328485904,
+            "high": 11.281770661977351
+          },
+          "variance": 0.07955555534362906,
+          "standardDeviation": 0.28205594364173403,
+          "relativeStandardDeviation": 0.02545631261399993
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "use-reducer [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/use-reducer.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1542138,
+            1542270,
+            1542082,
+            1542082,
+            1541986,
+            1542194,
+            1542166,
+            1541998,
+            1542506,
+            1542886
+          ],
+          "bytesSent": 170389,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1542230.8,
+          "meanCI": {
+            "low": 1542034.293080134,
+            "high": 1542427.306919866
+          },
+          "variance": 75458.84444444445,
+          "standardDeviation": 274.6977328709585,
+          "relativeStandardDeviation": 0.00017811713582101878
+        }
+      }
+    }
+  ],
+  [
+    "use-context",
+    {
+      "performance": {
+        "result": {
+          "name": "use-context [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/use-context.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            141.60000002384186,
+            141.80000007152557,
+            142.89999997615814,
+            148.5,
+            144.70000004768372,
+            145.39999997615814,
+            141.89999997615814,
+            142.5,
+            142.60000002384186,
+            142.5
+          ],
+          "bytesSent": 170627,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 143.44000000953673,
+          "meanCI": {
+            "low": 141.89017011289243,
+            "high": 144.98982990618103
+          },
+          "variance": 4.693777751498753,
+          "standardDeviation": 2.166512808985618,
+          "relativeStandardDeviation": 0.015103965482721525
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "use-context [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/use-context.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.5,
+            11.5,
+            11.299999952316284,
+            11.399999976158142,
+            11,
+            11.199999928474426,
+            11.399999976158142,
+            11.5,
+            11.100000023841858,
+            11.5
+          ],
+          "bytesSent": 170627,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.339999985694885,
+          "meanCI": {
+            "low": 11.20852645829023,
+            "high": 11.47147351309954
+          },
+          "variance": 0.03377777851952526,
+          "standardDeviation": 0.18378731871248696,
+          "relativeStandardDeviation": 0.016206994615902106
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "use-context [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/use-context.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1567500,
+            1566736,
+            1566220,
+            1566568,
+            1566628,
+            1567104,
+            1566620,
+            1566680,
+            1566468,
+            1567120
+          ],
+          "bytesSent": 170627,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1566764.4,
+          "meanCI": {
+            "low": 1566497.4749983104,
+            "high": 1567031.3250016894
+          },
+          "variance": 139230.04444444444,
+          "standardDeviation": 373.1354237330522,
+          "relativeStandardDeviation": 0.00023815669013991654
+        }
+      }
+    }
+  ],
+  [
+    "exome-v2.2.0",
+    {
+      "performance": {
+        "result": {
+          "name": "exome-v2.2.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/exome.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            143.10000002384186,
+            144.60000002384186,
+            143.5,
+            143.80000007152557,
+            143.89999997615814,
+            144.89999997615814,
+            143.5,
+            143.29999995231628,
+            143.70000004768372,
+            141.60000002384186
+          ],
+          "bytesSent": 171970,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "exome",
+                "version": "2.2.0",
+                "homepage": "https://github.com/Marcisbee/exome#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 143.59000000953674,
+          "meanCI": {
+            "low": 142.95065429579756,
+            "high": 144.2293457232759
+          },
+          "variance": 0.7987777689827826,
+          "standardDeviation": 0.8937436819260781,
+          "relativeStandardDeviation": 0.00622427524108029
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "exome-v2.2.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/exome.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.299999952316284,
+            11.399999976158142,
+            11,
+            11.699999928474426,
+            10.899999976158142,
+            11.200000047683716,
+            11.399999976158142,
+            11.699999928474426,
+            11.200000047683716,
+            11.100000023841858
+          ],
+          "bytesSent": 171970,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "exome",
+                "version": "2.2.0",
+                "homepage": "https://github.com/Marcisbee/exome#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.289999985694886,
+          "meanCI": {
+            "low": 11.097901553096092,
+            "high": 11.48209841829368
+          },
+          "variance": 0.07211109595828777,
+          "standardDeviation": 0.26853509260111197,
+          "relativeStandardDeviation": 0.02378521638098868
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "exome-v2.2.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/exome.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1581977,
+            1581817,
+            1582157,
+            1581845,
+            1582085,
+            1581845,
+            1582169,
+            1582057,
+            1582269,
+            1582001
+          ],
+          "bytesSent": 171970,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "exome",
+                "version": "2.2.0",
+                "homepage": "https://github.com/Marcisbee/exome#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1582022.2,
+          "meanCI": {
+            "low": 1581912.1017409617,
+            "high": 1582132.2982590382
+          },
+          "variance": 23687.288888888885,
+          "standardDeviation": 153.90675387678374,
+          "relativeStandardDeviation": 0.0000972848256344214
+        }
+      }
+    }
+  ],
+  [
+    "constate-v3.3.2",
+    {
+      "performance": {
+        "result": {
+          "name": "constate-v3.3.2 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/constate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            144.29999995231628,
+            144.30000007152557,
+            145.29999995231628,
+            143.39999997615814,
+            143.79999995231628,
+            142.89999997615814,
+            144.60000002384186,
+            142.30000007152557,
+            145.29999995231628,
+            145.09999990463257
+          ],
+          "bytesSent": 171699,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "constate",
+                "version": "3.3.2"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 144.1299999833107,
+          "meanCI": {
+            "low": 143.39655080229213,
+            "high": 144.8634491643293
+          },
+          "variance": 1.0512221650547482,
+          "standardDeviation": 1.0252912586454388,
+          "relativeStandardDeviation": 0.0071136561351846294
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "constate-v3.3.2 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/constate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.300000071525574,
+            11.399999976158142,
+            11.5,
+            11.900000095367432,
+            11.900000095367432,
+            11.099999904632568,
+            11.100000023841858,
+            11.100000023841858,
+            11.300000071525574,
+            11.400000095367432
+          ],
+          "bytesSent": 171699,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "constate",
+                "version": "3.3.2"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.400000035762787,
+          "meanCI": {
+            "low": 11.18672178811322,
+            "high": 11.613278283412354
+          },
+          "variance": 0.08888891008165542,
+          "standardDeviation": 0.2981424325413198,
+          "relativeStandardDeviation": 0.026152844877721154
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "constate-v3.3.2 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/constate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1589743,
+            1589211,
+            1588735,
+            1589295,
+            1588855,
+            1588927,
+            1589295,
+            1588715,
+            1588703,
+            1588699
+          ],
+          "bytesSent": 171699,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "constate",
+                "version": "3.3.2"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1589017.8,
+          "meanCI": {
+            "low": 1588764.988196302,
+            "high": 1589270.6118036981
+          },
+          "variance": 124896.17777777783,
+          "standardDeviation": 353.40653329809544,
+          "relativeStandardDeviation": 0.00022240564787763575
+        }
+      }
+    }
+  ],
+  [
+    "storeon-v3.1.5",
+    {
+      "performance": {
+        "result": {
+          "name": "storeon-v3.1.5 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/storeon.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            147,
+            146.69999992847443,
+            148.29999995231628,
+            145,
+            146.39999997615814,
+            147,
+            145,
+            145.60000002384186,
+            149.89999997615814,
+            145.39999997615814
+          ],
+          "bytesSent": 171493,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "storeon",
+                "version": "3.1.5"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 146.6299999833107,
+          "meanCI": {
+            "low": 145.51918587004977,
+            "high": 147.74081409657165
+          },
+          "variance": 2.411222188366785,
+          "standardDeviation": 1.5528110600993235,
+          "relativeStandardDeviation": 0.010589995637155172
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "storeon-v3.1.5 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/storeon.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.699999928474426,
+            11.099999904632568,
+            11.800000071525574,
+            10.899999976158142,
+            11.799999952316284,
+            11.100000023841858,
+            11.100000023841858,
+            11.399999976158142,
+            11.399999976158142,
+            11.700000047683716
+          ],
+          "bytesSent": 171493,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "storeon",
+                "version": "3.1.5"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.39999998807907,
+          "meanCI": {
+            "low": 11.159174961660227,
+            "high": 11.640825014497914
+          },
+          "variance": 0.11333333969116494,
+          "standardDeviation": 0.33665017405485614,
+          "relativeStandardDeviation": 0.02953071705323594
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "storeon-v3.1.5 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/storeon.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1598686,
+            1596230,
+            1596638,
+            1596638,
+            1787130,
+            1596130,
+            1598570,
+            1596454,
+            1596118,
+            1596454
+          ],
+          "bytesSent": 171493,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "storeon",
+                "version": "3.1.5"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1615904.8,
+          "meanCI": {
+            "low": 1572861.8175184606,
+            "high": 1658947.7824815395
+          },
+          "variance": 3620421756.6222224,
+          "standardDeviation": 60169.94064000913,
+          "relativeStandardDeviation": 0.03723606776835438
+        }
+      }
+    }
+  ],
+  [
+    "remini-v1.3.0",
+    {
+      "performance": {
+        "result": {
+          "name": "remini-v1.3.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/remini.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            148.70000004768372,
+            151.5,
+            148.80000007152557,
+            149.69999992847443,
+            150.89999997615814,
+            148.70000004768372,
+            148.70000004768372,
+            148.60000002384186,
+            150.39999997615814,
+            146.5
+          ],
+          "bytesSent": 176584,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "remini",
+                "version": "1.3.0",
+                "homepage": "https://github.com/re-js/remini#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 149.25000001192092,
+          "meanCI": {
+            "low": 148.22701463880327,
+            "high": 150.27298538503857
+          },
+          "variance": 2.0449999499321,
+          "standardDeviation": 1.4300349471016782,
+          "relativeStandardDeviation": 0.009581473681658011
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "remini-v1.3.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/remini.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.299999952316284,
+            11.299999952316284,
+            11.399999976158142,
+            11.600000023841858,
+            11.299999952316284,
+            11.899999976158142,
+            11.399999976158142,
+            12.200000047683716,
+            12.100000023841858,
+            11.799999952316284
+          ],
+          "bytesSent": 176584,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "remini",
+                "version": "1.3.0",
+                "homepage": "https://github.com/re-js/remini#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.6299999833107,
+          "meanCI": {
+            "low": 11.382078364956643,
+            "high": 11.877921601664758
+          },
+          "variance": 0.12011112917794248,
+          "standardDeviation": 0.346570525547027,
+          "relativeStandardDeviation": 0.029799701293582385
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "remini-v1.3.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/remini.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1656014,
+            1655774,
+            1654322,
+            1656062,
+            1655746,
+            1654082,
+            1656170,
+            1655830,
+            1654254,
+            1653846
+          ],
+          "bytesSent": 176584,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "remini",
+                "version": "1.3.0",
+                "homepage": "https://github.com/re-js/remini#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1655210,
+          "meanCI": {
+            "low": 1654530.5543618882,
+            "high": 1655889.4456381118
+          },
+          "variance": 902119.1111111111,
+          "standardDeviation": 949.7995110080396,
+          "relativeStandardDeviation": 0.0005738241739767399
+        }
+      }
+    }
+  ],
+  [
+    "nanostores-v0.8.1",
+    {
+      "performance": {
+        "result": {
+          "name": "nanostores-v0.8.1 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/nanostores.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            152.30000007152557,
+            150.70000004768372,
+            148.20000004768372,
+            150.10000002384186,
+            150.79999995231628,
+            152.10000002384186,
+            148.89999997615814,
+            149.39999997615814,
+            150.60000002384186,
+            149.39999997615814
+          ],
+          "bytesSent": 172548,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "nanostores",
+                "version": "0.8.1"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 150.25000001192092,
+          "meanCI": {
+            "low": 149.30382199070775,
+            "high": 151.1961780331341
+          },
+          "variance": 1.749444481266871,
+          "standardDeviation": 1.322665672521545,
+          "relativeStandardDeviation": 0.008803099317248613
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "nanostores-v0.8.1 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/nanostores.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.399999976158142,
+            11.5,
+            11.199999928474426,
+            11,
+            11.299999952316284,
+            11.300000071525574,
+            11.600000023841858,
+            11.199999928474426,
+            11,
+            11.700000047683716
+          ],
+          "bytesSent": 172548,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "nanostores",
+                "version": "0.8.1"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.319999992847443,
+          "meanCI": {
+            "low": 11.152064539331969,
+            "high": 11.487935446362917
+          },
+          "variance": 0.05511111990610987,
+          "standardDeviation": 0.2347575768875413,
+          "relativeStandardDeviation": 0.020738301858292688
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "nanostores-v0.8.1 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/nanostores.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1699616,
+            1698428,
+            1699900,
+            1699856,
+            1698812,
+            1700012,
+            1697936,
+            1698092,
+            1697976,
+            1699968
+          ],
+          "bytesSent": 172548,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "nanostores",
+                "version": "0.8.1"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1699059.6,
+          "meanCI": {
+            "low": 1698419.0768861372,
+            "high": 1699700.123113863
+          },
+          "variance": 801722.4888888891,
+          "standardDeviation": 895.38957381069,
+          "relativeStandardDeviation": 0.0005269912684703291
+        }
+      }
+    }
+  ],
+  [
+    "use-sync-external-store",
+    {
+      "performance": {
+        "result": {
+          "name": "use-sync-external-store [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/use-sync-external-store.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            150.10000002384186,
+            149.10000002384186,
+            148.79999995231628,
+            149,
+            150.10000002384186,
+            152.30000007152557,
+            149.5,
+            152.19999992847443,
+            149.70000004768372,
+            155.40000009536743
+          ],
+          "bytesSent": 170540,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 150.6200000166893,
+          "meanCI": {
+            "low": 149.12979711564785,
+            "high": 152.11020291773073
+          },
+          "variance": 4.3395556544197955,
+          "standardDeviation": 2.083160016518125,
+          "relativeStandardDeviation": 0.013830567097910654
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "use-sync-external-store [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/use-sync-external-store.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            10.800000071525574,
+            11.399999976158142,
+            11,
+            11.399999976158142,
+            11.299999952316284,
+            11,
+            12,
+            11.399999976158142,
+            11.599999904632568,
+            11
+          ],
+          "bytesSent": 170540,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.289999985694886,
+          "meanCI": {
+            "low": 11.036633911979626,
+            "high": 11.543366059410145
+          },
+          "variance": 0.12544442823198285,
+          "standardDeviation": 0.3541813493564883,
+          "relativeStandardDeviation": 0.03137124444687844
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "use-sync-external-store [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/use-sync-external-store.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1675427,
+            1674815,
+            1674931,
+            1674731,
+            1674923,
+            1675055,
+            1675275,
+            1673779,
+            1674447,
+            1675707
+          ],
+          "bytesSent": 170540,
+          "browser": {
+            "extra": {
+              "npm": {},
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1674909,
+          "meanCI": {
+            "low": 1674525.1033470943,
+            "high": 1675292.8966529057
+          },
+          "variance": 287993.77777777775,
+          "standardDeviation": 536.650517355362,
+          "relativeStandardDeviation": 0.0003204057756901193
+        }
+      }
+    }
+  ],
+  [
+    "tanstack-store-v0.1.3",
+    {
+      "performance": {
+        "result": {
+          "name": "tanstack-store-v0.1.3 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/tanstack-store.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            154.5,
+            150.79999995231628,
+            152.39999997615814,
+            151.19999992847443,
+            149,
+            152.19999992847443,
+            148.10000002384186,
+            152.39999997615814,
+            147.20000004768372,
+            151.09999990463257
+          ],
+          "bytesSent": 174088,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@tanstack/store",
+                "version": "0.1.3",
+                "homepage": "https://tanstack.com/store"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 150.88999997377397,
+          "meanCI": {
+            "low": 149.30059421093102,
+            "high": 152.4794057366169
+          },
+          "variance": 4.93655545642641,
+          "standardDeviation": 2.2218360552539447,
+          "relativeStandardDeviation": 0.014724872792366093
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "tanstack-store-v0.1.3 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/tanstack-store.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            10.800000071525574,
+            11.5,
+            11.400000095367432,
+            11.600000023841858,
+            11.200000047683716,
+            11.600000023841858,
+            11.600000023841858,
+            11.400000095367432,
+            11.599999904632568,
+            11.399999976158142
+          ],
+          "bytesSent": 174088,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@tanstack/store",
+                "version": "0.1.3",
+                "homepage": "https://tanstack.com/store"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.410000026226044,
+          "meanCI": {
+            "low": 11.230130493652231,
+            "high": 11.589869558799856
+          },
+          "variance": 0.06322220892376704,
+          "standardDeviation": 0.2514402690973883,
+          "relativeStandardDeviation": 0.022036833349644992
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "tanstack-store-v0.1.3 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/tanstack-store.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1719456,
+            1716892,
+            1719044,
+            1716100,
+            1716068,
+            1719780,
+            1719624,
+            1719272,
+            1716100,
+            1719200
+          ],
+          "bytesSent": 174088,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@tanstack/store",
+                "version": "0.1.3",
+                "homepage": "https://tanstack.com/store"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1718153.6,
+          "meanCI": {
+            "low": 1716984.9893174323,
+            "high": 1719322.210682568
+          },
+          "variance": 2668665.5999999996,
+          "standardDeviation": 1633.6050930380939,
+          "relativeStandardDeviation": 0.0009507910660828541
+        }
+      }
+    }
+  ],
+  [
+    "zustand-v4.3.8",
+    {
+      "performance": {
+        "result": {
+          "name": "zustand-v4.3.8 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/zustand.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            153.89999997615814,
+            151.5,
+            151.5,
+            155.39999997615814,
+            155,
+            160.20000004768372,
+            155.60000002384186,
+            152.5,
+            153.20000004768372,
+            154.89999997615814
+          ],
+          "bytesSent": 173869,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "zustand",
+                "version": "4.3.8",
+                "homepage": "https://github.com/pmndrs/zustand"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 154.37000000476837,
+          "meanCI": {
+            "low": 152.5415045875772,
+            "high": 156.19849542195954
+          },
+          "variance": 6.5334444945653285,
+          "standardDeviation": 2.5560603464248115,
+          "relativeStandardDeviation": 0.016558012219640195
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "zustand-v4.3.8 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/zustand.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.199999928474426,
+            11.899999976158142,
+            11.200000047683716,
+            11.900000095367432,
+            11.399999976158142,
+            11.5,
+            11.599999904632568,
+            11.600000023841858,
+            11.300000071525574,
+            11.699999928474426
+          ],
+          "bytesSent": 173869,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "zustand",
+                "version": "4.3.8",
+                "homepage": "https://github.com/pmndrs/zustand"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.529999995231629,
+          "meanCI": {
+            "low": 11.345141779318908,
+            "high": 11.71485821114435
+          },
+          "variance": 0.0667777786254924,
+          "standardDeviation": 0.2584139675510834,
+          "relativeStandardDeviation": 0.022412312893144288
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "zustand-v4.3.8 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/zustand.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1718564,
+            1716224,
+            1715768,
+            1716096,
+            1715900,
+            1718476,
+            1715968,
+            1718888,
+            1716036,
+            1718720
+          ],
+          "bytesSent": 173869,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "zustand",
+                "version": "4.3.8",
+                "homepage": "https://github.com/pmndrs/zustand"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1717064,
+          "meanCI": {
+            "low": 1716073.685113386,
+            "high": 1718054.314886614
+          },
+          "variance": 1916465.7777777778,
+          "standardDeviation": 1384.3647560443662,
+          "relativeStandardDeviation": 0.0008062394622706936
+        }
+      }
+    }
+  ],
+  [
+    "signia-v0.1.4",
+    {
+      "performance": {
+        "result": {
+          "name": "signia-v0.1.4 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/signia.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            156.39999997615814,
+            156,
+            154.20000004768372,
+            155.30000007152557,
+            154.30000007152557,
+            155.59999990463257,
+            154.80000007152557,
+            153.69999992847443,
+            155.5,
+            154.10000002384186
+          ],
+          "bytesSent": 177836,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "signia",
+                "version": "0.1.4",
+                "homepage": "https://tldraw.dev"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 154.99000000953674,
+          "meanCI": {
+            "low": 154.34445894584545,
+            "high": 155.63554107322804
+          },
+          "variance": 0.8143333112928638,
+          "standardDeviation": 0.9024041839956549,
+          "relativeStandardDeviation": 0.005822338111749976
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "signia-v0.1.4 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/signia.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.5,
+            12,
+            11.799999952316284,
+            11.799999952316284,
+            12.199999928474426,
+            12.199999928474426,
+            11.899999976158142,
+            12.399999976158142,
+            12,
+            12.199999928474426
+          ],
+          "bytesSent": 177836,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "signia",
+                "version": "0.1.4",
+                "homepage": "https://tldraw.dev"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.999999964237213,
+          "meanCI": {
+            "low": 11.812242443658768,
+            "high": 12.18775748481566
+          },
+          "variance": 0.06888888200124196,
+          "standardDeviation": 0.2624669160127462,
+          "relativeStandardDeviation": 0.021872243066246546
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "signia-v0.1.4 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/signia.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1775704,
+            1775880,
+            1776084,
+            1773064,
+            1776028,
+            1773064,
+            1773376,
+            1776792,
+            1773404,
+            1773476
+          ],
+          "bytesSent": 177836,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "signia",
+                "version": "0.1.4",
+                "homepage": "https://tldraw.dev"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1774687.2,
+          "meanCI": {
+            "low": 1773601.3111114348,
+            "high": 1775773.088888565
+          },
+          "variance": 2304226.8444444444,
+          "standardDeviation": 1517.9679984915506,
+          "relativeStandardDeviation": 0.000855343971879411
+        }
+      }
+    }
+  ],
+  [
+    "redux-v4.2.1",
+    {
+      "performance": {
+        "result": {
+          "name": "redux-v4.2.1 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/redux.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            153.20000004768372,
+            156,
+            156,
+            157.40000009536743,
+            155.39999997615814,
+            156.10000002384186,
+            153,
+            153.20000004768372,
+            155.5,
+            155.40000009536743
+          ],
+          "bytesSent": 184579,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "redux",
+                "version": "4.2.1",
+                "homepage": "http://redux.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 155.12000002861024,
+          "meanCI": {
+            "low": 154.05691986572901,
+            "high": 156.18308019149146
+          },
+          "variance": 2.2084444617165477,
+          "standardDeviation": 1.4860835984952354,
+          "relativeStandardDeviation": 0.009580219173679365
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "redux-v4.2.1 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/redux.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            12.299999952316284,
+            12.600000023841858,
+            11.900000095367432,
+            12.600000023841858,
+            12.399999976158142,
+            12.199999928474426,
+            12.199999928474426,
+            12.5,
+            12,
+            12.600000023841858
+          ],
+          "bytesSent": 184579,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "redux",
+                "version": "4.2.1",
+                "homepage": "http://redux.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 12.329999995231628,
+          "meanCI": {
+            "low": 12.148243649606043,
+            "high": 12.511756340857213
+          },
+          "variance": 0.0645555548138115,
+          "standardDeviation": 0.25407785187578136,
+          "relativeStandardDeviation": 0.020606476234715385
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "redux-v4.2.1 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/redux.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1797496,
+            1797752,
+            1797840,
+            1805832,
+            1797596,
+            1806808,
+            1798504,
+            1806880,
+            1797836,
+            1805944
+          ],
+          "bytesSent": 184579,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "redux",
+                "version": "4.2.1",
+                "homepage": "http://redux.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1801248.8,
+          "meanCI": {
+            "low": 1798084.28678004,
+            "high": 1804413.31321996
+          },
+          "variance": 19568984.177777782,
+          "standardDeviation": 4423.684457302282,
+          "relativeStandardDeviation": 0.002455898628386196
+        }
+      }
+    }
+  ],
+  [
+    "simpler-state-v1.2.1",
+    {
+      "performance": {
+        "result": {
+          "name": "simpler-state-v1.2.1 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/simpler-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            158.60000002384186,
+            149.60000002384186,
+            152.10000002384186,
+            151.20000004768372,
+            151.30000007152557,
+            152.89999997615814,
+            150.70000004768372,
+            152.89999997615814,
+            181.70000004768372,
+            152.19999992847443
+          ],
+          "bytesSent": 173885,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "simpler-state",
+                "version": "1.2.1",
+                "homepage": "https://simpler-state.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 155.3200000166893,
+          "meanCI": {
+            "low": 148.46817364075798,
+            "high": 162.17182639262063
+          },
+          "variance": 91.74177794604832,
+          "standardDeviation": 9.578192832995603,
+          "relativeStandardDeviation": 0.06166747895935112
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "simpler-state-v1.2.1 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/simpler-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.799999952316284,
+            11.400000095367432,
+            11.899999976158142,
+            11.400000095367432,
+            11.299999952316284,
+            11,
+            11.199999928474426,
+            11.799999952316284,
+            13.700000047683716,
+            11.100000023841858
+          ],
+          "bytesSent": 173885,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "simpler-state",
+                "version": "1.2.1",
+                "homepage": "https://simpler-state.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.660000002384185,
+          "meanCI": {
+            "low": 11.10159378291165,
+            "high": 12.218406221856721
+          },
+          "variance": 0.6093333478503794,
+          "standardDeviation": 0.7805980706166135,
+          "relativeStandardDeviation": 0.06694666127418526
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "simpler-state-v1.2.1 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/simpler-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1710334,
+            1707786,
+            1707830,
+            1710322,
+            1707746,
+            1708042,
+            1710342,
+            1707646,
+            1707858,
+            1707646
+          ],
+          "bytesSent": 173885,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "simpler-state",
+                "version": "1.2.1",
+                "homepage": "https://simpler-state.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1708555.2,
+          "meanCI": {
+            "low": 1707674.1032385998,
+            "high": 1709436.2967614
+          },
+          "variance": 1517056.1777777774,
+          "standardDeviation": 1231.688344419065,
+          "relativeStandardDeviation": 0.0007208946742950213
+        }
+      }
+    }
+  ],
+  [
+    "react-easy-state-v6.3.0",
+    {
+      "performance": {
+        "result": {
+          "name": "react-easy-state-v6.3.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/react-easy-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            156,
+            155.5,
+            156.5,
+            157.09999990463257,
+            154.39999997615814,
+            151.5,
+            158.20000004768372,
+            156.29999995231628,
+            154.20000004768372,
+            155.39999997615814
+          ],
+          "bytesSent": 181580,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@risingstack/react-easy-state",
+                "version": "6.3.0",
+                "homepage": "https://github.com/RisingStack/react-easy-state#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 155.50999999046326,
+          "meanCI": {
+            "low": 154.1898913556717,
+            "high": 156.8301086252548
+          },
+          "variance": 3.4054444234636114,
+          "standardDeviation": 1.8453846275136279,
+          "relativeStandardDeviation": 0.011866662128652802
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "react-easy-state-v6.3.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/react-easy-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.799999952316284,
+            11.700000047683716,
+            11.399999976158142,
+            12,
+            12.200000047683716,
+            11.700000047683716,
+            11.899999976158142,
+            12.399999976158142,
+            12.300000071525574,
+            12.699999928474426
+          ],
+          "bytesSent": 181580,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@risingstack/react-easy-state",
+                "version": "6.3.0",
+                "homepage": "https://github.com/RisingStack/react-easy-state#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 12.010000002384185,
+          "meanCI": {
+            "low": 11.731000625902396,
+            "high": 12.288999378865974
+          },
+          "variance": 0.15211110417048368,
+          "standardDeviation": 0.3900142358561847,
+          "relativeStandardDeviation": 0.032474124544443
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "react-easy-state-v6.3.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/react-easy-state.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1703100,
+            1703100,
+            1703284,
+            1702944,
+            1705260,
+            1703008,
+            1704920,
+            1703340,
+            1703340,
+            1702976
+          ],
+          "bytesSent": 181580,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@risingstack/react-easy-state",
+                "version": "6.3.0",
+                "homepage": "https://github.com/RisingStack/react-easy-state#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1703527.2,
+          "meanCI": {
+            "low": 1702926.3080729635,
+            "high": 1704128.0919270364
+          },
+          "variance": 705581.5111111109,
+          "standardDeviation": 839.9889946369005,
+          "relativeStandardDeviation": 0.0004930881025186452
+        }
+      }
+    }
+  ],
+  [
+    "preact-signals-v1.3.2",
+    {
+      "performance": {
+        "result": {
+          "name": "preact-signals-v1.3.2 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/preact-signals.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            153.80000007152557,
+            157,
+            156.89999997615814,
+            155.60000002384186,
+            158.20000004768372,
+            157.5,
+            157,
+            156.09999990463257,
+            158,
+            156.39999997615814
+          ],
+          "bytesSent": 178858,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@preact/signals-react",
+                "version": "1.3.2",
+                "homepage": "https://preactjs.com"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 156.65,
+          "meanCI": {
+            "low": 155.7312621335548,
+            "high": 157.56873786644522
+          },
+          "variance": 1.6494444216622266,
+          "standardDeviation": 1.2843069810844394,
+          "relativeStandardDeviation": 0.008198576323552118
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "preact-signals-v1.3.2 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/preact-signals.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.399999976158142,
+            12.299999952316284,
+            12.5,
+            12.199999928474426,
+            11.699999928474426,
+            12.200000047683716,
+            12.5,
+            11.700000047683716,
+            12.099999904632568,
+            12.300000071525574
+          ],
+          "bytesSent": 178858,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@preact/signals-react",
+                "version": "1.3.2",
+                "homepage": "https://preactjs.com"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 12.089999985694885,
+          "meanCI": {
+            "low": 11.825651108816897,
+            "high": 12.354348862572872
+          },
+          "variance": 0.13655556159549617,
+          "standardDeviation": 0.3695342495567849,
+          "relativeStandardDeviation": 0.03056528122365796
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "preact-signals-v1.3.2 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/preact-signals.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1748982,
+            1749282,
+            1749546,
+            1748566,
+            1749082,
+            1749110,
+            1747610,
+            1748858,
+            1749390,
+            1749234
+          ],
+          "bytesSent": 178858,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@preact/signals-react",
+                "version": "1.3.2",
+                "homepage": "https://preactjs.com"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1748966,
+          "meanCI": {
+            "low": 1748571.817068678,
+            "high": 1749360.182931322
+          },
+          "variance": 303633.77777777775,
+          "standardDeviation": 551.0297430972105,
+          "relativeStandardDeviation": 0.00031506029453815025
+        }
+      }
+    }
+  ],
+  [
+    "use-change-v1.1.4",
+    {
+      "performance": {
+        "result": {
+          "name": "use-change-v1.1.4 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/use-change.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            155.39999997615814,
+            156.39999997615814,
+            155.39999997615814,
+            156.89999997615814,
+            160.79999995231628,
+            155.09999990463257,
+            156,
+            159.30000007152557,
+            158.89999997615814,
+            157.60000002384186
+          ],
+          "bytesSent": 175424,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "use-change",
+                "version": "1.1.4",
+                "homepage": "https://github.com/finom/use-change#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 157.1799999833107,
+          "meanCI": {
+            "low": 155.80035196503664,
+            "high": 158.55964800158475
+          },
+          "variance": 3.7195556125640894,
+          "standardDeviation": 1.9286149466817086,
+          "relativeStandardDeviation": 0.012270104001059219
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "use-change-v1.1.4 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/use-change.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.600000023841858,
+            11.200000047683716,
+            11.300000071525574,
+            11.200000047683716,
+            11.300000071525574,
+            11.200000047683716,
+            11.399999976158142,
+            11.700000047683716,
+            11.700000047683716,
+            10.699999928474426
+          ],
+          "bytesSent": 175424,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "use-change",
+                "version": "1.1.4",
+                "homepage": "https://github.com/finom/use-change#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.330000030994416,
+          "meanCI": {
+            "low": 11.116588534931306,
+            "high": 11.543411527057525
+          },
+          "variance": 0.08900001382827961,
+          "standardDeviation": 0.2983287009797743,
+          "relativeStandardDeviation": 0.026330864974727673
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "use-change-v1.1.4 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/use-change.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1750484,
+            1750912,
+            1750172,
+            1748916,
+            1748660,
+            1748604,
+            1748660,
+            1748452,
+            1750472,
+            1750584
+          ],
+          "bytesSent": 175424,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "use-change",
+                "version": "1.1.4",
+                "homepage": "https://github.com/finom/use-change#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1749591.6,
+          "meanCI": {
+            "low": 1748872.1654824833,
+            "high": 1750311.0345175168
+          },
+          "variance": 1011432.7111111111,
+          "standardDeviation": 1005.7001099289545,
+          "relativeStandardDeviation": 0.0005748199236490129
+        }
+      }
+    }
+  ],
+  [
+    "effector-v22.8.6",
+    {
+      "performance": {
+        "result": {
+          "name": "effector-v22.8.6 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/effector.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            157.10000002384186,
+            159.60000002384186,
+            160.60000002384186,
+            160.59999990463257,
+            159.69999992847443,
+            158.60000002384186,
+            160.10000002384186,
+            162.69999992847443,
+            159.5,
+            160.19999992847443
+          ],
+          "bytesSent": 187602,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "effector",
+                "version": "22.8.6",
+                "homepage": "https://effector.dev"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 159.8699999809265,
+          "meanCI": {
+            "low": 158.8371684167555,
+            "high": 160.9028315450975
+          },
+          "variance": 2.0845554748111326,
+          "standardDeviation": 1.4437989731299619,
+          "relativeStandardDeviation": 0.00903108133672494
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "effector-v22.8.6 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/effector.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.799999952316284,
+            12,
+            11.299999952316284,
+            11.899999976158142,
+            11.5,
+            10.5,
+            11.100000023841858,
+            11.300000071525574,
+            12.100000023841858,
+            11.199999928474426
+          ],
+          "bytesSent": 187602,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "effector",
+                "version": "22.8.6",
+                "homepage": "https://effector.dev"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.469999992847443,
+          "meanCI": {
+            "low": 11.117848648692176,
+            "high": 11.82215133700271
+          },
+          "variance": 0.24233333232667886,
+          "standardDeviation": 0.49227363562014864,
+          "relativeStandardDeviation": 0.042918364073855686
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "effector-v22.8.6 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/effector.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1852050,
+            1852022,
+            1852602,
+            1850526,
+            1852494,
+            1853722,
+            1851818,
+            1853510,
+            1854238,
+            1851786
+          ],
+          "bytesSent": 187602,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "effector",
+                "version": "22.8.6",
+                "homepage": "https://effector.dev"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1852476.8,
+          "meanCI": {
+            "low": 1851691.6556271585,
+            "high": 1853261.9443728416
+          },
+          "variance": 1204629.511111111,
+          "standardDeviation": 1097.5561539671266,
+          "relativeStandardDeviation": 0.0005924803776042575
+        }
+      }
+    }
+  ],
+  [
+    "mobx-v6.9.0",
+    {
+      "performance": {
+        "result": {
+          "name": "mobx-v6.9.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/mobx.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            162.09999990463257,
+            161.70000004768372,
+            163.29999995231628,
+            161.79999995231628,
+            160.29999995231628,
+            162.60000002384186,
+            162.5,
+            164.79999995231628,
+            161.5,
+            162.70000004768372
+          ],
+          "bytesSent": 242336,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "mobx",
+                "version": "6.9.0",
+                "homepage": "https://mobx.js.org/"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 162.3299999833107,
+          "meanCI": {
+            "low": 161.47618756377537,
+            "high": 163.18381240284603
+          },
+          "variance": 1.42455554978053,
+          "standardDeviation": 1.1935474644020363,
+          "relativeStandardDeviation": 0.007352599424165256
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "mobx-v6.9.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/mobx.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            11.799999952316284,
+            11.600000023841858,
+            11.800000071525574,
+            11.899999976158142,
+            12.5,
+            11.799999952316284,
+            12.100000023841858,
+            12.199999928474426,
+            12,
+            12
+          ],
+          "bytesSent": 242336,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "mobx",
+                "version": "6.9.0",
+                "homepage": "https://mobx.js.org/"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.969999992847443,
+          "meanCI": {
+            "low": 11.788243651324054,
+            "high": 12.151756334370832
+          },
+          "variance": 0.06455555189980579,
+          "standardDeviation": 0.25407784614130724,
+          "relativeStandardDeviation": 0.02122621940627644
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "mobx-v6.9.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/mobx.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            2037099,
+            2036699,
+            2037167,
+            2037911,
+            2037911,
+            2037479,
+            2036335,
+            2037635,
+            2037911,
+            2038111
+          ],
+          "bytesSent": 242336,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "mobx",
+                "version": "6.9.0",
+                "homepage": "https://mobx.js.org/"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 2037425.8,
+          "meanCI": {
+            "low": 2037005.00028393,
+            "high": 2037846.59971607
+          },
+          "variance": 346023.28888888896,
+          "standardDeviation": 588.2374426104556,
+          "relativeStandardDeviation": 0.00028871600752795786
+        }
+      }
+    }
+  ],
+  [
+    "trashly-v0.1.6",
+    {
+      "performance": {
+        "result": {
+          "name": "trashly-v0.1.6 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/trashly.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            164.39999997615814,
+            171,
+            163.19999992847443,
+            162,
+            163.19999992847443,
+            163.89999997615814,
+            163.30000007152557,
+            160.60000002384186,
+            159.79999995231628,
+            163.60000002384186
+          ],
+          "bytesSent": 198716,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "trashly-react",
+                "version": "0.1.6"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 163.49999998807908,
+          "meanCI": {
+            "low": 161.3433574307905,
+            "high": 165.65664254536767
+          },
+          "variance": 9.088888912730749,
+          "standardDeviation": 3.014778418512835,
+          "relativeStandardDeviation": 0.01843901173536786
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "trashly-v0.1.6 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/trashly.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            12,
+            11,
+            11.299999952316284,
+            11.300000071525574,
+            11.299999952316284,
+            11.100000023841858,
+            11.099999904632568,
+            11.200000047683716,
+            10.899999976158142,
+            11.200000047683716
+          ],
+          "bytesSent": 198716,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "trashly-react",
+                "version": "0.1.6"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.239999997615815,
+          "meanCI": {
+            "low": 11.026189241245037,
+            "high": 11.453810753986593
+          },
+          "variance": 0.08933333619435897,
+          "standardDeviation": 0.29888682840560066,
+          "relativeStandardDeviation": 0.026591354845996385
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "trashly-v0.1.6 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/trashly.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            2012055,
+            2011995,
+            2012095,
+            2012323,
+            2012431,
+            2012027,
+            2012451,
+            2012107,
+            2012051,
+            2012135
+          ],
+          "bytesSent": 198716,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "trashly-react",
+                "version": "0.1.6"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 2012167,
+          "meanCI": {
+            "low": 2012045.487552142,
+            "high": 2012288.512447858
+          },
+          "variance": 28853.333333333332,
+          "standardDeviation": 169.8626896447049,
+          "relativeStandardDeviation": 0.00008441778920174363
+        }
+      }
+    }
+  ],
+  [
+    "pullstate-v1.25.0",
+    {
+      "performance": {
+        "result": {
+          "name": "pullstate-v1.25.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/pullstate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            166.89999997615814,
+            170.19999992847443,
+            168.90000009536743,
+            170.20000004768372,
+            169.30000007152557,
+            168.40000009536743,
+            168.40000009536743,
+            170.39999997615814,
+            168.60000002384186,
+            170.89999997615814
+          ],
+          "bytesSent": 192417,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "pullstate",
+                "version": "1.25.0"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 169.22000002861023,
+          "meanCI": {
+            "low": 168.34855556288068,
+            "high": 170.09144449433978
+          },
+          "variance": 1.4839999483956268,
+          "standardDeviation": 1.218195365446621,
+          "relativeStandardDeviation": 0.007198885269121022
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "pullstate-v1.25.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/pullstate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            10.600000023841858,
+            11.800000071525574,
+            11.299999952316284,
+            11.799999952316284,
+            11.299999952316284,
+            11.899999976158142,
+            12.400000095367432,
+            11.399999976158142,
+            11.700000047683716,
+            11.400000095367432
+          ],
+          "bytesSent": 192417,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "pullstate",
+                "version": "1.25.0"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.560000014305114,
+          "meanCI": {
+            "low": 11.217424450804337,
+            "high": 11.90257557780589
+          },
+          "variance": 0.22933334996965554,
+          "standardDeviation": 0.4788876172649023,
+          "relativeStandardDeviation": 0.04142626441801859
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "pullstate-v1.25.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/pullstate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1764346,
+            1764462,
+            1763646,
+            1764242,
+            1764222,
+            1763846,
+            1764310,
+            1763902,
+            1764766,
+            1764014
+          ],
+          "bytesSent": 192417,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "pullstate",
+                "version": "1.25.0"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1764175.6,
+          "meanCI": {
+            "low": 1763940.2266332302,
+            "high": 1764410.97336677
+          },
+          "variance": 108260.26666666666,
+          "standardDeviation": 329.0292793455723,
+          "relativeStandardDeviation": 0.00018650596876273104
+        }
+      }
+    }
+  ],
+  [
+    "jotai-v1.13.1",
+    {
+      "performance": {
+        "result": {
+          "name": "jotai-v1.13.1 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/jotai.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            171.20000004768372,
+            170,
+            171.20000004768372,
+            173.5,
+            170.39999997615814,
+            172.10000002384186,
+            175.19999992847443,
+            172.09999990463257,
+            171,
+            171.10000002384186
+          ],
+          "bytesSent": 179748,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "jotai",
+                "version": "1.13.1",
+                "homepage": "https://github.com/pmndrs/jotai"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 171.77999999523163,
+          "meanCI": {
+            "low": 170.66982591463452,
+            "high": 172.89017407582875
+          },
+          "variance": 2.408444376415679,
+          "standardDeviation": 1.551916356127378,
+          "relativeStandardDeviation": 0.009034325044652795
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "jotai-v1.13.1 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/jotai.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            14.099999904632568,
+            13,
+            13.300000071525574,
+            13,
+            12.799999952316284,
+            13.399999976158142,
+            13.5,
+            13.200000047683716,
+            12.700000047683716,
+            12.899999976158142
+          ],
+          "bytesSent": 179748,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "jotai",
+                "version": "1.13.1",
+                "homepage": "https://github.com/pmndrs/jotai"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 13.189999997615814,
+          "meanCI": {
+            "low": 12.895147209942659,
+            "high": 13.48485278528897
+          },
+          "variance": 0.16988887082206125,
+          "standardDeviation": 0.4121757766075795,
+          "relativeStandardDeviation": 0.031249111196518815
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "jotai-v1.13.1 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/jotai.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1822529,
+            1824605,
+            1822461,
+            1824705,
+            1822553,
+            1822485,
+            1822561,
+            1824989,
+            1824733,
+            1824213
+          ],
+          "bytesSent": 179748,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "jotai",
+                "version": "1.13.1",
+                "homepage": "https://github.com/pmndrs/jotai"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1823583.4,
+          "meanCI": {
+            "low": 1822768.4514377892,
+            "high": 1824398.3485622106
+          },
+          "variance": 1297821.1555555556,
+          "standardDeviation": 1139.2195379098603,
+          "relativeStandardDeviation": 0.0006247147993943465
+        }
+      }
+    }
+  ],
+  [
+    "redux-toolkit-v1.9.5",
+    {
+      "performance": {
+        "result": {
+          "name": "redux-toolkit-v1.9.5 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/redux-toolkit.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            176.39999997615814,
+            184.60000002384186,
+            173.79999995231628,
+            177.39999997615814,
+            176.80000007152557,
+            176.5,
+            182.39999997615814,
+            177.39999997615814,
+            178.20000004768372,
+            175.39999997615814
+          ],
+          "bytesSent": 212858,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@reduxjs/toolkit",
+                "version": "1.9.5",
+                "homepage": "https://redux-toolkit.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 177.8899999976158,
+          "meanCI": {
+            "low": 175.57555045641107,
+            "high": 180.20444953882054
+          },
+          "variance": 10.467666733900709,
+          "standardDeviation": 3.2353773711733704,
+          "relativeStandardDeviation": 0.018187516843086924
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "redux-toolkit-v1.9.5 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/redux-toolkit.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            12.300000071525574,
+            12.600000023841858,
+            12,
+            12.200000047683716,
+            11.899999976158142,
+            11.799999952316284,
+            12,
+            12.300000071525574,
+            12,
+            12.100000023841858
+          ],
+          "bytesSent": 212858,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@reduxjs/toolkit",
+                "version": "1.9.5",
+                "homepage": "https://redux-toolkit.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 12.1200000166893,
+          "meanCI": {
+            "low": 11.952064555908699,
+            "high": 12.287935477469901
+          },
+          "variance": 0.055111124674480684,
+          "standardDeviation": 0.23475758704348765,
+          "relativeStandardDeviation": 0.019369437848203407
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "redux-toolkit-v1.9.5 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/redux-toolkit.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1995434,
+            1996586,
+            1995166,
+            1996614,
+            1995990,
+            1996198,
+            1995602,
+            1995962,
+            1987414,
+            1995938
+          ],
+          "bytesSent": 212858,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "@reduxjs/toolkit",
+                "version": "1.9.5",
+                "homepage": "https://redux-toolkit.js.org"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1995090.4,
+          "meanCI": {
+            "low": 1993132.9843675278,
+            "high": 1997047.815632472
+          },
+          "variance": 7487219.377777779,
+          "standardDeviation": 2736.2783808994614,
+          "relativeStandardDeviation": 0.0013715059632884111
+        }
+      }
+    }
+  ],
+  [
+    "valtio-v1.10.5",
+    {
+      "performance": {
+        "result": {
+          "name": "valtio-v1.10.5 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/valtio.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            180.60000002384186,
+            195.5,
+            179.70000004768372,
+            178.29999995231628,
+            178,
+            181.09999990463257,
+            182.20000004768372,
+            181.10000002384186,
+            178.79999995231628,
+            183.60000002384186
+          ],
+          "bytesSent": 178968,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "valtio",
+                "version": "1.10.5",
+                "homepage": "https://github.com/pmndrs/valtio"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 181.8899999976158,
+          "meanCI": {
+            "low": 178.2460540277781,
+            "high": 185.53394596745352
+          },
+          "variance": 25.947666732311248,
+          "standardDeviation": 5.0938852295974675,
+          "relativeStandardDeviation": 0.028005306667019836
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "valtio-v1.10.5 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/valtio.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            12.300000071525574,
+            15.800000071525574,
+            12.600000023841858,
+            12.199999928474426,
+            11.699999928474426,
+            12,
+            12.199999928474426,
+            12.5,
+            11.900000095367432,
+            11.899999976158142
+          ],
+          "bytesSent": 178968,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "valtio",
+                "version": "1.10.5",
+                "homepage": "https://github.com/pmndrs/valtio"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 12.510000002384185,
+          "meanCI": {
+            "low": 11.659256440160364,
+            "high": 13.360743564608006
+          },
+          "variance": 1.414333395799005,
+          "standardDeviation": 1.1892574976845869,
+          "relativeStandardDeviation": 0.09506454815810834
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "valtio-v1.10.5 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/valtio.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1884480,
+            1884844,
+            1884944,
+            1881040,
+            1880164,
+            1880808,
+            1884804,
+            1884988,
+            1884212,
+            1884776
+          ],
+          "bytesSent": 178968,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "valtio",
+                "version": "1.10.5",
+                "homepage": "https://github.com/pmndrs/valtio"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1883506,
+          "meanCI": {
+            "low": 1882088.6913512673,
+            "high": 1884923.3086487327
+          },
+          "variance": 3925394.6666666665,
+          "standardDeviation": 1981.260877993271,
+          "relativeStandardDeviation": 0.0010519004866420764
+        }
+      }
+    }
+  ],
+  [
+    "recoil-v0.7.7",
+    {
+      "performance": {
+        "result": {
+          "name": "recoil-v0.7.7 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/recoil.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            184.19999992847443,
+            182.5,
+            183.59999990463257,
+            183.69999992847443,
+            184,
+            185.60000002384186,
+            181.29999995231628,
+            182.70000004768372,
+            186.60000002384186,
+            185.20000004768372
+          ],
+          "bytesSent": 262480,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "recoil",
+                "version": "0.7.7"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 183.9399999856949,
+          "meanCI": {
+            "low": 182.81537438143488,
+            "high": 185.06462558995491
+          },
+          "variance": 2.4715556135177636,
+          "standardDeviation": 1.5721181932404966,
+          "relativeStandardDeviation": 0.008546907651205617
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "recoil-v0.7.7 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/recoil.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            14.200000047683716,
+            14.200000047683716,
+            14.100000023841858,
+            14.099999904632568,
+            14.899999976158142,
+            14.400000095367432,
+            14.600000023841858,
+            14.5,
+            14.300000071525574,
+            13.800000071525574
+          ],
+          "bytesSent": 262480,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "recoil",
+                "version": "0.7.7"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 14.310000026226044,
+          "meanCI": {
+            "low": 14.09028723181427,
+            "high": 14.529712820637819
+          },
+          "variance": 0.09433332639270668,
+          "standardDeviation": 0.30713730869548667,
+          "relativeStandardDeviation": 0.021463124258042896
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "recoil-v0.7.7 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/recoil.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            2252853,
+            2252769,
+            2252733,
+            2253501,
+            2254497,
+            2253289,
+            2253557,
+            2253333,
+            2253289,
+            2253333
+          ],
+          "bytesSent": 262480,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "recoil",
+                "version": "0.7.7"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 2253315.4,
+          "meanCI": {
+            "low": 2252950.438146594,
+            "high": 2253680.361853406
+          },
+          "variance": 260285.1555555557,
+          "standardDeviation": 510.18149276071915,
+          "relativeStandardDeviation": 0.00022641370700289857
+        }
+      }
+    }
+  ],
+  [
+    "resso-v0.14.0",
+    {
+      "performance": {
+        "result": {
+          "name": "resso-v0.14.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/resso.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            191.5,
+            194.20000004768372,
+            191.29999995231628,
+            193.20000004768372,
+            191.89999997615814,
+            191.70000004768372,
+            195,
+            232.69999992847443,
+            191.89999997615814,
+            196.70000004768372
+          ],
+          "bytesSent": 172758,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "resso",
+                "version": "0.14.0",
+                "homepage": "https://github.com/nanxiaobei/resso"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 197.01000000238417,
+          "meanCI": {
+            "low": 187.94972562886016,
+            "high": 206.07027437590818
+          },
+          "variance": 160.41211052878697,
+          "standardDeviation": 12.665390263579996,
+          "relativeStandardDeviation": 0.06428805778095895
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "resso-v0.14.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/resso.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            10.899999976158142,
+            11.299999952316284,
+            10.799999952316284,
+            11.900000095367432,
+            11.199999928474426,
+            10.900000095367432,
+            10.700000047683716,
+            11.699999928474426,
+            11,
+            11.599999904632568
+          ],
+          "bytesSent": 172758,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "resso",
+                "version": "0.14.0",
+                "homepage": "https://github.com/nanxiaobei/resso"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 11.199999988079071,
+          "meanCI": {
+            "low": 10.904088471224672,
+            "high": 11.49591150493347
+          },
+          "variance": 0.17111110263401091,
+          "standardDeviation": 0.4136557779531321,
+          "relativeStandardDeviation": 0.036933551642269136
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "resso-v0.14.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/resso.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            1692527,
+            1692499,
+            1692919,
+            1692923,
+            1692579,
+            1692779,
+            1692895,
+            1693151,
+            1693007,
+            1692895
+          ],
+          "bytesSent": 172758,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "resso",
+                "version": "0.14.0",
+                "homepage": "https://github.com/nanxiaobei/resso"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 1692817.4,
+          "meanCI": {
+            "low": 1692661.9893824835,
+            "high": 1692972.8106175163
+          },
+          "variance": 47197.15555555555,
+          "standardDeviation": 217.24906341698127,
+          "relativeStandardDeviation": 0.00012833579299042017
+        }
+      }
+    }
+  ],
+  [
+    "xstate-v4.37.2",
+    {
+      "performance": {
+        "result": {
+          "name": "xstate-v4.37.2 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "window.tachometerResultPerformance"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/counter/dist/xstate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            206.30000007152557,
+            204.79999995231628,
+            201.79999995231628,
+            207.69999992847443,
+            204.10000002384186,
+            208.60000002384186,
+            202.19999992847443,
+            201.90000009536743,
+            267.8000000715256,
+            205.5
+          ],
+          "bytesSent": 244559,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "xstate",
+                "version": "4.37.2",
+                "homepage": "https://github.com/statelyai/xstate/tree/main/packages/core#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 211.07000000476836,
+          "meanCI": {
+            "low": 196.71105060648088,
+            "high": 225.42894940305584
+          },
+          "variance": 402.90233427408003,
+          "standardDeviation": 20.072427214317656,
+          "relativeStandardDeviation": 0.09509843755087977
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "xstate-v4.37.2 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "window.tachometerResultStartup"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/counter/dist/xstate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            15.399999976158142,
+            15.799999952316284,
+            15.200000047683716,
+            15,
+            15.300000071525574,
+            15,
+            15.699999928474426,
+            15.299999952316284,
+            15.200000047683716,
+            15.600000023841858
+          ],
+          "bytesSent": 244559,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "xstate",
+                "version": "4.37.2",
+                "homepage": "https://github.com/statelyai/xstate/tree/main/packages/core#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 15.35,
+          "meanCI": {
+            "low": 15.152645620627535,
+            "high": 15.547354379372464
+          },
+          "variance": 0.07611109839545584,
+          "standardDeviation": 0.275882399575355,
+          "relativeStandardDeviation": 0.017972794760609447
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "xstate-v4.37.2 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "window.tachometerResultMemory"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/counter/dist/xstate.mjs&run=react/counter/index.mjs",
+          "version": "",
+          "millis": [
+            2224143,
+            2226283,
+            2225535,
+            2223527,
+            2223803,
+            2224451,
+            2223635,
+            2221811,
+            2224931,
+            2221599
+          ],
+          "bytesSent": 244559,
+          "browser": {
+            "extra": {
+              "npm": {
+                "npmName": "xstate",
+                "version": "4.37.2",
+                "homepage": "https://github.com/statelyai/xstate/tree/main/packages/core#readme"
+              },
+              "stats": {
+                "cpu": "darwin 23.0.0, Apple M1 (8 core) arm64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/119.0.6045.105 Safari/537.36"
+        },
+        "stats": {
+          "size": 10,
+          "mean": 2223971.8,
+          "meanCI": {
+            "low": 2222916.0389345335,
+            "high": 2225027.561065466
+          },
+          "variance": 2178139.7333333334,
+          "standardDeviation": 1475.8522057893647,
+          "relativeStandardDeviation": 0.0006636110250091143
+        }
+      }
+    }
+  ]
+]
