@@ -31,6 +31,8 @@ await run({
 		"./react/counter/src/simpler-state.tsx",
 		"./react/counter/src/resso.tsx",
 		"./react/counter/src/tanstack-store.tsx",
+		// @TODO figure out why this test never resolves `elementUpdatedTo()`
+		// "./react/counter/src/impact-app.tsx",
 		// @TODO figure out why these are not interactive at mount time
 		// "./react/counter/src/superstate.tsx",
 		// "./react/counter/src/teaful.tsx",

@@ -20,6 +20,7 @@
     "constate": "^3.3.2",
     "effector": "^22.8.2",
     "effector-react": "^22.5.1",
+    "impact-app": "^0.43.0",
     "jotai": "^1.7.6",
     "mobx": "^6.6.1",
     "mobx-react": "^7.5.2",
