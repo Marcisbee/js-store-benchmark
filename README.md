@@ -7,54 +7,54 @@ So I created a simple `counter state` with `increment action` with each library 
 
 1. Rendered that counter component with initial state
 ```sh
-use-state .............. 137.0 ms/ops ±0.9 | 166.4 KB
-use-reducer ............ 137.8 ms/ops ±3.5 | 166.4 KB
-use-context ............ 141.6 ms/ops ±2.5 | 166.6 KB
-exome-v2.3.3 ........... 142.0 ms/ops ±3.4 | 168.0 KB
-constate-v3.3.2 ........ 143.6 ms/ops ±4.8 | 167.7 KB
-use-sync-external-store  146.2 ms/ops ±1.1 | 166.5 KB
-remini-v1.3.0 .......... 147.7 ms/ops ±3.5 | 172.4 KB
-tanstack-store-v0.1.3 .. 149.2 ms/ops ±1.2 | 170.0 KB
-simpler-state-v1.2.1 ... 149.4 ms/ops ±1.7 | 169.8 KB
-nanostores-v0.8.1 ...... 149.8 ms/ops ±3.4 | 168.5 KB
-storeon-v3.1.5 ......... 150.3 ms/ops ±22.4 | 167.5 KB
-zustand-v4.4.3 ......... 150.9 ms/ops ±1.2 | 170.1 KB
-signia-v0.1.4 .......... 153.4 ms/ops ±2.6 | 173.7 KB
-react-easy-state-v6.3.0  153.9 ms/ops ±1.0 | 177.3 KB
-use-change-v1.2.1 ...... 154.9 ms/ops ±1.2 | 171.8 KB
-redux-v4.2.1 ........... 157.4 ms/ops ±1.0 | 181.1 KB
-preact-signals-v1.3.6 .. 158.1 ms/ops ±7.4 | 175.4 KB
-effector-v22.8.7 ....... 158.5 ms/ops ±2.3 | 183.3 KB
-mobx-v6.10.2 ........... 158.6 ms/ops ±1.2 | 237.1 KB
-trashly-v0.1.6 ......... 160.0 ms/ops ±1.1 | 194.1 KB
-pullstate-v1.25.0 ...... 166.4 ms/ops ±1.5 | 187.9 KB
-jotai-v1.13.1 .......... 169.0 ms/ops ±2.3 | 175.5 KB
-valtio-v1.11.2 ......... 179.0 ms/ops ±1.3 | 174.8 KB
-redux-toolkit-v1.9.7 ... 179.3 ms/ops ±1.9 | 208.9 KB
-recoil-v0.7.7 .......... 182.0 ms/ops ±2.0 | 256.3 KB
-resso-v0.14.0 .......... 190.8 ms/ops ±3.8 | 168.7 KB
-xstate-v4.38.2 ......... 202.4 ms/ops ±1.6 | 238.8 KB
+use-reducer ............ 137.2 ms/ops ±2.5 | 166.4 KB
+use-state .............. 137.8 ms/ops ±2.3 | 166.4 KB
+use-sync-external-store  142.5 ms/ops ±3.6 | 166.5 KB
+constate-v3.3.2 ........ 142.5 ms/ops ±1.4 | 167.7 KB
+use-context ............ 142.6 ms/ops ±2.6 | 166.6 KB
+exome-v2.6.1 ........... 142.7 ms/ops ±4.8 | 168.2 KB
+storeon-v3.1.5 ......... 145.4 ms/ops ±2.1 | 167.5 KB
+nanostores-v0.8.1 ...... 145.8 ms/ops ±3.0 | 168.5 KB
+zustand-v4.4.3 ......... 146.8 ms/ops ±1.9 | 170.1 KB
+simpler-state-v1.2.1 ... 147.6 ms/ops ±1.0 | 169.8 KB
+remini-v1.3.0 .......... 147.7 ms/ops ±1.9 | 172.4 KB
+tanstack-store-v0.1.3 .. 148.1 ms/ops ±2.9 | 170.0 KB
+use-change-v1.2.1 ...... 150.7 ms/ops ±2.7 | 171.8 KB
+preact-signals-v1.3.6 .. 152.4 ms/ops ±4.9 | 175.4 KB
+signia-v0.1.4 .......... 152.8 ms/ops ±4.3 | 173.7 KB
+effector-v22.8.7 ....... 153.0 ms/ops ±2.9 | 183.3 KB
+redux-v4.2.1 ........... 156.7 ms/ops ±5.3 | 181.1 KB
+react-easy-state-v6.3.0  157.2 ms/ops ±2.5 | 177.3 KB
+mobx-v6.10.2 ........... 157.7 ms/ops ±9.2 | 237.1 KB
+trashly-v0.1.6 ......... 159.3 ms/ops ±5.0 | 194.1 KB
+pullstate-v1.25.0 ...... 163.4 ms/ops ±2.4 | 187.9 KB
+jotai-v1.13.1 .......... 169.8 ms/ops ±4.0 | 175.5 KB
+redux-toolkit-v1.9.7 ... 174.4 ms/ops ±3.5 | 208.9 KB
+valtio-v1.11.2 ......... 176.8 ms/ops ±2.9 | 174.8 KB
+recoil-v0.7.7 .......... 185.3 ms/ops ±7.3 | 256.3 KB
+resso-v0.14.0 .......... 192.6 ms/ops ±1.6 | 168.7 KB
+xstate-v4.38.2 ......... 205.0 ms/ops ±2.2 | 238.8 KB
 ```
 
 2. Triggered increment action and updated component view
 ```sh
-exome-v2.3.3 ......... 69.9 ms/ops ±1.2 | 168.9 KB
-signia-v0.1.4 ........ 74.0 ms/ops ±0.4 | 174.4 KB
-simpler-state-v1.2.1 . 74.0 ms/ops ±0.7 | 170.5 KB
-nanostores-v0.8.1 .... 74.2 ms/ops ±0.7 | 169.2 KB
-preact-signals-v1.3.6  78.5 ms/ops ±7.8 | 176.1 KB
-recoil-v0.7.7 ........ 90.1 ms/ops ±9.0 | 257.1 KB
-jotai-v1.13.1 ........ 90.2 ms/ops ±0.9 | 176.3 KB
-redux-v4.2.1 ......... 869.2 ms/ops ±12.4 | 181.9 KB
-mobx-v6.10.2 ......... 887.7 ms/ops ±15.8 | 237.9 KB
-redux-toolkit-v1.9.7 . 913.1 ms/ops ±39.2 | 209.7 KB
-trashly-v0.1.6 ....... 994.1 ms/ops ±15.2 | 194.8 KB
-valtio-v1.11.2 ....... 3689.9 ms/ops ±65.4 | 175.6 KB
+exome-v2.6.1 ......... 76.0 ms/ops ±1.7 | 169.0 KB
+signia-v0.1.4 ........ 79.3 ms/ops ±0.9 | 174.4 KB
+simpler-state-v1.2.1 . 79.7 ms/ops ±1.2 | 170.5 KB
+nanostores-v0.8.1 .... 80.0 ms/ops ±3.4 | 169.2 KB
+preact-signals-v1.3.6  80.4 ms/ops ±0.9 | 176.1 KB
+recoil-v0.7.7 ........ 91.9 ms/ops ±4.7 | 257.1 KB
+jotai-v1.13.1 ........ 97.0 ms/ops ±1.2 | 176.3 KB
+redux-v4.2.1 ......... 890.1 ms/ops ±52.6 | 181.9 KB
+mobx-v6.10.2 ......... 907.8 ms/ops ±50.6 | 237.9 KB
+redux-toolkit-v1.9.7 . 934.3 ms/ops ±71.0 | 209.7 KB
+trashly-v0.1.6 ....... 1027.0 ms/ops ±47.3 | 194.8 KB
+valtio-v1.11.2 ....... 3824.6 ms/ops ±36.6 | 175.6 KB
 ```
 
 <!-- _Note: **Less is better**_ -->
 
-Benchmarks are run on `darwin 23.0.0, Apple M1 (8 core) arm64`
+Benchmarks are run on `darwin 24.1.0, Apple M1 (8 core) arm64`
 
 I know counter doesn't really show real world app performance, but I didn't want to waste much time re-creating real world app for each state so this will have to do.
 
