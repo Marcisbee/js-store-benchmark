@@ -1,0 +1,3329 @@
+[
+  [
+    "exome-v2.9.0",
+    {
+      "performance": {
+        "result": {
+          "name": "exome-v2.9.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/exome.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            63.5,
+            58.89999985694885,
+            57.40000009536743,
+            58.700000047683716,
+            58,
+            55.700000047683716,
+            57.80000019073486,
+            55.200000047683716,
+            55.09999990463257,
+            57.39999985694885,
+            56.59999990463257,
+            57.5,
+            55.90000009536743,
+            55.299999952316284,
+            55.799999952316284,
+            57.40000009536743,
+            65.09999990463257,
+            56,
+            56.799999952316284,
+            57.40000009536743
+          ],
+          "bytesSent": 174752,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "exome",
+                "version": "2.9.0",
+                "homepage": "https://github.com/Marcisbee/exome#readme"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 57.575,
+          "meanCI": {
+            "low": 56.371894417011305,
+            "high": 58.7781055829887
+          },
+          "variance": 6.608289406425084,
+          "standardDeviation": 2.570659333016548,
+          "relativeStandardDeviation": 0.044648881163986937
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "exome-v2.9.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/exome.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            80.69999980926514,
+            78.20000004768372,
+            76.40000009536743,
+            78.29999995231628,
+            73.20000004768372,
+            70.90000009536743,
+            73.20000004768372,
+            72.59999990463257,
+            71.90000009536743,
+            73.89999985694885,
+            72.89999985694885,
+            73.29999995231628,
+            73.20000004768372,
+            72.29999995231628,
+            70.80000019073486,
+            73.59999990463257,
+            86.79999995231628,
+            73.29999995231628,
+            71.5,
+            71.90000009536743
+          ],
+          "bytesSent": 174752,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "exome",
+                "version": "2.9.0",
+                "homepage": "https://github.com/Marcisbee/exome#readme"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 74.44499999284744,
+          "meanCI": {
+            "low": 72.6143217387686,
+            "high": 76.27567824692629
+          },
+          "variance": 15.300499733648813,
+          "standardDeviation": 3.9115853223020474,
+          "relativeStandardDeviation": 0.05254329132484205
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "exome-v2.9.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/exome.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            4389269,
+            4421161,
+            4389717,
+            4389813,
+            4391265,
+            4421037,
+            4421181,
+            4388945,
+            4389381,
+            4389709,
+            4389769,
+            4389713,
+            4390253,
+            4391693,
+            4390069,
+            4391669,
+            4394149,
+            4389645,
+            4389729,
+            4385937
+          ],
+          "bytesSent": 174752,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "exome",
+                "version": "2.9.0",
+                "homepage": "https://github.com/Marcisbee/exome#readme"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 4394705.2,
+          "meanCI": {
+            "low": 4389328.779631055,
+            "high": 4400081.620368945
+          },
+          "variance": 131967808.8,
+          "standardDeviation": 11487.724265493143,
+          "relativeStandardDeviation": 0.002613992006902566
+        }
+      }
+    }
+  ],
+  [
+    "nanostores-v1.5.5",
+    {
+      "performance": {
+        "result": {
+          "name": "nanostores-v1.5.5 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/nanostores.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            60.40000009536743,
+            60,
+            58.5,
+            59.39999985694885,
+            60.09999990463257,
+            56.799999952316284,
+            63.299999952316284,
+            56.89999985694885,
+            56.799999952316284,
+            59,
+            57.89999985694885,
+            69.39999985694885,
+            58.5,
+            58.40000009536743,
+            56.799999952316284,
+            57.80000019073486,
+            60.60000014305115,
+            60,
+            62.40000009536743,
+            57.59999990463257
+          ],
+          "bytesSent": 174882,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "nanostores",
+                "version": "1.5.5"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 59.5299999833107,
+          "meanCI": {
+            "low": 58.151302328514326,
+            "high": 60.90869763810708
+          },
+          "variance": 8.677999960899365,
+          "standardDeviation": 2.945844524223803,
+          "relativeStandardDeviation": 0.04948504157651056
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "nanostores-v1.5.5 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/nanostores.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            83,
+            83.79999995231628,
+            79.79999995231628,
+            78.39999985694885,
+            81.89999985694885,
+            75.59999990463257,
+            92.19999980926514,
+            76.09999990463257,
+            74.79999995231628,
+            96.29999995231628,
+            77.29999995231628,
+            109.30000019073486,
+            73.39999985694885,
+            96,
+            77.10000014305115,
+            79.29999995231628,
+            93.79999995231628,
+            78.29999995231628,
+            80.90000009536743,
+            76
+          ],
+          "bytesSent": 174882,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "nanostores",
+                "version": "1.5.5"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 83.16499996185303,
+          "meanCI": {
+            "low": 78.75129452518884,
+            "high": 87.57870539851722
+          },
+          "variance": 88.93818483412893,
+          "standardDeviation": 9.430704365747498,
+          "relativeStandardDeviation": 0.11339751542203175
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "nanostores-v1.5.5 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/nanostores.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            4804042,
+            4805008,
+            4807806,
+            4807894,
+            4815156,
+            4809094,
+            4805758,
+            4809266,
+            4805442,
+            4807904,
+            4809300,
+            4809520,
+            4804804,
+            4805478,
+            4808196,
+            4804104,
+            4809068,
+            4809248,
+            4804270,
+            4805380
+          ],
+          "bytesSent": 174882,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "nanostores",
+                "version": "1.5.5"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 4807336.9,
+          "meanCI": {
+            "low": 4806063.185159287,
+            "high": 4808610.614840713
+          },
+          "variance": 7406721.042105262,
+          "standardDeviation": 2721.529173480465,
+          "relativeStandardDeviation": 0.0005661199183856794
+        }
+      }
+    }
+  ],
+  [
+    "simpler-state-v1.2.2",
+    {
+      "performance": {
+        "result": {
+          "name": "simpler-state-v1.2.2 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            61.200000047683716,
+            64.09999990463257,
+            62.89999985694885,
+            59,
+            65.30000019073486,
+            59.299999952316284,
+            60.5,
+            60.59999990463257,
+            58.799999952316284,
+            58.200000047683716,
+            60.60000014305115,
+            59.799999952316284,
+            57.5,
+            57.700000047683716,
+            58.799999952316284,
+            60,
+            59.200000047683716,
+            58,
+            59.799999952316284,
+            62.799999952316284
+          ],
+          "bytesSent": 176216,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "simpler-state",
+                "version": "1.2.2",
+                "homepage": "https://simpler-state.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 60.20499999523163,
+          "meanCI": {
+            "low": 59.2058860264995,
+            "high": 61.20411396396376
+          },
+          "variance": 4.5573421168578365,
+          "standardDeviation": 2.1347932257850726,
+          "relativeStandardDeviation": 0.03545873641647958
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "simpler-state-v1.2.2 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            86.5,
+            83.59999990463257,
+            84.70000004768372,
+            78.10000014305115,
+            102.59999990463257,
+            74.5,
+            79.39999985694885,
+            86.29999995231628,
+            77.29999995231628,
+            83.90000009536743,
+            75.90000009536743,
+            76.29999995231628,
+            72.90000009536743,
+            81.09999990463257,
+            81,
+            78.90000009536743,
+            79.5,
+            79.40000009536743,
+            77.79999995231628,
+            82.80000019073486
+          ],
+          "bytesSent": 176216,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "simpler-state",
+                "version": "1.2.2",
+                "homepage": "https://simpler-state.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 81.12500001192093,
+          "meanCI": {
+            "low": 78.17129909093671,
+            "high": 84.07870093290515
+          },
+          "variance": 39.8303944159809,
+          "standardDeviation": 6.311132577911899,
+          "relativeStandardDeviation": 0.07779516273632676
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "simpler-state-v1.2.2 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/simpler-state.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5065137,
+            5059392,
+            5063187,
+            5060380,
+            5065106,
+            5064853,
+            5060394,
+            5059258,
+            5060464,
+            5059617,
+            5059203,
+            5064202,
+            5063809,
+            5060692,
+            5060474,
+            5060328,
+            5064177,
+            5060402,
+            5059480,
+            5060066
+          ],
+          "bytesSent": 176216,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "simpler-state",
+                "version": "1.2.2",
+                "homepage": "https://simpler-state.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 5061531.05,
+          "meanCI": {
+            "low": 5060499.16213771,
+            "high": 5062562.93786229
+          },
+          "variance": 4861234.576315791,
+          "standardDeviation": 2204.820758319322,
+          "relativeStandardDeviation": 0.0004356035232302531
+        }
+      }
+    }
+  ],
+  [
+    "jotai-v3.0.1",
+    {
+      "performance": {
+        "result": {
+          "name": "jotai-v3.0.1 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            61.30000019073486,
+            62.200000047683716,
+            67,
+            64.09999990463257,
+            62.5,
+            61.89999985694885,
+            60.799999952316284,
+            60.299999952316284,
+            61.5,
+            59.90000009536743,
+            59.700000047683716,
+            68.70000004768372,
+            62.30000019073486,
+            60.200000047683716,
+            60.60000014305115,
+            61.10000014305115,
+            60.700000047683716,
+            61.700000047683716,
+            60.700000047683716,
+            61.700000047683716
+          ],
+          "bytesSent": 181831,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "jotai",
+                "version": "3.0.1",
+                "homepage": "https://github.com/pmndrs/jotai"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 61.945000040531156,
+          "meanCI": {
+            "low": 60.87684793774429,
+            "high": 63.013152143318024
+          },
+          "variance": 5.208920986551995,
+          "standardDeviation": 2.2823060676762865,
+          "relativeStandardDeviation": 0.036844072422034926
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "jotai-v3.0.1 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            89,
+            90.90000009536743,
+            87.29999995231628,
+            90.39999985694885,
+            86.70000004768372,
+            86.40000009536743,
+            102.80000019073486,
+            103.20000004768372,
+            90.09999990463257,
+            91.59999990463257,
+            83.90000009536743,
+            86,
+            82.69999980926514,
+            84.09999990463257,
+            103.30000019073486,
+            104.70000004768372,
+            101.40000009536743,
+            87.79999995231628,
+            88.40000009536743,
+            85.5
+          ],
+          "bytesSent": 181831,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "jotai",
+                "version": "3.0.1",
+                "homepage": "https://github.com/pmndrs/jotai"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 91.31000001430512,
+          "meanCI": {
+            "low": 87.86187559917846,
+            "high": 94.75812442943177
+          },
+          "variance": 54.28094819380109,
+          "standardDeviation": 7.367560532075803,
+          "relativeStandardDeviation": 0.08068733469413604
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "jotai-v3.0.1 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/jotai.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5198874,
+            5204368,
+            5195404,
+            5201270,
+            5196310,
+            5200726,
+            5201154,
+            5192122,
+            5195208,
+            5201382,
+            5192328,
+            5203294,
+            5192244,
+            5199988,
+            5198178,
+            5200688,
+            5203482,
+            5197892,
+            5205880,
+            5203458
+          ],
+          "bytesSent": 181831,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "jotai",
+                "version": "3.0.1",
+                "homepage": "https://github.com/pmndrs/jotai"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 5199212.5,
+          "meanCI": {
+            "low": 5197262.472448163,
+            "high": 5201162.527551837
+          },
+          "variance": 17360533.42105263,
+          "standardDeviation": 4166.597343282961,
+          "relativeStandardDeviation": 0.0008013900842258249
+        }
+      }
+    }
+  ],
+  [
+    "preact-signals-v3.12.0",
+    {
+      "performance": {
+        "result": {
+          "name": "preact-signals-v3.12.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/preact-signals.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            63.299999952316284,
+            64.40000009536743,
+            62.5,
+            58.80000019073486,
+            64.70000004768372,
+            59.39999985694885,
+            65.89999985694885,
+            63.09999990463257,
+            68.39999985694885,
+            59.200000047683716,
+            62.39999985694885,
+            62.40000009536743,
+            62.89999985694885,
+            61,
+            61.10000014305115,
+            57.5,
+            59.700000047683716,
+            66.90000009536743,
+            62,
+            58.89999985694885
+          ],
+          "bytesSent": 181655,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "@preact/signals-react",
+                "version": "3.12.0",
+                "homepage": "https://preactjs.com"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 62.22499998807907,
+          "meanCI": {
+            "low": 60.874111690417955,
+            "high": 63.575888285740184
+          },
+          "variance": 8.331447255109495,
+          "standardDeviation": 2.8864246491307366,
+          "relativeStandardDeviation": 0.04638689674059802
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "preact-signals-v3.12.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/preact-signals.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            111.09999990463257,
+            93.20000004768372,
+            92,
+            87,
+            106.69999980926514,
+            85.20000004768372,
+            92.30000019073486,
+            85.20000004768372,
+            83.90000009536743,
+            84.60000014305115,
+            89.5,
+            91.39999985694885,
+            84.39999985694885,
+            84,
+            84.89999985694885,
+            82.79999995231628,
+            108.29999995231628,
+            108,
+            94,
+            103.60000014305115
+          ],
+          "bytesSent": 181655,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "@preact/signals-react",
+                "version": "3.12.0",
+                "homepage": "https://preactjs.com"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 92.60499999523162,
+          "meanCI": {
+            "low": 88.13058769060066,
+            "high": 97.07941229986258
+          },
+          "variance": 91.40155227124065,
+          "standardDeviation": 9.560415904720916,
+          "relativeStandardDeviation": 0.10323865779615785
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "preact-signals-v3.12.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/preact-signals.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            4814134,
+            4809990,
+            4813804,
+            4814116,
+            4810138,
+            4810010,
+            4814120,
+            4810200,
+            4813834,
+            4810108,
+            4811478,
+            4814084,
+            4810252,
+            4813732,
+            4813544,
+            4813900,
+            4813822,
+            4815542,
+            4815168,
+            4813732
+          ],
+          "bytesSent": 181655,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "@preact/signals-react",
+                "version": "3.12.0",
+                "homepage": "https://preactjs.com"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 4812785.4,
+          "meanCI": {
+            "low": 4811876.490588151,
+            "high": 4813694.30941185
+          },
+          "variance": 3771575.1999999997,
+          "standardDeviation": 1942.0543761697302,
+          "relativeStandardDeviation": 0.00040351983617838643
+        }
+      }
+    }
+  ],
+  [
+    "signia-v0.1.5",
+    {
+      "performance": {
+        "result": {
+          "name": "signia-v0.1.5 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            63.299999952316284,
+            69.29999995231628,
+            64.20000004768372,
+            60.59999990463257,
+            79.5,
+            62.299999952316284,
+            61.59999990463257,
+            65.90000009536743,
+            61.799999952316284,
+            63,
+            64.5,
+            62.09999990463257,
+            67.79999995231628,
+            61.5,
+            62.700000047683716,
+            61.09999990463257,
+            61.10000014305115,
+            61.299999952316284,
+            63.799999952316284,
+            60.700000047683716
+          ],
+          "bytesSent": 180309,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "signia",
+                "version": "0.1.5",
+                "homepage": "https://tldraw.dev"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 63.9049999833107,
+          "meanCI": {
+            "low": 61.868848572264696,
+            "high": 65.94115139435671
+          },
+          "variance": 18.92786846941396,
+          "standardDeviation": 4.350617021689447,
+          "relativeStandardDeviation": 0.06807944640991542
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "signia-v0.1.5 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            107,
+            89.60000014305115,
+            90.60000014305115,
+            85.59999990463257,
+            134.09999990463257,
+            85,
+            80.59999990463257,
+            91.90000009536743,
+            85.5,
+            81,
+            100.40000009536743,
+            89,
+            110.79999995231628,
+            102.09999990463257,
+            81.39999985694885,
+            98,
+            81.5,
+            80.5,
+            104.5,
+            97.39999985694885
+          ],
+          "bytesSent": 180309,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "signia",
+                "version": "0.1.5",
+                "homepage": "https://tldraw.dev"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 93.82499998807907,
+          "meanCI": {
+            "low": 87.53402595436604,
+            "high": 100.1159740217921
+          },
+          "variance": 180.6830260262991,
+          "standardDeviation": 13.441838640093069,
+          "relativeStandardDeviation": 0.14326500017906657
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "signia-v0.1.5 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/signia.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5233477,
+            5232877,
+            5233485,
+            5233155,
+            5233143,
+            5236977,
+            5236887,
+            5232971,
+            5233203,
+            5232889,
+            5232615,
+            5232985,
+            5233367,
+            5232973,
+            5228863,
+            5229823,
+            5229211,
+            5233257,
+            5233185,
+            5233543
+          ],
+          "bytesSent": 180309,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "signia",
+                "version": "0.1.5",
+                "homepage": "https://tldraw.dev"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 5232944.3,
+          "meanCI": {
+            "low": 5232022.646255429,
+            "high": 5233865.953744571
+          },
+          "variance": 3878083.4842105266,
+          "standardDeviation": 1969.285018530971,
+          "relativeStandardDeviation": 0.0003763244754068892
+        }
+      }
+    }
+  ],
+  [
+    "mobx-v7.1.3",
+    {
+      "performance": {
+        "result": {
+          "name": "mobx-v7.1.3 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/mobx.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            65.39999985694885,
+            67.5,
+            69.60000014305115,
+            65.39999985694885,
+            68.20000004768372,
+            64.29999995231628,
+            68.29999995231628,
+            62.799999952316284,
+            63.10000014305115,
+            66.10000014305115,
+            63,
+            76.89999985694885,
+            63.59999990463257,
+            67.20000004768372,
+            67.70000004768372,
+            65.20000004768372,
+            65.90000009536743,
+            65,
+            66.59999990463257,
+            66.40000009536743
+          ],
+          "bytesSent": 232239,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "mobx",
+                "version": "7.1.3",
+                "homepage": "https://mobx.js.org/"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 66.41000000238418,
+          "meanCI": {
+            "low": 64.95230626714599,
+            "high": 67.86769373762237
+          },
+          "variance": 9.700947288061453,
+          "standardDeviation": 3.114634374699774,
+          "relativeStandardDeviation": 0.046900080930401385
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "mobx-v7.1.3 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/mobx.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            89.70000004768372,
+            92.89999985694885,
+            88.70000004768372,
+            84.29999995231628,
+            80.60000014305115,
+            83.79999995231628,
+            83.10000014305115,
+            84.40000009536743,
+            82.20000004768372,
+            83.10000014305115,
+            83,
+            100.39999985694885,
+            90.59999990463257,
+            85.5,
+            84.90000009536743,
+            80.39999985694885,
+            84.39999985694885,
+            86.89999985694885,
+            86.70000004768372,
+            84
+          ],
+          "bytesSent": 232239,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "mobx",
+                "version": "7.1.3",
+                "homepage": "https://mobx.js.org/"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 85.97999999523162,
+          "meanCI": {
+            "low": 83.7861522235243,
+            "high": 88.17384776693895
+          },
+          "variance": 21.97326272603086,
+          "standardDeviation": 4.687564690330242,
+          "relativeStandardDeviation": 0.054519245063854506
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "mobx-v7.1.3 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/mobx.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5218857,
+            5218229,
+            5222209,
+            5190597,
+            5187597,
+            5190481,
+            5218725,
+            5218541,
+            5191129,
+            5192609,
+            5221997,
+            5224077,
+            5219769,
+            5221989,
+            5221985,
+            5192869,
+            5192437,
+            5222329,
+            5192617,
+            5222369
+          ],
+          "bytesSent": 232239,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "mobx",
+                "version": "7.1.3",
+                "homepage": "https://mobx.js.org/"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 5209070.6,
+          "meanCI": {
+            "low": 5202047.149911492,
+            "high": 5216094.050088507
+          },
+          "variance": 225207355.62105262,
+          "standardDeviation": 15006.910262310914,
+          "relativeStandardDeviation": 0.0028809189613039445
+        }
+      }
+    }
+  ],
+  [
+    "recoil-v0.7.7",
+    {
+      "performance": {
+        "result": {
+          "name": "recoil-v0.7.7 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/recoil.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            85.19999980926514,
+            85.59999990463257,
+            84.5,
+            81.09999990463257,
+            85.89999985694885,
+            82.20000004768372,
+            78.20000004768372,
+            86.29999995231628,
+            95.10000014305115,
+            79.29999995231628,
+            81.10000014305115,
+            89.29999995231628,
+            82,
+            82,
+            79.09999990463257,
+            82.70000004768372,
+            76.59999990463257,
+            80.79999995231628,
+            83.29999995231628,
+            79.70000004768372
+          ],
+          "bytesSent": 264891,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "recoil",
+                "version": "0.7.7"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 82.99999997615814,
+          "meanCI": {
+            "low": 81.02626260654539,
+            "high": 84.97373734577089
+          },
+          "variance": 17.78526325376411,
+          "standardDeviation": 4.2172577883933196,
+          "relativeStandardDeviation": 0.05081033481451485
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "recoil-v0.7.7 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/recoil.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            103.59999990463257,
+            97.29999995231628,
+            98.30000019073486,
+            94.90000009536743,
+            99.09999990463257,
+            93.69999980926514,
+            104,
+            104.20000004768372,
+            108.89999985694885,
+            99.09999990463257,
+            93.79999995231628,
+            193.60000014305115,
+            92.20000004768372,
+            93.70000004768372,
+            94.20000004768372,
+            97.29999995231628,
+            94,
+            116.90000009536743,
+            93.79999995231628,
+            95.5
+          ],
+          "bytesSent": 264891,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "recoil",
+                "version": "0.7.7"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 103.40499999523163,
+          "meanCI": {
+            "low": 93.05475114967825,
+            "high": 113.75524884078501
+          },
+          "variance": 489.0836594076157,
+          "standardDeviation": 22.11523591119063,
+          "relativeStandardDeviation": 0.2138700828026734
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "recoil-v0.7.7 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/recoil.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            6915330,
+            6941858,
+            6940522,
+            6934178,
+            6911326,
+            6906822,
+            6915786,
+            6905042,
+            6940382,
+            6914094,
+            6914194,
+            6912950,
+            6951062,
+            6909786,
+            6964494,
+            6936102,
+            6910990,
+            6941842,
+            6912426,
+            6914314
+          ],
+          "bytesSent": 264891,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "recoil",
+                "version": "0.7.7"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 6924675,
+          "meanCI": {
+            "low": 6916593.774063314,
+            "high": 6932756.225936686
+          },
+          "variance": 298150861.2631579,
+          "standardDeviation": 17267.045527916984,
+          "relativeStandardDeviation": 0.002493553203279141
+        }
+      }
+    }
+  ],
+  [
+    "redux-v5.0.1",
+    {
+      "performance": {
+        "result": {
+          "name": "redux-v5.0.1 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/redux.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            86.40000009536743,
+            84.10000014305115,
+            88.89999985694885,
+            85.29999995231628,
+            125.10000014305115,
+            80.70000004768372,
+            80,
+            93.29999995231628,
+            81.70000004768372,
+            86.79999995231628,
+            80.79999995231628,
+            81.5,
+            101.59999990463257,
+            82.5,
+            82.80000019073486,
+            86.79999995231628,
+            86.70000004768372,
+            83.20000004768372,
+            84.5,
+            82
+          ],
+          "bytesSent": 180542,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "redux",
+                "version": "5.0.1",
+                "homepage": "http://redux.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 87.23500001430511,
+          "meanCI": {
+            "low": 82.44788647206401,
+            "high": 92.02211355654622
+          },
+          "variance": 104.62344755709805,
+          "standardDeviation": 10.228560385366947,
+          "relativeStandardDeviation": 0.11725294186610455
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "redux-v5.0.1 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/redux.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            88.79999995231628,
+            85.29999995231628,
+            110.5,
+            82.79999995231628,
+            95.89999985694885,
+            81.59999990463257,
+            98,
+            106.60000014305115,
+            80,
+            76.59999990463257,
+            99.60000014305115,
+            78.30000019073486,
+            92.70000004768372,
+            77.39999985694885,
+            81.59999990463257,
+            86.19999980926514,
+            86,
+            100.60000014305115,
+            82.69999980926514,
+            78.79999995231628
+          ],
+          "bytesSent": 180542,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "redux",
+                "version": "5.0.1",
+                "homepage": "http://redux.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 88.49999997615814,
+          "meanCI": {
+            "low": 83.7437451095029,
+            "high": 93.25625484281338
+          },
+          "variance": 103.27894837479842,
+          "standardDeviation": 10.162625073021164,
+          "relativeStandardDeviation": 0.11483192175998838
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "redux-v5.0.1 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/redux.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5171753,
+            5169759,
+            5174153,
+            5182635,
+            5172249,
+            5171935,
+            5166805,
+            5179643,
+            5170751,
+            5192485,
+            5182091,
+            5191695,
+            5167537,
+            5167827,
+            5185223,
+            5184927,
+            5170557,
+            5173967,
+            5189387,
+            5177735
+          ],
+          "bytesSent": 180542,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "redux",
+                "version": "5.0.1",
+                "homepage": "http://redux.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 5177155.7,
+          "meanCI": {
+            "low": 5173272.501667052,
+            "high": 5181038.898332949
+          },
+          "variance": 68843147.06315792,
+          "standardDeviation": 8297.177053863436,
+          "relativeStandardDeviation": 0.0016026516362765437
+        }
+      }
+    }
+  ],
+  [
+    "redux-toolkit-v2.13.0",
+    {
+      "performance": {
+        "result": {
+          "name": "redux-toolkit-v2.13.0 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/redux-toolkit.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            113.59999990463257,
+            112.69999980926514,
+            131.20000004768372,
+            109.70000004768372,
+            117.30000019073486,
+            109.59999990463257,
+            111.29999995231628,
+            116.19999980926514,
+            114.70000004768372,
+            118.10000014305115,
+            111.5,
+            111.60000014305115,
+            126.39999985694885,
+            110.70000004768372,
+            110.29999995231628,
+            110.20000004768372,
+            109.69999980926514,
+            119,
+            109.5,
+            108.10000014305115
+          ],
+          "bytesSent": 203661,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "@reduxjs/toolkit",
+                "version": "2.13.0",
+                "homepage": "https://redux-toolkit.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 114.06999999284744,
+          "meanCI": {
+            "low": 111.27198576083612,
+            "high": 116.86801422485877
+          },
+          "variance": 35.742210524860205,
+          "standardDeviation": 5.978478947429706,
+          "relativeStandardDeviation": 0.05241061583067043
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "redux-toolkit-v2.13.0 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/redux-toolkit.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            100.29999995231628,
+            86,
+            107.20000004768372,
+            105.80000019073486,
+            103.5,
+            99.70000004768372,
+            81.40000009536743,
+            91,
+            112.20000004768372,
+            98.09999990463257,
+            82.40000009536743,
+            76.59999990463257,
+            81.60000014305115,
+            83.60000014305115,
+            82.39999985694885,
+            81.29999995231628,
+            82.59999990463257,
+            83.70000004768372,
+            104.40000009536743,
+            87.79999995231628
+          ],
+          "bytesSent": 203661,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "@reduxjs/toolkit",
+                "version": "2.13.0",
+                "homepage": "https://redux-toolkit.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 91.58000001907348,
+          "meanCI": {
+            "low": 86.41247225388373,
+            "high": 96.74752778426323
+          },
+          "variance": 121.91221099893671,
+          "standardDeviation": 11.041386280668597,
+          "relativeStandardDeviation": 0.12056547585028383
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "redux-toolkit-v2.13.0 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/redux-toolkit.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            5324395,
+            5334587,
+            5319363,
+            5338861,
+            5335369,
+            5329071,
+            5331615,
+            5334423,
+            5330999,
+            5327849,
+            5333477,
+            5328109,
+            5331955,
+            5335483,
+            5320969,
+            5318787,
+            5339153,
+            5337025,
+            5337329,
+            5329257
+          ],
+          "bytesSent": 203661,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "@reduxjs/toolkit",
+                "version": "2.13.0",
+                "homepage": "https://redux-toolkit.js.org"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 5330903.8,
+          "meanCI": {
+            "low": 5328003.813376909,
+            "high": 5333803.7866230905
+          },
+          "variance": 38394901.64210527,
+          "standardDeviation": 6196.361968292787,
+          "relativeStandardDeviation": 0.0011623473618662537
+        }
+      }
+    }
+  ],
+  [
+    "trashly-v0.1.6",
+    {
+      "performance": {
+        "result": {
+          "name": "trashly-v0.1.6 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/trashly.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            112.59999990463257,
+            118.10000014305115,
+            116.19999980926514,
+            138.70000004768372,
+            123,
+            130.5,
+            131.5,
+            135.30000019073486,
+            108.10000014305115,
+            126.40000009536743,
+            112.20000004768372,
+            110.89999985694885,
+            134.29999995231628,
+            132.10000014305115,
+            131.80000019073486,
+            107.79999995231628,
+            111.39999985694885,
+            135.70000004768372,
+            114.19999980926514,
+            140
+          ],
+          "bytesSent": 202201,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "trashly-react",
+                "version": "0.1.6"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 123.54000000953674,
+          "meanCI": {
+            "low": 118.30551470318106,
+            "high": 128.77448531589243
+          },
+          "variance": 125.09200116820084,
+          "standardDeviation": 11.184453548037151,
+          "relativeStandardDeviation": 0.09053305445340587
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "trashly-v0.1.6 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/trashly.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            93,
+            92.60000014305115,
+            76.39999985694885,
+            71.30000019073486,
+            77.90000009536743,
+            77.09999990463257,
+            71,
+            78.09999990463257,
+            89.80000019073486,
+            76.20000004768372,
+            73.79999995231628,
+            88,
+            71.90000009536743,
+            72.5,
+            81,
+            74.79999995231628,
+            88.70000004768372,
+            90,
+            76.30000019073486,
+            185.5
+          ],
+          "bytesSent": 202201,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "trashly-react",
+                "version": "0.1.6"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 85.29500002861023,
+          "meanCI": {
+            "low": 73.71320529838403,
+            "high": 96.87679475883644
+          },
+          "variance": 612.3973420056795,
+          "standardDeviation": 24.74666324993492,
+          "relativeStandardDeviation": 0.29013029182993405
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "trashly-v0.1.6 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/trashly.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            4507023,
+            4507907,
+            4504887,
+            4527391,
+            4507153,
+            4509451,
+            4523507,
+            4522403,
+            4506391,
+            4508867,
+            4507999,
+            4506877,
+            4527471,
+            4510019,
+            4512051,
+            4505645,
+            4508695,
+            4523587,
+            4504585,
+            4522311
+          ],
+          "bytesSent": 202201,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "trashly-react",
+                "version": "0.1.6"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 4512711,
+          "meanCI": {
+            "low": 4508894.926684445,
+            "high": 4516527.073315555
+          },
+          "variance": 66483670.7368421,
+          "standardDeviation": 8153.751942317236,
+          "relativeStandardDeviation": 0.0018068411520962091
+        }
+      }
+    }
+  ],
+  [
+    "valtio-v2.3.2",
+    {
+      "performance": {
+        "result": {
+          "name": "valtio-v2.3.2 [performance]",
+          "measurement": {
+            "mode": "expression",
+            "name": "performance",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()"
+          },
+          "measurementIndex": 0,
+          "queryString": "?bench=react/fields/dist/valtio.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            229.29999995231628,
+            227.40000009536743,
+            269,
+            216,
+            218.70000004768372,
+            218.39999985694885,
+            221.79999995231628,
+            233,
+            223.5,
+            221.40000009536743,
+            218.40000009536743,
+            249.20000004768372,
+            215.70000004768372,
+            217.19999980926514,
+            222,
+            239.39999985694885,
+            218.09999990463257,
+            219.59999990463257,
+            213.70000004768372,
+            221.79999995231628
+          ],
+          "bytesSent": 180121,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "valtio",
+                "version": "2.3.2",
+                "homepage": "https://github.com/pmndrs/valtio"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 225.6799999833107,
+          "meanCI": {
+            "low": 219.40800779807785,
+            "high": 231.95199216854354
+          },
+          "variance": 179.59431589467906,
+          "standardDeviation": 13.401280382660422,
+          "relativeStandardDeviation": 0.05938178121079166
+        }
+      },
+      "startup": {
+        "result": {
+          "name": "valtio-v2.3.2 [startup]",
+          "measurement": {
+            "mode": "expression",
+            "name": "startup",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()"
+          },
+          "measurementIndex": 1,
+          "queryString": "?bench=react/fields/dist/valtio.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            104.59999990463257,
+            99.20000004768372,
+            139.19999980926514,
+            92.09999990463257,
+            97.70000004768372,
+            94.89999985694885,
+            97.29999995231628,
+            98.80000019073486,
+            105.20000004768372,
+            94.30000019073486,
+            98.79999995231628,
+            106.89999985694885,
+            97.20000004768372,
+            94.09999990463257,
+            98.29999995231628,
+            102.70000004768372,
+            96.79999995231628,
+            95.70000004768372,
+            93.40000009536743,
+            95.19999980926514
+          ],
+          "bytesSent": 180121,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "valtio",
+                "version": "2.3.2",
+                "homepage": "https://github.com/pmndrs/valtio"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 100.11999998092651,
+          "meanCI": {
+            "low": 95.41855808570818,
+            "high": 104.82144187614483
+          },
+          "variance": 100.91220973356148,
+          "standardDeviation": 10.045506942586893,
+          "relativeStandardDeviation": 0.10033466784359395
+        }
+      },
+      "memory": {
+        "result": {
+          "name": "valtio-v2.3.2 [memory]",
+          "measurement": {
+            "mode": "expression",
+            "name": "memory",
+            "expression": "(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()"
+          },
+          "measurementIndex": 2,
+          "queryString": "?bench=react/fields/dist/valtio.mjs&run=react/fields/index.mjs",
+          "version": "",
+          "millis": [
+            6806429,
+            6775693,
+            6805561,
+            6773861,
+            6768897,
+            6805565,
+            6774097,
+            6770345,
+            6772729,
+            6770321,
+            6770241,
+            6772653,
+            6804109,
+            6777677,
+            6773853,
+            6777681,
+            6772901,
+            6773857,
+            6772693,
+            6768969
+          ],
+          "bytesSent": 180121,
+          "browser": {
+            "extra": {
+              "methodology": {
+                "version": 2,
+                "react": "18.3.1",
+                "operations": 100,
+                "sampleSize": 20,
+                "cpuThrottlingRate": 4,
+                "sourceRevision": "dc8ca52982f1701dffd09dbdf1812da1058debc1",
+                "lockfileSha256": "af903347cc3d5620730718a02ae400ea5a46163c2ca501a3758d52b6dac1bf4b"
+              },
+              "npm": {
+                "npmName": "valtio",
+                "version": "2.3.2",
+                "homepage": "https://github.com/pmndrs/valtio"
+              },
+              "stats": {
+                "cpu": "linux 6.18.33.2-microsoft-standard-WSL2, AMD Ryzen 9 9950X 16-Core Processor (32 core) x64"
+              }
+            },
+            "name": "chrome",
+            "addArguments": [
+              "--no-sandbox",
+              "--no-first-run",
+              "--enable-automation",
+              "--disable-infobars",
+              "--disable-background-networking",
+              "--disable-background-timer-throttling",
+              "--disable-cache",
+              "--disable-translate",
+              "--disable-sync",
+              "--disable-extensions",
+              "--disable-default-apps",
+              "--js-flags=--expose-gc",
+              "--enable-precise-memory-info"
+            ],
+            "headless": true,
+            "windowSize": {
+              "width": 800,
+              "height": 600
+            },
+            "cpuThrottlingRate": 4
+          },
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36"
+        },
+        "stats": {
+          "size": 20,
+          "mean": 6779406.6,
+          "meanCI": {
+            "low": 6773059.287821941,
+            "high": 6785753.912178058
+          },
+          "variance": 183933691.62105262,
+          "standardDeviation": 13562.215586734072,
+          "relativeStandardDeviation": 0.002000501870876733
+        }
+      }
+    }
+  ]
+]
