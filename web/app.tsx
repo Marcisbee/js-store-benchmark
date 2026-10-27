@@ -1,428 +1,415 @@
 import "./livereload.ts";
-
 import { results } from "@js-store-benchmark/results";
-import { Exome } from "exome";
-import { useStore } from "exome/react";
-import { Suspense, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { hexToColor, lerpMultipleColors } from "./utils/color-lerp.ts";
-import { useSuspense } from "./utils/use-suspense.ts";
-
-type ResultDataContent = Awaited<
-	ReturnType<typeof results[string][number]["content"]>
->;
-
-interface ResultData extends Omit<typeof results[string][number], "content"> {
-	content: ResultDataContent;
+const metrics = {
+	performance: {
+		label: "Update",
+		unit: "ms",
+		divisor: 1,
+		description: "Time to complete the update workload",
+	},
+	startup: {
+		label: "Startup",
+		unit: "ms",
+		divisor: 1,
+		description: "Time to mount and read initial state",
+	},
+	memory: {
+		label: "Memory",
+		unit: "MB",
+		divisor: 1024 * 1024,
+		description: "Used JavaScript heap after the workload",
+	},
+	size: {
+		label: "Transfer",
+		unit: "KB",
+		divisor: 1024,
+		description: "Bytes transferred for the benchmark page",
+	},
+	score: {
+		label: "Score",
+		unit: "",
+		divisor: 1,
+		description:
+			"Sum of each metric divided by its best value; lower is better",
+	},
+};
+type Metric = keyof typeof metrics;
+const metricKeys = Object.keys(metrics) as Metric[];
+type Measurement = {
+	stats: { mean: number; standardDeviation: number };
+	result: {
+		bytesSent: number;
+		userAgent: string;
+		browser: {
+			extra?: { npm?: { homepage?: string }; stats?: { cpu?: string } };
+		};
+	};
+};
+type ResultRow = [
+	string,
+	Record<"performance" | "startup" | "memory", Measurement>,
+];
+type Suite = { type: string; name: string; content: ResultRow[] };
+const dates = Object.keys(results).sort().reverse();
+const cache = new Map<string, Promise<Suite[]>>();
+function load(date: string): Promise<Suite[]> {
+	if (!cache.has(date))
+		cache.set(
+			date,
+			Promise.all(
+				results[date].map(async ({ content, ...suite }) => ({
+					...suite,
+					content: await content(),
+				})),
+			).catch((error) => {
+				cache.delete(date);
+				throw error;
+			}),
+		);
+	return cache.get(date)!;
 }
-
-class ResultsStore extends Exome {
-	private fetchedResults: Record<string, ResultData[]> = {};
-	public keys: string[] = Object.keys(results).sort(
-		(a, b) => Number(b) - Number(a),
+function dateLabel(date: string) {
+	return new Intl.DateTimeFormat("en-GB", {
+		day: "numeric",
+		month: "short",
+		year: "numeric",
+		timeZone: "UTC",
+	}).format(
+		new Date(`${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`),
 	);
-	public active: string = this.keys[0];
-
-	public async getResults(key: string) {
-		const target = results[key];
-
-		// There are no unresolved data
-		if (!target.find(({ content }) => typeof content === "function")) {
-			return target;
-		}
-
-		return (this.fetchedResults[key] = await Promise.all(
-			target.map(async ({ content, ...rest }) => ({
-				...rest,
-				content: await content(),
-			})),
-		));
-	}
-
-	public setActive(active: ResultsStore["active"]) {
-		this.active = active;
-	}
 }
-
-const resultsStore = new ResultsStore();
-
-// const getColor = lerpMultipleColors({
-//   0: 0x63bf7c,
-//   0.25: 0xffe883,
-//   0.75: 0xfdc47d,
-//   1: 0xf9696c,
-// });
-
-// const getColor = lerpMultipleColors({
-//   0: 0xa8cf8c,
-//   0.5: 0xffe699,
-//   1: 0xf4b184,
-// });
-
-const getColor = lerpMultipleColors({
-	0: 0x5cbd7f,
-	0.5: 0xfde681,
-	1: 0xf36c75,
-});
-
-function prepareData(data: ResultDataContent) {
-	return (data || [])
-		.map(([name, original]) => ({
-			name,
-			extra: original.performance.result.browser.extra,
-			data: {
-				performance: {
-					data: original.performance.stats.mean,
-					standardDeviation: original.performance.stats.standardDeviation,
-				},
-				startup: {
-					data: original.startup.stats.mean,
-					standardDeviation: original.performance.stats.standardDeviation,
-				},
-				memory: {
-					data: original.memory.stats.mean,
-					standardDeviation: original.performance.stats.standardDeviation,
-				},
-				size: {
-					data: original.performance.result.bytesSent,
-				},
+function prepare(rows: ResultRow[]) {
+	const data = rows.map(([id, measurements]) => {
+		const match = id.match(/^(.*)-v(.+)$/);
+		return {
+			id,
+			name: match?.[1] || id,
+			version: match?.[2],
+			homepage: measurements.performance.result.browser.extra?.npm?.homepage,
+			values: {
+				performance: measurements.performance.stats.mean,
+				startup: measurements.startup.stats.mean,
+				memory: measurements.memory.stats.mean,
+				size: measurements.performance.result.bytesSent,
+				score: 0,
 			},
-		}))
-		.map((current, index, all) => {
-			const performance = all
-				.slice()
-				.sort((a, b) => a.data.performance.data - b.data.performance.data);
-			const startup = all
-				.slice()
-				.sort((a, b) => a.data.startup.data - b.data.startup.data);
-			const memory = all
-				.slice()
-				.sort((a, b) => a.data.memory.data - b.data.memory.data);
-			const size = all
-				.slice()
-				.sort((a, b) => a.data.size.data - b.data.size.data);
-
-			current.min = {
-				performance: performance[0].data.performance.data,
-				startup: startup[0].data.startup.data,
-				memory: memory[0].data.memory.data,
-				size: size[0].data.size.data,
-			};
-
-			current.max = {
-				performance: performance[performance.length - 1].data.performance.data,
-				startup: startup[startup.length - 1].data.startup.data,
-				memory: memory[memory.length - 1].data.memory.data,
-				size: size[size.length - 1].data.size.data,
-			};
-
-			current.data.performance.score =
-				current.data.performance.data / current.min.performance;
-			current.data.startup.score =
-				current.data.startup.data / current.min.startup;
-			current.data.memory.score = current.data.memory.data / current.min.memory;
-			current.data.size.score = current.data.size.data / current.min.size;
-
-			current.data.score = {
-				data: Object.values(current.data).reduce((acc, d) => acc + d.score, 0),
-			};
-
-			return current;
-		})
-		.map((current, index, all) => {
-			const score = all
-				.slice()
-				.sort((a, b) => a.data.score.data - b.data.score.data);
-
-			current.min.score = score[0].data.score.data;
-			current.max.score = score[score.length - 1].data.score.data;
-
-			return current;
-		});
+			deviations: {
+				performance: measurements.performance.stats.standardDeviation,
+				startup: measurements.startup.stats.standardDeviation,
+				memory: measurements.memory.stats.standardDeviation,
+			},
+		};
+	});
+	for (const key of metricKeys.filter((key) => key !== "score")) {
+		const minimum = Math.min(...data.map((row) => row.values[key]));
+		for (const row of data)
+			row.values.score +=
+				minimum > 0
+					? row.values[key] / minimum
+					: row.values[key] === 0
+						? 1
+						: Infinity;
+	}
+	return data;
 }
-
-const qsFocus = new URLSearchParams(location.search)
-	.get("focus")
-	?.replace(/([\/\^\.\*\(\)])/g, "\\$1");
-const qsFocusRegex = new RegExp(`^${qsFocus}`);
-
-function Bench({
-	data,
-	details,
-	format,
-}: {
-	data: Record<string, any>[];
-	details: Record<string, React.ReactNode>;
-	format: Record<string, (value: number) => string>;
-}) {
-	const [sortBy, setSortBy] = useState("score");
-
-	const sortedDataCount = data
-		.slice()
-		.sort((a, b) => a.data[sortBy].data - b.data[sortBy].data);
-
-	return (
-		<table>
-			<thead>
-				<tr>
-					<th style={{ width: 120 }}>Name</th>
-					{sortedDataCount.map(({ name, extra }) => (
-						<th
-							key={`n-${name}`}
-							className={[
-								!/\-v\d+\.\d+\.\d+$/.test(name) && "noVersionBench",
-								qsFocus && qsFocusRegex.test(name) && "focusBench",
-							]
-								.filter(Boolean)
-								.join(" ")}
-						>
-							{extra?.npm?.homepage ? (
-								<a href={extra.npm.homepage} target="_blank" rel="noreferrer">
-									{name}
-								</a>
-							) : (
-								<span>{name}</span>
-							)}
-						</th>
-					))}
-				</tr>
-			</thead>
-			<tbody>
-				{Object.entries(details).map(([key, detail]) => (
-					<tr key={`n-${key}`}>
-						<td
-							style={{
-								width: 120,
-								padding: 5,
-								cursor: "pointer",
-								fontWeight: sortBy === key ? "bold" : undefined,
-							}}
-							onClick={() => setSortBy(key)}
-						>
-							{detail || key || null}
-						</td>
-
-						{sortedDataCount.map(({ data, min, max, name }) => {
-							const formatData = format[key] || ((v: number) => v.toFixed(1));
-							const slowdown =
-								1 - (1 / (min[key] - max[key])) * (data[key].data - max[key]);
-							const backgroundColor = hexToColor(getColor(slowdown));
-
-							return (
-								<th key={`n-${key}-${name}`} style={{ backgroundColor }}>
-									{formatData(data[key].data)}
-									{data[key].standardDeviation != null && (
-										<small style={{ opacity: 0.6 }}>
-											{" ± "}
-											{data[key].standardDeviation.toFixed(1)}
-										</small>
-									)}
-									{data[key].score != null && (
-										<>
-											<br />
-											<small style={{ opacity: 0.6 }}>
-												({data[key].score.toFixed(2)})
-											</small>
-										</>
-									)}
-								</th>
-							);
-						})}
-					</tr>
-				))}
-			</tbody>
-		</table>
-	);
-}
-
-function ResultsSelector() {
-	const { active, setActive, keys } = useStore(resultsStore);
-
-	return (
-		<select
-			value={active}
-			onChange={(e) => {
-				setActive(e.target.value);
-			}}
-		>
-			{keys.map((key) => (
-				<option key={`r-${key}`} value={key}>
-					{key
-						.split(/(^\d{0,4}|\d{0,2}$)/g)
-						.filter(Boolean)
-						.reverse()
-						.join(".")}
-				</option>
-			))}
-		</select>
-	);
-}
-
-function Results() {
-	const { active, getResults } = useStore(resultsStore);
-
-	const data = useSuspense(() => getResults(active), [active]);
-	const dataReactCounter = useMemo(
-		() =>
-			prepareData(
-				data?.find(({ name, type }) => name === "counter" && type === "react")
-					?.content as ResultDataContent,
-			),
-		[data],
-	);
-	const dataReactFields = useMemo(
-		() =>
-			prepareData(
-				data?.find(({ name, type }) => name === "fields" && type === "react")
-					?.content as ResultDataContent,
-			),
-		[data],
-	);
-
-	return (
-		<div>
-			User-Agent:{" "}
-			{(data?.[0].content as any)?.[0]?.[1]?.performance?.result?.userAgent ||
-				"unknown"}{" "}
-			<br />
-			CPU:{" "}
-			{(data?.[0].content as any)?.[0]?.[1]?.performance?.result?.browser?.extra
-				?.stats?.cpu || "unknown"}{" "}
-			<br />
-			<hr />
-			React
-			<hr />
-			<Bench
-				details={{
-					performance: (
-						<>
-							Performance
-							<br />
-							<small>Counting to 1000</small>
-						</>
-					),
-					startup: (
-						<>
-							Startup
-							<br />
-							<small>Starting up and reading initial state</small>
-						</>
-					),
-					memory: (
-						<>
-							Memory
-							<br />
-							<small>Memory usage in (kB)</small>
-						</>
-					),
-					size: (
-						<>
-							Size
-							<br />
-							<small>Network size (kB)</small>
-						</>
-					),
-					score: (
-						<>
-							Score
-							<br />
-							<small>Overall score</small>
-						</>
-					),
-				}}
-				format={{
-					memory(value) {
-						return (value / 1024 / 1024).toFixed(1);
-					},
-					size(value) {
-						return (value / 1024).toFixed(1);
-					},
-				}}
-				data={dataReactCounter}
-			/>
-			<hr />
-			<Bench
-				details={{
-					performance: (
-						<>
-							Performance
-							<br />
-							<small>Rendering 1000 input fields and updating 10th</small>
-						</>
-					),
-					startup: (
-						<>
-							Startup
-							<br />
-							<small>Starting up and reading initial state</small>
-						</>
-					),
-					memory: (
-						<>
-							Memory
-							<br />
-							<small>Memory usage in (kB)</small>
-						</>
-					),
-					size: (
-						<>
-							Size
-							<br />
-							<small>Network size (kB)</small>
-						</>
-					),
-					score: (
-						<>
-							Score
-							<br />
-							<small>Overall score</small>
-						</>
-					),
-				}}
-				format={{
-					memory(value) {
-						return (value / 1024 / 1024).toFixed(1);
-					},
-					size(value) {
-						return (value / 1024).toFixed(1);
-					},
-				}}
-				data={dataReactFields}
-			/>
-		</div>
-	);
-}
-
+const focus = new URLSearchParams(location.search).get("focus");
 export function App() {
+	const [date, setDate] = useState(dates[0]);
+	const [suite, setSuite] = useState("counter");
+	const [metric, setMetric] = useState<Metric>("score");
+	const [descending, setDescending] = useState(false);
+	const [search, setSearch] = useState("");
+	const [data, setData] = useState<Suite[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
+	const [retry, setRetry] = useState(0);
+	useEffect(() => {
+		let cancelled = false;
+		setLoading(true);
+		setError(false);
+		if (!date) {
+			setLoading(false);
+			return;
+		}
+		load(date)
+			.then((value) => {
+				if (!cancelled) setData(value);
+			})
+			.catch(() => {
+				if (!cancelled) setError(true);
+			})
+			.finally(() => {
+				if (!cancelled) setLoading(false);
+			});
+		return () => {
+			cancelled = true;
+		};
+	}, [date, retry]);
+	const source =
+		data.find((item) => item.type === "react" && item.name === suite)
+			?.content || [];
+	const rows = useMemo(() => prepare(source), [source]);
+	const sorted = useMemo(
+		() =>
+			[...rows].sort(
+				(a, b) =>
+					(a.values[metric] - b.values[metric]) * (descending ? -1 : 1) ||
+					a.name.localeCompare(b.name),
+			),
+		[rows, metric, descending],
+	);
+	const filtered = sorted.filter((row) =>
+		row.id.toLowerCase().includes(search.trim().toLowerCase()),
+	);
+	const environment = source[0]?.[1].performance.result;
+	function selectMetric(value: Metric) {
+		setMetric(value);
+		setDescending(false);
+	}
 	return (
-		<div>
-			<h1>JS Store Benchmark</h1>
-			<h4>
+		<main>
+			<header className="page-header">
+				<h1>
+					JS Store Benchmark<span className="framework">React</span>
+				</h1>
 				<a
+					className="source-link"
 					href="https://github.com/Marcisbee/js-store-benchmark"
 					target="_blank"
 					rel="noreferrer"
-					className="github"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="32"
-						height="32"
-						viewBox="0 0 24 24"
-					>
-						<path
-							fill="currentColor"
-							fillRule="evenodd"
-							d="M11.999 1C5.926 1 1 5.925 1 12c0 4.86 3.152 8.983 7.523 10.437c.55.102.75-.238.75-.53c0-.26-.009-.952-.014-1.87c-3.06.664-3.706-1.475-3.706-1.475c-.5-1.27-1.221-1.61-1.221-1.61c-.999-.681.075-.668.075-.668c1.105.078 1.685 1.134 1.685 1.134c.981 1.68 2.575 1.195 3.202.914c.1-.71.384-1.195.698-1.47c-2.442-.278-5.01-1.222-5.01-5.437c0-1.2.428-2.183 1.132-2.952c-.114-.278-.491-1.397.108-2.91c0 0 .923-.297 3.025 1.127A10.536 10.536 0 0 1 12 6.32a10.49 10.49 0 0 1 2.754.37c2.1-1.424 3.022-1.128 3.022-1.128c.6 1.514.223 2.633.11 2.911c.705.769 1.13 1.751 1.13 2.952c0 4.226-2.572 5.156-5.022 5.428c.395.34.747 1.01.747 2.037c0 1.47-.014 2.657-.014 3.017c0 .295.199.637.756.53C19.851 20.979 23 16.859 23 12c0-6.075-4.926-11-11.001-11"
-						/>
-					</svg>
+					GitHub <span aria-hidden="true">↗</span>
 				</a>
-			</h4>
-			<ResultsSelector />
-			<br />
-			<Suspense fallback="Loading..">
-				<Results />
-			</Suspense>
-		</div>
+			</header>
+			<section className="results" aria-label="Benchmark results">
+				<div className="toolbar">
+					<div
+						className="suite-switch"
+						role="group"
+						aria-label="Benchmark suite"
+					>
+						<button
+							type="button"
+							aria-pressed={suite === "counter"}
+							onClick={() => setSuite("counter")}
+						>
+							Counter
+						</button>
+						<button
+							type="button"
+							aria-pressed={suite === "fields"}
+							onClick={() => setSuite("fields")}
+						>
+							Fields
+						</button>
+					</div>
+					<label className="date-control">
+						<span className="sr-only">Result date</span>
+						<select
+							value={date}
+							onChange={(event) => setDate(event.target.value)}
+						>
+							{dates.map((value) => (
+								<option key={value} value={value}>
+									{dateLabel(value)}
+								</option>
+							))}
+						</select>
+					</label>
+				</div>
+				<div className="table-tools">
+					<div className="workload">
+						<h2>
+							{suite === "counter"
+								? "1,000 increments"
+								: "100 edits · 1,000 fields"}
+						</h2>
+						<span aria-live="polite">
+							{!loading && !error ? `${filtered.length} targets` : "\u00a0"}
+						</span>
+					</div>
+					<label className="search">
+						<span className="sr-only">Filter libraries</span>
+						<svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18">
+							<circle cx="8.5" cy="8.5" r="5.5" />
+							<path d="m13 13 4 4" />
+						</svg>
+						<input
+							type="search"
+							placeholder="Filter libraries"
+							value={search}
+							onChange={(event) => setSearch(event.target.value)}
+						/>
+					</label>
+				</div>
+				<div className="mobile-sort">
+					<label>
+						Compare
+						<select
+							aria-label="Comparison metric"
+							value={metric}
+							onChange={(event) => selectMetric(event.target.value as Metric)}
+						>
+							{metricKeys.map((key) => (
+								<option key={key} value={key}>
+									{metrics[key].label}
+									{metrics[key].unit ? ` (${metrics[key].unit})` : ""}
+								</option>
+							))}
+						</select>
+					</label>
+					<button
+						type="button"
+						aria-label={descending ? "Sort ascending" : "Sort descending"}
+						onClick={() => setDescending(!descending)}
+					>
+						{descending ? "↓" : "↑"}
+					</button>
+				</div>
+				<div className="table-wrap" aria-busy={loading}>
+					<table>
+						<caption className="sr-only">
+							{suite === "counter" ? "Counter" : "Fields"} results,{" "}
+							{date && dateLabel(date)}. Lower values are better.
+						</caption>
+						<thead>
+							<tr>
+								<th className="rank" scope="col">
+									<span className="sr-only">Rank</span>#
+								</th>
+								<th className="library-heading" scope="col">
+									Library
+								</th>
+								{metricKeys.map((key) => (
+									<th
+										scope="col"
+										key={key}
+										className={`metric ${metric === key ? "selected" : ""}`}
+										aria-sort={
+											metric === key
+												? descending
+													? "descending"
+													: "ascending"
+												: "none"
+										}
+									>
+										<button
+											type="button"
+											title={metrics[key].description}
+											onClick={() =>
+												metric === key
+													? setDescending(!descending)
+													: selectMetric(key)
+											}
+										>
+											{metrics[key].label}{" "}
+											<span className="sort-arrow" aria-hidden="true">
+												{metric === key ? (descending ? "↓" : "↑") : "↕"}
+											</span>
+											<span className="unit">
+												{metrics[key].unit || "Relative"}
+											</span>
+										</button>
+									</th>
+								))}
+							</tr>
+						</thead>
+						<tbody>
+							{!loading &&
+								!error &&
+								filtered.map((row) => (
+									<tr
+										key={row.id}
+										className={
+											focus && row.id.startsWith(focus) ? "focused" : undefined
+										}
+									>
+										<td className="rank">{sorted.indexOf(row) + 1}</td>
+										<th scope="row" className="library">
+											{row.homepage ? (
+												<a href={row.homepage} target="_blank" rel="noreferrer">
+													{row.name}
+												</a>
+											) : (
+												<span>{row.name}</span>
+											)}
+											<span className="version">
+												{row.version ? `v${row.version}` : "React built-in"}
+											</span>
+										</th>
+										{metricKeys.map((key) => {
+											const deviation =
+												row.deviations[key as keyof typeof row.deviations];
+											return (
+												<td
+													key={key}
+													className={`metric ${metric === key ? "selected" : ""}`}
+												>
+													<span className="value">
+														{Number.isFinite(row.values[key])
+															? (
+																	row.values[key] / metrics[key].divisor
+																).toFixed(key === "score" ? 2 : 1)
+															: "—"}
+													</span>
+													{deviation !== undefined && (
+														<span className="deviation">
+															± {(deviation / metrics[key].divisor).toFixed(1)}
+														</span>
+													)}
+												</td>
+											);
+										})}
+									</tr>
+								))}
+						</tbody>
+					</table>
+					{loading ? (
+						<p className="empty" role="status">
+							Loading results…
+						</p>
+					) : error ? (
+						<div className="empty" role="alert">
+							Results could not load.{" "}
+							<button
+								type="button"
+								onClick={() => setRetry((value) => value + 1)}
+							>
+								Try again
+							</button>
+						</div>
+					) : (
+						filtered.length === 0 && (
+							<p className="empty" role="status">
+								{source.length
+									? "No matching libraries."
+									: "No results for this suite."}
+							</p>
+						)
+					)}
+				</div>
+				<footer className="table-footer">
+					<span>
+						Lower is better <span aria-hidden="true">·</span> ± standard
+						deviation
+					</span>
+					{!loading && environment && (
+						<details>
+							<summary>Run details</summary>
+							<dl>
+								<dt>CPU</dt>
+								<dd>
+									{environment.browser.extra?.stats?.cpu || "Not recorded"}
+								</dd>
+								<dt>Browser</dt>
+								<dd>{environment.userAgent || "Not recorded"}</dd>
+							</dl>
+						</details>
+					)}
+				</footer>
+			</section>
+		</main>
 	);
 }

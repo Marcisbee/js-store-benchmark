@@ -58,6 +58,7 @@
     "test": "node scripts/verify.mjs",
     "build": "node scripts/build.mjs",
     "bench:counter": "node run.react.counter.mjs",
-    "bench:fields": "node run.react.fields.mjs"
+    "bench:fields": "node run.react.fields.mjs",
+    "test:web": "node scripts/build.mjs && node scripts/verify-web.mjs"
   }
 }
