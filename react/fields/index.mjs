@@ -21,3 +21,17 @@ export default async function run(target) {
 		await updated;
 	}
 }
+
+export function validate(target) {
+	const inputs = target.querySelectorAll("input");
+	if (inputs.length !== 1000) throw new Error("Expected 1,000 fields");
+	for (let index = 0; index < inputs.length; index++) {
+		const expected =
+			index === 10 ? "Updated field #100" : `Field #${index + 1}`;
+		if (
+			inputs[index].value !== expected ||
+			inputs[index].defaultValue !== expected
+		)
+			throw new Error(`Incorrect committed value in field ${index + 1}`);
+	}
+}

@@ -45,11 +45,11 @@
   "dependencies": {
     "colorette": "2.0.20",
     "esbuild": "0.28.2",
-    "exome": "2.8.1",
+    "exome": "2.9.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "tachometer": "0.7.2",
-    "selenium-webdriver": "4.51.0"
+    "selenium-webdriver": "4.51.0",
+    "tachometer": "0.7.2"
   },
   "engines": {
     "node": ">=22"

@@ -50,7 +50,5 @@ export default async function (target: HTMLElement) {
 	const root = ReactDom.createRoot(target);
 	root.render(<App key={key++} />);
 
-	await new Promise((resolve) => setTimeout(resolve, 10));
-
 	return elementReady("h1");
 }

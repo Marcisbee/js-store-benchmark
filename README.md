@@ -89,7 +89,7 @@ Chrome. It requires each counter to reach 1,000 and each field target to commit
 100 edits while preserving the other 999 fields. A stalled mount or update
 fails with a deadline instead of leaving the benchmark waiting indefinitely.
 
-`npm run bench:counter` and `npm run bench:fields` collect ten measured samples
+`npm run bench:counter` and `npm run bench:fields` collect twenty measured samples
 per target after warmup, with the existing 4× CPU throttling. They write dated
 results under `results/`. Run them separately on an otherwise idle machine for
 meaningful timings. The tables above are historical results, not results from
@@ -112,3 +112,23 @@ with historical runs.
 
 Build the results website with `npm run build`. Start its development server
 with `node scripts/dev.mjs` (loopback port 8080, configurable with `PORT`).
+
+## Measurement methodology (version 2)
+
+New runs measure a complete batch of 1,000 counter increments or 100 edits to
+one of 1,000 fields. Each operation waits for its committed DOM update. Field
+adapters subscribe at field level so untouched fields do not rerender. Browser
+verification checks this using the existing render timestamps.
+
+Startup ends when the initial DOM is mounted. The old fixed 10 ms field delay
+has been removed; subscription settling happens after startup timing and before
+interaction timing. Every timed run validates the final counter or all field
+values outside the measured interval and rejects incorrect results.
+
+Memory is total used JavaScript heap after garbage collection, not incremental
+store memory. Transfer size includes the benchmark page and runtime. Results
+include target versions, browser and CPU details, shared React version, source
+revision, lockfile hash, sample count, and CPU throttle. Standard deviations
+show run variation; small differences should not be treated as a ranking of
+real-world application performance. Historical runs use different workloads,
+adapters, hardware, and timing boundaries and are not directly comparable.

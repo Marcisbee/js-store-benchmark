@@ -17,3 +17,8 @@ export default async function run(target) {
 		await updated;
 	}
 }
+
+export function validate(target) {
+	if (target.querySelector("h1")?.textContent !== "1000")
+		throw new Error("Counter did not commit all 1,000 increments");
+}

@@ -1,6 +1,8 @@
 // @ts-check
 import * as colorette from "colorette";
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { basename, resolve } from "node:path";
 import { build } from "./build.mjs";
 
@@ -18,7 +20,7 @@ export async function run(config) {
 
 	/** @type {Partial<import('tachometer/src/config').Config>} */
 	const tachometerConfig = {
-		sampleSize: 10,
+		sampleSize: 20,
 		timeout: 0,
 		mode: config.manual ? "manual" : undefined,
 		benchmarks: await Promise.all(
@@ -40,6 +42,23 @@ export async function run(config) {
 					},
 					browser: {
 						extra: {
+							methodology: {
+								version: 2,
+								react: JSON.parse(
+									readFileSync("node_modules/react/package.json", "utf8"),
+								).version,
+								operations: config.suite.toLowerCase().includes("counter")
+									? 1000
+									: 100,
+								sampleSize: 20,
+								cpuThrottlingRate: 4,
+								sourceRevision: execFileSync("git", ["rev-parse", "HEAD"], {
+									encoding: "utf8",
+								}).trim(),
+								lockfileSha256: createHash("sha256")
+									.update(readFileSync("package-lock.json"))
+									.digest("hex"),
+							},
 							npm: {
 								npmName,
 								version,
@@ -162,7 +181,7 @@ export async function run(config) {
 			[
 				colorette.blue(colorette.bold(nameOnly)),
 				colorette.dim(paddingOnly),
-				colorette.yellow(`${performance.stats.mean.toFixed(1)} ms/ops`),
+				colorette.yellow(`${performance.stats.mean.toFixed(1)} ms/batch`),
 				`±${performance.stats.standardDeviation.toFixed(1)}`,
 				// "|",
 				// colorette.yellow(`${startup.stats.mean.toFixed(2)} ms`),

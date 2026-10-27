@@ -1,5 +1,9 @@
 import { atom, PrimitiveAtom, useAtom } from "jotai";
-export { version, name, homepage } from "../../../node_modules/jotai/package.json";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/jotai/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 
@@ -43,8 +47,6 @@ let key = 0;
 export default async function (target: HTMLElement) {
 	const root = ReactDom.createRoot(target);
 	root.render(<App key={key++} />);
-
-	await new Promise((resolve) => setTimeout(resolve, 10));
 
 	return elementReady("h1");
 }

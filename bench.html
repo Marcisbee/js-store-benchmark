@@ -13,7 +13,7 @@
 
 		try {
 			const { default: mount } = await import(`./${params.bench}`);
-			const { default: run } = await import(`./${params.run}`);
+			const { default: run, validate } = await import(`./${params.run}`);
 			const app = document.getElementById("app");
 			const startupStart = performance.now();
 			let mountTimer;
@@ -27,14 +27,15 @@
 			} finally {
 				clearTimeout(mountTimer);
 			}
+			window.tachometerResultStartup = performance.now() - startupStart;
 			// Let passive-effect subscriptions settle before the first interaction.
 			await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)));
-			window.tachometerResultStartup = performance.now() - startupStart;
 
 			window.gc();
 			const performanceStart = performance.now();
 			await run(app);
 			window.tachometerResultPerformance = performance.now() - performanceStart;
+			validate(app);
 			window.gc();
 			window.tachometerResultMemory = window.performance.memory.usedJSHeapSize;
 		} catch (error) {

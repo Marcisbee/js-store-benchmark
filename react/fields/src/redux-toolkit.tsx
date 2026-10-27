@@ -1,5 +1,9 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
-export { version, name, homepage } from "../../../node_modules/@reduxjs/toolkit/package.json";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/@reduxjs/toolkit/package.json";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
@@ -24,7 +28,10 @@ const store = configureStore({
 	},
 });
 
-function Field({ index, field: name }: { index: number; field: string }) {
+function Field({ index }: { index: number }) {
+	const name = useSelector(
+		(state: ReturnType<typeof store.getState>) => state.fields.fields[index],
+	);
 	const dispatch = useDispatch();
 
 	return (
@@ -42,9 +49,8 @@ function Field({ index, field: name }: { index: number; field: string }) {
 }
 
 function App() {
-	const fields: string[] = useSelector(
-		(state: any) => state.fields.fields,
-		() => false,
+	const length = useSelector(
+		(state: ReturnType<typeof store.getState>) => state.fields.fields.length,
 	);
 
 	return (
@@ -53,8 +59,8 @@ function App() {
 				Last {`<App>`} render at: {new Date().toISOString()}
 			</div>
 			<br />
-			{fields.map((field, index) => (
-				<Field key={index} index={index} field={field} />
+			{Array.from({ length }, (_, index) => (
+				<Field key={index} index={index} />
 			))}
 			<h1>foot</h1>
 		</div>
@@ -70,8 +76,6 @@ export default async function (target: HTMLElement) {
 			<App />
 		</Provider>,
 	);
-
-	await new Promise((resolve) => setTimeout(resolve, 10));
 
 	return elementReady("h1");
 }

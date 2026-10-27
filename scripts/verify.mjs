@@ -42,6 +42,16 @@ try {
 		.forBrowser("chrome")
 		.setChromeOptions(options)
 		.build();
+	// Observe the existing render timestamps without adding work to timed runs.
+	await driver.sendDevToolsCommand("Page.addScriptToEvaluateOnNewDocument", {
+		source: `window.unrelatedFieldUpdates = 0;
+	 new MutationObserver(records => {
+	  for (const record of records) {
+	   const input = record.target.parentElement?.querySelector('input');
+	   if (input?.value.startsWith('Field #')) window.unrelatedFieldUpdates++;
+	  }
+	 }).observe(document, {subtree: true, characterData: true});`,
+	});
 	for (const suite of suites) {
 		for (const entry of suite.entryPoints) {
 			const name = entry
@@ -62,6 +72,7 @@ try {
 				);
 				const result = await driver.executeScript(`return {
      error: window.tachometerError,
+     unrelatedFieldUpdates: window.unrelatedFieldUpdates,
      measurements: [window.tachometerResultStartup, window.tachometerResultPerformance, window.tachometerResultMemory],
      count: document.querySelector('h1')?.textContent,
      fields: [...document.querySelectorAll('input')].map(input => [input.value, input.defaultValue]),
@@ -75,6 +86,11 @@ try {
 				if (suite.suite === "React Counter") assert.equal(result.count, "1000");
 				else {
 					assert.equal(result.fields.length, 1000);
+					assert.equal(
+						result.unrelatedFieldUpdates,
+						0,
+						"Unedited fields changed their render timestamps",
+					);
 					for (const [index, [value, committed]] of result.fields.entries()) {
 						assert.equal(
 							value,
