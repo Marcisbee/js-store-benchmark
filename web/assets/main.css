@@ -221,6 +221,8 @@ thead button {
 	padding-right: 14px;
 }
 td.metric {
+	color: #182a20;
+	border-bottom-color: #ffffff66;
 	text-align: right;
 	padding: 13px 32px 13px 6px;
 }
@@ -237,7 +239,7 @@ thead .selected button,
 }
 .deviation {
 	display: block;
-	color: #7c887f;
+	color: #263b2e;
 	font-size: 11px;
 	margin-top: 2px;
 }

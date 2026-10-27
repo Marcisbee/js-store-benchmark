@@ -1,6 +1,13 @@
 import "./livereload.ts";
 import { results } from "@js-store-benchmark/results";
 import { useEffect, useMemo, useState } from "react";
+import { hexToColor, lerpMultipleColors } from "./utils/color-lerp.ts";
+
+const heatColor = lerpMultipleColors({
+	0: 0x5cbd7f,
+	0.5: 0xfde681,
+	1: 0xf36c75,
+});
 
 const metrics = {
 	performance: {
@@ -151,6 +158,27 @@ export function App() {
 		data.find((item) => item.type === "react" && item.name === suite)
 			?.content || [];
 	const rows = useMemo(() => prepare(source), [source]);
+	const ranges = useMemo(
+		() =>
+			Object.fromEntries(
+				metricKeys.map((key) => {
+					const values = rows
+						.map((row) => row.values[key])
+						.filter(Number.isFinite);
+					return [key, { min: Math.min(...values), max: Math.max(...values) }];
+				}),
+			),
+		[rows],
+	);
+	function cellColor(key: Metric, value: number) {
+		if (!Number.isFinite(value)) return undefined;
+		const { min, max } = ranges[key];
+		return hexToColor(
+			heatColor(
+				max === min ? 0 : Math.max(0, Math.min(1, (value - min) / (max - min))),
+			),
+		);
+	}
 	const sorted = useMemo(
 		() =>
 			[...rows].sort(
@@ -346,6 +374,9 @@ export function App() {
 												<td
 													key={key}
 													className={`metric ${metric === key ? "selected" : ""}`}
+													style={{
+														backgroundColor: cellColor(key, row.values[key]),
+													}}
 												>
 													<span className="value">
 														{Number.isFinite(row.values[key])
