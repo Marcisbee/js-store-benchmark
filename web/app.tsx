@@ -272,31 +272,13 @@ export function App() {
 						/>
 					</label>
 				</div>
-				<div className="mobile-sort">
-					<label>
-						Compare
-						<select
-							aria-label="Comparison metric"
-							value={metric}
-							onChange={(event) => selectMetric(event.target.value as Metric)}
-						>
-							{metricKeys.map((key) => (
-								<option key={key} value={key}>
-									{metrics[key].label}
-									{metrics[key].unit ? ` (${metrics[key].unit})` : ""}
-								</option>
-							))}
-						</select>
-					</label>
-					<button
-						type="button"
-						aria-label={descending ? "Sort ascending" : "Sort descending"}
-						onClick={() => setDescending(!descending)}
-					>
-						{descending ? "↓" : "↑"}
-					</button>
-				</div>
-				<div className="table-wrap" aria-busy={loading}>
+				<div
+					className="table-wrap"
+					aria-busy={loading}
+					tabIndex={0}
+					role="region"
+					aria-label="Scrollable benchmark table"
+				>
 					<table>
 						<caption className="sr-only">
 							{suite === "counter" ? "Counter" : "Fields"} results,{" "}

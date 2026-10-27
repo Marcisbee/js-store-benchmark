@@ -86,21 +86,21 @@ try {
 					name.startsWith("exome-v"),
 				);
 				const actual = await driver.executeScript(
-					`const row = [...document.querySelectorAll('tbody tr')].find(row => row.querySelector('.library').textContent.replace('v', '-v') === arguments[0]); return row && [...row.querySelectorAll('.metric')].map(cell => cell.innerText);`,
+					`const row = [...document.querySelectorAll('tbody tr')].find(row => row.querySelector('.library').textContent.replace('v', '-v') === arguments[0]); return row && [...row.querySelectorAll('.metric')].map(cell => cell.textContent);`,
 					id,
 				);
 				assert.ok(actual, `${date}/${suite}: Exome row`);
 				assert.equal(
 					actual[0],
-					`${measurements.performance.stats.mean.toFixed(1)}\n± ${measurements.performance.stats.standardDeviation.toFixed(1)}`,
+					`${measurements.performance.stats.mean.toFixed(1)}± ${measurements.performance.stats.standardDeviation.toFixed(1)}`,
 				);
 				assert.equal(
 					actual[1],
-					`${measurements.startup.stats.mean.toFixed(1)}\n± ${measurements.startup.stats.standardDeviation.toFixed(1)}`,
+					`${measurements.startup.stats.mean.toFixed(1)}± ${measurements.startup.stats.standardDeviation.toFixed(1)}`,
 				);
 				assert.equal(
 					actual[2],
-					`${(measurements.memory.stats.mean / 1024 ** 2).toFixed(1)}\n± ${(measurements.memory.stats.standardDeviation / 1024 ** 2).toFixed(1)}`,
+					`${(measurements.memory.stats.mean / 1024 ** 2).toFixed(1)}± ${(measurements.memory.stats.standardDeviation / 1024 ** 2).toFixed(1)}`,
 				);
 			}
 		}
@@ -132,11 +132,14 @@ try {
 			false,
 			`${width}px clipped toolbar`,
 		);
-		assert.equal(layout.metrics, width <= 700 ? 1 : 5);
+		assert.equal(layout.metrics, 5);
 	}
 	await driver.manage().window().setRect({ width: 390, height: 844 });
-	for (const metric of ["performance", "startup", "memory", "size", "score"]) {
-		await choose(".mobile-sort select", metric);
+	for (const column of [3, 4, 5, 6, 7]) {
+		const button = await driver.findElement(
+			By.css(`thead th:nth-child(${column}) button`),
+		);
+		await button.click();
 		const ascending = await driver.executeScript(
 			`return [...document.querySelectorAll('tbody .selected .value')].map(cell => Number(cell.textContent))`,
 		);
@@ -144,7 +147,7 @@ try {
 			ascending,
 			[...ascending].sort((a, b) => a - b),
 		);
-		await driver.findElement(By.css(".mobile-sort button")).click();
+		await button.click();
 		const descending = await driver.executeScript(
 			`return [...document.querySelectorAll('tbody .selected .value')].map(cell => Number(cell.textContent))`,
 		);
@@ -177,7 +180,7 @@ try {
 	);
 	assert.deepEqual(errors, []);
 	console.log(
-		"PASS results page: all saved dates/suites, exact metrics, filtering, mobile metric selection, keyboard sorting, 320–1280px layouts",
+		"PASS results page: all saved dates/suites, exact metrics, filtering, all mobile columns and sorting, keyboard sorting, 320–1280px layouts",
 	);
 } finally {
 	try {

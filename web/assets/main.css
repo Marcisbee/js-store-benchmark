@@ -15,7 +15,7 @@ body {
 main {
 	max-width: 1160px;
 	margin: 0 auto;
-	padding: 40px 28px 60px;
+	padding: 16px 20px 32px;
 }
 a {
 	color: inherit;
@@ -42,7 +42,7 @@ button {
 	align-items: center;
 	justify-content: space-between;
 	gap: 16px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 h1 {
 	display: flex;
@@ -82,7 +82,7 @@ h1 {
 	align-items: center;
 	justify-content: space-between;
 	gap: 20px;
-	padding: 20px 24px;
+	padding: 8px 12px;
 	border-bottom: 1px solid #e5e9e6;
 }
 .suite-switch {
@@ -119,7 +119,7 @@ select {
 	justify-content: space-between;
 	align-items: center;
 	gap: 20px;
-	padding: 24px;
+	padding: 8px 12px;
 }
 h2 {
 	font-size: 15px;
@@ -163,9 +163,6 @@ h2 {
 .search input::placeholder {
 	color: #6a766e;
 }
-.mobile-sort {
-	display: none;
-}
 table {
 	width: 100%;
 	border-collapse: collapse;
@@ -184,26 +181,26 @@ thead th {
 	font-weight: 500;
 	text-align: right;
 	color: #59675e;
-	height: 64px;
+	height: 44px;
 }
 .rank {
-	width: 48px;
+	width: 32px;
 	text-align: center;
 	color: #78847c;
 	font-size: 11px;
 }
 .library-heading,
 .library {
-	width: 26%;
+	width: 190px;
 	text-align: left;
 }
 thead button {
 	width: 100%;
-	min-height: 64px;
+	min-height: 44px;
 	background: none;
 	border: 0;
 	text-align: right;
-	padding: 10px 18px 10px 6px;
+	padding: 4px 12px 4px 6px;
 	font-size: 12px;
 	font-weight: 550;
 }
@@ -224,7 +221,7 @@ td.metric {
 	color: #182a20;
 	border-bottom-color: #ffffff66;
 	text-align: right;
-	padding: 13px 32px 13px 6px;
+	padding: 4px 12px 4px 6px;
 }
 .selected {
 	background: #f2f7f3;
@@ -246,12 +243,12 @@ thead .selected button,
 .library {
 	font-size: 13px;
 	font-weight: 550;
-	padding: 12px 12px 12px 0;
+	padding: 4px 8px;
 	overflow-wrap: anywhere;
 }
 .version {
-	display: block;
-	margin-top: 3px;
+	display: inline;
+	margin-left: 6px;
 	font-size: 11px;
 	font-weight: 400;
 	color: #7b867e;
@@ -326,147 +323,132 @@ dd {
 		color: #267457;
 	}
 }
+
+.table-wrap {
+	overflow: auto;
+	max-height: 75vh;
+}
+table {
+	min-width: 720px;
+}
+thead th {
+	position: sticky;
+	top: 0;
+	z-index: 3;
+	background: #f8f9f8;
+}
+.library,
+.library-heading {
+	position: sticky;
+	left: 0;
+	background: #fff;
+	z-index: 2;
+	border-right: 1px solid #dce1dd;
+}
+.library-heading {
+	z-index: 4;
+	background: #f8f9f8;
+}
+.deviation {
+	display: inline;
+	margin-left: 5px;
+	white-space: nowrap;
+}
+.value {
+	font-size: 13px;
+}
+.workload {
+	display: flex;
+	align-items: baseline;
+	gap: 12px;
+}
+.table-footer {
+	padding: 6px 12px;
+}
 @media (max-width: 700px) {
 	main {
-		padding: 20px 14px 32px;
+		padding: 8px 6px 20px;
 	}
 	.page-header {
-		margin-bottom: 18px;
+		margin-bottom: 4px;
 		gap: 8px;
 	}
 	h1 {
-		font-size: 19px;
-		gap: 8px;
-		letter-spacing: -.6px;
+		font-size: 18px;
+		gap: 6px;
 	}
 	.framework {
 		display: none;
 	}
 	.source-link {
 		font-size: 12px;
-		gap: 4px;
 	}
 	.results {
-		border-radius: 10px;
+		border-radius: 6px;
 	}
 	.toolbar {
-		padding: 12px;
-		gap: 10px;
+		gap: 6px;
+		padding: 6px;
 	}
 	.suite-switch button {
 		min-width: 0;
 		min-height: 40px;
-		padding: 6px 13px;
+		padding: 4px 10px;
 		font-size: 13px;
 	}
 	.date-control {
-		flex: 1;
 		min-width: 0;
-		max-width: 170px;
 	}
 	.date-control select {
 		width: 100%;
-		font-size: 16px;
-		padding-left: 8px;
-		padding-right: 18px;
+		padding: 6px;
+		font-size: 14px;
 	}
 	.table-tools {
-		padding: 20px 16px 12px;
-		align-items: stretch;
-		flex-direction: column;
-		gap: 16px;
+		padding: 6px;
+		gap: 6px;
+		flex-wrap: wrap;
 	}
 	.workload {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 12px;
+		gap: 8px;
 	}
 	h2 {
-		font-size: 14px;
+		font-size: 12px;
 	}
 	.workload > span {
 		font-size: 11px;
-		white-space: nowrap;
 	}
 	.search {
-		width: 100%;
+		flex: 1;
+		min-width: 130px;
+		padding: 0 8px;
 	}
 	.search input {
 		width: 100%;
-		min-height: 44px;
 		font-size: 16px;
+		min-height: 40px;
 	}
-	.mobile-sort {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 0 16px 16px;
+	.library,
+	.library-heading {
+		width: 150px;
 	}
-	.mobile-sort label {
-		display: flex;
-		flex: 1;
-		align-items: center;
-		gap: 12px;
-		color: #67776b;
-		font-size: 12px;
+	.version {
+		display: block;
+		margin: 0;
 	}
-	.mobile-sort select {
-		flex: 1;
-		min-width: 0;
-		font-size: 16px;
+	.deviation {
+		display: block;
+		margin: 0;
 	}
-	.mobile-sort button {
-		width: 44px;
-		min-height: 44px;
-		border: 1px solid #dce1dd;
-		border-radius: 7px;
-		background: white;
-		font-size: 19px;
-	}
-	.metric:not(.selected) {
-		display: none;
-	}
-	.rank {
-		width: 34px;
-	}
-	.library-heading,
-	.library {
-		width: auto;
-	}
-	.metric.selected {
-		width: 120px;
-	}
-	thead button {
-		padding-right: 16px;
-	}
-	td.metric {
-		padding-right: 30px;
-	}
-	.library {
-		padding-top: 14px;
-		padding-bottom: 14px;
-		font-size: 13px;
+	table {
+		min-width: 650px;
 	}
 	.table-footer {
-		padding: 12px 16px;
 		flex-wrap: wrap;
-		gap: 6px;
-		font-size: 10px;
+		gap: 4px;
 	}
 	details {
-		width: 100%;
 		max-width: 100%;
 		text-align: left;
-	}
-}
-@media (max-width: 360px) {
-	main {
-		padding-left: 8px;
-		padding-right: 8px;
-	}
-	.suite-switch button {
-		padding-left: 10px;
-		padding-right: 10px;
 	}
 }
