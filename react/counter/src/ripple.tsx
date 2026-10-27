@@ -1,5 +1,9 @@
 import { createRipples } from "@m-c2/ripple";
-export { version, name, homepage } from "../../../node_modules/valtio/package.json";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/@m-c2/ripple/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 

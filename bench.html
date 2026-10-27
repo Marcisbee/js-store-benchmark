@@ -11,19 +11,36 @@
 		const urlSearchParams = new URLSearchParams(window.location.search);
 		const params = Object.fromEntries(urlSearchParams.entries());
 
-		const { default: mount } = await import(`./${params.bench}`);
-		const { default: run } = await import(`./${params.run}`);
+		try {
+			const { default: mount } = await import(`./${params.bench}`);
+			const { default: run } = await import(`./${params.run}`);
+			const app = document.getElementById("app");
+			const startupStart = performance.now();
+			let mountTimer;
+			try {
+				await Promise.race([
+					mount(app),
+					new Promise((_, reject) => {
+						mountTimer = setTimeout(() => reject(new Error("Mount timed out")), 10000);
+					}),
+				]);
+			} finally {
+				clearTimeout(mountTimer);
+			}
+			// Let passive-effect subscriptions settle before the first interaction.
+			await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)));
+			window.tachometerResultStartup = performance.now() - startupStart;
 
-		const startupStart = performance.now();
-		await mount(app);
-		window.tachometerResultStartup = performance.now() - startupStart;
-
-		window.gc();
-		const performanceStart = performance.now();
-		await run(app);
-		window.tachometerResultPerformance = performance.now() - performanceStart;
-		window.gc();
-		window.tachometerResultMemory = window.performance.memory.usedJSHeapSize;
+			window.gc();
+			const performanceStart = performance.now();
+			await run(app);
+			window.tachometerResultPerformance = performance.now() - performanceStart;
+			window.gc();
+			window.tachometerResultMemory = window.performance.memory.usedJSHeapSize;
+		} catch (error) {
+			window.tachometerError = error.stack || String(error);
+			console.error(error);
+		}
 	</script>
 </body>
 

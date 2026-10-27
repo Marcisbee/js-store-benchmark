@@ -1,6 +1,10 @@
 import { createEvent, createStore } from "effector";
-export { version, name, homepage } from "../../../node_modules/effector/package.json";
-import { useStore } from "effector-react";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/effector/package.json";
+import { useUnit } from "effector-react";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 
@@ -12,7 +16,7 @@ const increment = createEvent();
 const $counter = createStore(0).on(increment, (n) => n + 1);
 
 function App() {
-	const counter = useStore($counter);
+	const counter = useUnit($counter);
 
 	return <h1 onClick={clickAction(increment)}>{counter}</h1>;
 }

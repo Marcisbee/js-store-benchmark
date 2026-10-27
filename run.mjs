@@ -1,8 +1,8 @@
 // @ts-check
 import * as colorette from "colorette";
-import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
-import esbuild from "esbuild";
+import { writeFileSync, mkdirSync } from "node:fs";
+import { basename, resolve } from "node:path";
+import { build } from "./build.mjs";
 
 import { tachometer } from "./tachometer.mjs";
 import { getStats } from "./stats.mjs";
@@ -13,52 +13,7 @@ const cpuStats = getStats();
  * @param {{ suite: string, entryPoints: string[], outdir: string, runPath: string, manual: boolean }} config
  */
 export async function run(config) {
-	const context = await esbuild.build({
-		entryPoints: config.entryPoints,
-		outdir: config.outdir,
-		format: "esm",
-		minify: true,
-		bundle: true,
-		outExtension: {
-			".js": ".mjs",
-		},
-		// Legal comments should not be part of bundle as we compare raw size too
-		legalComments: "none",
-		sourcemap: false,
-		define: {
-			"process.env.NODE_ENV": '"production"',
-		},
-		platform: "browser",
-		metafile: true,
-		plugins: [
-			{
-				name: "package-json",
-				setup({ onResolve, onLoad }) {
-					onResolve({ filter: /\/package\.json$/ }, (args) => ({
-						namespace: "package-json",
-						path: join(args.resolveDir, args.path),
-					}));
-
-					onLoad({ filter: /./, namespace: "package-json" }, async (args) => {
-						try {
-							const { name, version, homepage } = JSON.parse(
-								readFileSync(args.path, "utf-8"),
-							);
-
-							return {
-								contents: JSON.stringify({ name, version, homepage }),
-								loader: "json",
-							};
-						} catch (err) {
-							// err = { errors, warnings }
-							return err;
-						}
-					});
-				},
-			},
-		],
-	});
-
+	const context = await build(config);
 	const distPaths = Object.keys(context.metafile.outputs);
 
 	/** @type {Partial<import('tachometer/src/config').Config>} */
@@ -121,17 +76,20 @@ export async function run(config) {
 						{
 							mode: "expression",
 							name: "performance",
-							expression: "window.tachometerResultPerformance",
+							expression:
+								"(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()",
 						},
 						{
 							mode: "expression",
 							name: "startup",
-							expression: "window.tachometerResultStartup",
+							expression:
+								"(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()",
 						},
 						{
 							mode: "expression",
 							name: "memory",
-							expression: "window.tachometerResultMemory",
+							expression:
+								"(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()",
 						},
 					],
 				};

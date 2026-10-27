@@ -1,46 +1,23 @@
-/**
- * @param {HTMLElement} target
- */
+import { waitFor } from "../utils/wait-for.mjs";
+
 export default async function run(target) {
+	const input = target.querySelectorAll("input")[10];
+	const setValue = Object.getOwnPropertyDescriptor(
+		HTMLInputElement.prototype,
+		"value",
+	).set;
 	for (let i = 0; i < 100; i++) {
-		const input = target.querySelectorAll("input")[10];
-		const newValue = String(Math.random());
-		const elementReactPromise = elementUpdatedTo(input, newValue);
-
-		const evt = document.createEvent("HTMLEvents");
-		evt.initEvent("input", true, true);
-		input.value = newValue;
-		input._valueTracker.setValue(Math.random());
-		input.dispatchEvent(evt);
-
-		await elementReactPromise;
+		const value = `Updated field #${i + 1}`;
+		// Setting the live value alone does not prove the store accepted the change.
+		// React commits a controlled input's value to its defaultValue attribute.
+		const updated = waitFor(
+			input,
+			() => input.defaultValue === value,
+			`field update ${i + 1}`,
+			{ attributes: true },
+		);
+		setValue.call(input, value);
+		input.dispatchEvent(new Event("input", { bubbles: true }));
+		await updated;
 	}
-}
-
-async function elementUpdatedTo(el, targetValue) {
-	function isValid(text) {
-		// rome-ignore lint/suspicious/noDoubleEquals: <explanation>
-		return text == targetValue;
-	}
-
-	return new Promise((resolve, reject) => {
-		if (isValid(el.value)) {
-			resolve();
-			return;
-		}
-
-		new MutationObserver((mutationRecords, observer) => {
-			if (!isValid(el.value)) {
-				return;
-			}
-
-			resolve();
-			observer.disconnect();
-		}).observe(el, {
-			characterData: false,
-			attributes: true,
-			childList: false,
-			subtree: false,
-		});
-	});
 }

@@ -1,5 +1,5 @@
 // @ts-check
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { readdirSync, statSync } from "node:fs";
 
 const INCLUDE_DEFAULTS = [/\.json$/];
@@ -30,7 +30,7 @@ const resultsTs = `export const results = {\n${Object.entries(resultsList)
 					`{${JSON.stringify(config).slice(
 						1,
 						-1,
-					)},"content": () => import("../../${path}", { assert: { type: "json" }}).then((v) => v.default)}`,
+					)},"content": () => import("./${path}").then((v) => v.default)}`,
 			)}]`,
 	)
 	.join(",\n")}\n};`;
@@ -46,7 +46,7 @@ const resultsPlugin = {
 		build.onLoad({ filter: /.*/, namespace: "results-ns" }, (args) => ({
 			contents: resultsTs,
 			loader: "ts",
-			resolveDir: args.path,
+			resolveDir: resolve("."),
 		}));
 	},
 };
