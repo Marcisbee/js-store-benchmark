@@ -10,7 +10,7 @@ import * as ReactDom from "react-dom/client";
 import { elementReady } from "./utils/wait-for-element";
 import { clickAction } from "./utils/click-action";
 
-const store = resso({ count: 0, text: "hello" });
+const store = resso({ count: 0 });
 
 function App() {
 	const { count } = store.useStore();

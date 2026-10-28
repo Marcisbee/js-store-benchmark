@@ -20,7 +20,8 @@ const metrics = {
 		label: "Startup",
 		unit: "ms",
 		divisor: 1,
-		description: "Time to mount and read initial state",
+		description:
+			"Startup timing for the selected run; see README for methodology",
 	},
 	memory: {
 		label: "Memory",

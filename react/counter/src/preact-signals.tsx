@@ -21,7 +21,6 @@ function App() {
 let key = 0;
 
 export default async function (target: HTMLElement) {
-	count.value = 0;
 	const root = ReactDom.createRoot(target);
 	root.render(<App key={key++} />);
 

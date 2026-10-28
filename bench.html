@@ -12,10 +12,10 @@
 		const params = Object.fromEntries(urlSearchParams.entries());
 
 		try {
-			const { default: mount } = await import(`./${params.bench}`);
-			const { default: run, validate } = await import(`./${params.run}`);
+			const { default: run, validate, validateInitial } = await import(`./${params.run}`);
 			const app = document.getElementById("app");
 			const startupStart = performance.now();
+			const { default: mount } = await import(`./${params.bench}`);
 			let mountTimer;
 			try {
 				await Promise.race([
@@ -28,6 +28,7 @@
 				clearTimeout(mountTimer);
 			}
 			window.tachometerResultStartup = performance.now() - startupStart;
+			validateInitial(app);
 			// Let passive-effect subscriptions settle before the first interaction.
 			await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)));
 

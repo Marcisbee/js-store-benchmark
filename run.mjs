@@ -43,7 +43,7 @@ export async function run(config) {
 					browser: {
 						extra: {
 							methodology: {
-								version: 2,
+								version: 3,
 								react: JSON.parse(
 									readFileSync("node_modules/react/package.json", "utf8"),
 								).version,

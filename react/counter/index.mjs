@@ -22,3 +22,11 @@ export function validate(target) {
 	if (target.querySelector("h1")?.textContent !== "1000")
 		throw new Error("Counter did not commit all 1,000 increments");
 }
+
+export function validateInitial(target) {
+	if (
+		target.querySelectorAll("h1").length !== 1 ||
+		target.querySelector("h1").textContent !== "0"
+	)
+		throw new Error("Expected one counter initialized to zero");
+}

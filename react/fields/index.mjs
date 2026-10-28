@@ -35,3 +35,13 @@ export function validate(target) {
 			throw new Error(`Incorrect committed value in field ${index + 1}`);
 	}
 }
+
+export function validateInitial(target) {
+	const inputs = target.querySelectorAll("input");
+	if (inputs.length !== 1000) throw new Error("Expected 1,000 initial fields");
+	for (const [index, input] of inputs.entries()) {
+		const expected = `Field #${index + 1}`;
+		if (input.value !== expected || input.defaultValue !== expected)
+			throw new Error(`Incorrect initial field ${index + 1}`);
+	}
+}
