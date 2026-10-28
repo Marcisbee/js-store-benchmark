@@ -3,7 +3,7 @@ import * as colorette from "colorette";
 import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { basename, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 import { build } from "./build.mjs";
 
 import { tachometer } from "./tachometer.mjs";
@@ -25,11 +25,21 @@ export async function run(config) {
 		mode: config.manual ? "manual" : undefined,
 		benchmarks: await Promise.all(
 			distPaths.map(async (path) => {
+				// Read package metadata without executing browser-only modules in Node.
+				const entryPoint = context.metafile.outputs[path].entryPoint;
+				const source = readFileSync(entryPoint, "utf8");
+				const packagePath = source.match(
+					/from\s+["']([^"']*node_modules\/[^"']+\/package\.json)["']/,
+				)?.[1];
 				const {
 					version,
 					name: npmName,
 					homepage,
-				} = await import(resolve(path));
+				} = packagePath
+					? JSON.parse(
+							readFileSync(resolve(dirname(entryPoint), packagePath), "utf8"),
+						)
+					: {};
 
 				return {
 					name: [basename(path).replace(/\..*$/, ""), version]
