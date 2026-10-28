@@ -158,7 +158,7 @@ try {
 		// Model a delayed select-property commit after an incomplete mutation
 		// notification. This uses the real app/store; only the DOM notification
 		// ordering is controlled. Property writes emit no mutation records.
-		const { identifier } = await driver.sendDevToolsCommand(
+		const { identifier } = await driver.sendAndGetDevToolsCommand(
 			"Page.addScriptToEvaluateOnNewDocument",
 			{
 				source: `const NativeObserver=MutationObserver;let injected=false;
