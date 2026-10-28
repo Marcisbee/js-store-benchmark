@@ -56,7 +56,7 @@ valtio-v1.11.2 ....... 3824.6 ms/ops ±36.6 | 175.6 KB
 
 Benchmarks are run on `darwin 24.1.0, Apple M1 (8 core) arm64`
 
-I know counter doesn't really show real world app performance, but I didn't want to waste much time re-creating real world app for each state so this will have to do.
+Task workspace is now the default comparison. Counter and Fields remain smaller diagnostic workloads.
 
 # Running benchmarks
 There's a cli to run and return results. Tests run on top of `tachometer` library from Google via Chromium in browser environment.
@@ -70,6 +70,7 @@ npm ci
 
 And to run tests:
 ```
+node run.react.workspace.mjs
 node run.react.counter.mjs
 node run.react.fields.mjs
 ```
@@ -82,9 +83,9 @@ Selenium Manager obtains a driver matching the installed browser on first use;
 that first run needs network access. Set `CHROME_BIN` to select another Chrome
 binary.
 
-Both suites discover every `.tsx` target in their `src` directory, including
+All suites discover every `.tsx` target in their `src` directory, including
 Impact, Superstate, Teaful, and Ripple. `npm test` builds the same production
-bundles as the timing runner and checks all discovered counter and field targets in
+bundles as the timing runner and checks all discovered workspace, counter and field targets in
 Chrome. It requires each counter to reach 1,000 and each field target to commit
 100 edits while preserving the other 999 fields. A stalled mount or update
 fails with a deadline instead of leaving the benchmark waiting indefinitely.
@@ -177,3 +178,127 @@ CommonJS support and fixes the
 [buffer bounds advisory](https://github.com/advisories/GHSA-w5hq-g745-h8pq).
 Remove these overrides when the upstream packages adopt safe dependencies.
 `npm test` checks both security regressions before running all browser targets.
+
+## Task workspace (methodology version 6)
+
+The default category is an in-memory issue tracker: 1,000 deterministic tasks
+across 10 projects, eight assignees, five labels, three statuses and three nested
+checklist items per task. It renders the first 50 matching tasks (or fewer if the
+filter has fewer matches), a selected-task detail panel, filters and live counts.
+There is no network activity, animation or virtualization in the workload.
+
+Run `npm run bench:workspace` for 20 measured samples per adapter after warmup,
+with the same 4× CPU throttle as the diagnostics. `node scripts/verify.mjs workspace`
+checks this category alone. Workspace covers 67 of the 68 existing Counter adapters, including React
+baselines. Superstate is excluded for a reproduced subscription-cleanup failure;
+see the coverage notes below. A missing or excluded adapter is never a zero result.
+
+Every adapter uses the same React view and domain operations. The operation
+implementation supports immutable reducers, mutable drafts/observables, and
+per-task stores without imposing one notification model on all libraries.
+Only changed task records are copied by immutable adapters. Native hooks,
+selectors, computed values, observers, HOCs and render props own subscriptions
+and their cleanup. The common view allows native per-task subscriptions and
+selector-aware connectors; every adapter renders the same task-content component.
+
+The rules apply equally to all adapters: no direct DOM updates, custom replacement
+subscription engines, precomputed benchmark answers, skipped off-screen updates,
+or changes to timing boundaries. Store creation, derived-state computation,
+normalization, copying, notifications and transactions remain measured. Optional
+persistence/history stays off. Per-task stores may trade startup and memory for
+less update work; the comparison reports those costs rather than selecting only
+favorable metrics. Version 6 changes store structures and common rendering, so
+its results must not be compared as a controlled before/after with version 5.
+
+A run contains 21 sequential user actions: two title edits, one nested checklist
+toggle, two status changes, one assignee change, four searches, four filter
+changes, two sorts, one bulk update, one incoming batch and three selections.
+Bulk updates complete the first 20 visible tasks in one action. The incoming
+batch updates tasks 0–9 and 900–909; a subsequent search brings all incoming
+records into view. Status and assignee changes run with matching filters active,
+so the edited task leaves the list while the detail panel and counts update.
+Selections unmount the old detail subscriber, mount the new one, edit it, and
+return to an earlier task. Global status counts and the count assigned to Person
+1 are displayed alongside the current matching count.
+
+Startup includes module loading, store creation and initial DOM mount. Each
+interaction starts immediately before its DOM event and ends at the mutation
+observer callback that sees the complete expected DOM. If a partial commit is
+observed, frame callbacks also check for completion: select-value property writes
+do not emit mutation records. Ordinary complete commits need no frame wait. The callback timestamps
+before checking the DOM; successful validation is excluded. Partial commits do
+not end the timer. An independent oracle checks row identities/order, every
+rendered task field, controls, checklist, selected detail and summary counts at
+each checkpoint. Missing or stale updates time out and invalidate the run. The
+browser verifier also suppresses a bulk action to prove no score is produced.
+These are observed DOM-commit timings, not paint or input-to-next-paint measurements.
+
+The Update measurement selector shows the sum for all interactions or one action
+type. Counts in parentheses are occurrences per run; values are totals, not
+per-event averages. The aggregate is the sum of those measured intervals,
+excluding between-action oracle work. Startup, memory and transfer stay separate.
+The score uses the displayed Update metric plus startup, memory and transfer.
+Version 6 workspace scores are not comparable with diagnostic or historical scores.
+
+To explore an adapter manually after building it, serve the repository and open
+`/bench.html?bench=react/workspace/dist/zustand.mjs&run=react/workspace/index.mjs&manual=true`.
+The results page starts on the newest date containing workspace data; older
+dates without this category show an explicit empty state.
+
+### Workspace coverage and exclusions
+
+All existing Counter targets are accounted for: 67 runnable workspace adapters
+and one explicit exclusion. Suite discovery rejects a newly added Counter target
+unless Workspace has an adapter or a documented exclusion. `npm test` runs every
+supported adapter and reruns the excluded adapter, requiring its documented
+failure and verifying it cannot produce a score. If that failure disappears,
+the check fails so the adapter can be reconsidered for inclusion.
+
+| Excluded target | Reproduced limitation |
+| --- | --- |
+| Superstate (`@superstate/core` 0.1.0, `@superstate/react` 0.1.0) | Filtering unmounts multiple row subscriptions. Core unsubscribe callbacks retain array indexes; earlier removals shift those indexes, so subsequent cleanup removes still-mounted subscribers. The next status change leaves the selected detail stale. |
+
+The runnable reproduction is in `react/workspace/unsupported/superstate.tsx`;
+`unsupported.json` records the reason and expected DOM-validation failure.
+It remains available in Counter, whose single subscriber does not exercise
+this lifecycle. No custom subscription bridge or package patch hides the failure.
+
+### Adapter integration audit
+
+All 67 supported adapters were reviewed against their installed native APIs.
+The following groups describe the integration choices, not a claim that no
+further application-level optimization is possible.
+
+| Native approach | Adapters |
+| --- | --- |
+| Per-task Exome instances; root store owns workspace actions | Exome |
+| In-place observable fields, with row reads tracked inside their subscriber | Coaction, MobX, React Easy State, Valtio, Wana |
+| One native transaction for field writes | SyncedStore (Yjs), Ripple (native proxy apply; no JSON round trip) |
+| Native immutable-draft mutations and selected subscriptions | Easy Peasy, LiquorStore, Pullstate, Redux Toolkit, Simplux, Trashly |
+| Selected atoms, computed values or native selector hooks | Bit About State, Compostate, Effect Atom, Effector, Expressive, Hox, Jotai, Legend State, Little State Machine, Nano Stores, Onek, Preact Signals, React Signals App, Realar, Reatom, Recoil, Redux, Redux Zero, Rematch, Remini, Signia, Simpler State, Statofu, Statux, TanStack Store, Wire, XState, Zustand |
+| Task keys/cells in the library's own store, sharing immutable task references | Flooks, Impact, React Hooks Global State, React XS, Rebloom, Resso, Stated Library, Storeon, use-change |
+| Native task-path subscriptions | Origami, Simplestack, State Ref, Teaful |
+| Native connector selects only the component's result | Fluxx, Unistore, Statty |
+| Native SWR comparison for each selected value; updater has no data dependency | SWR Global State |
+| Native proxy tracking over immutable state | React Tracked |
+| Hook/context providers; no custom subscription bridge | Constate, Unstated Next, React Context, useReducer, useState |
+| Selected immutable snapshot using the React native external-store API | useSyncExternalStore |
+| Native draft mutation with React context subscriptions | use-mutative |
+
+Key-based adapters store a root workspace snapshot and per-task keys referencing
+the same immutable task objects. A domain action updates only the affected keys
+through the library; there is no secondary listener registry. Wana's observable
+creation is shallow, so its mutable task/checklist objects are explicitly made
+observable. Mutable adapters read row fields inside their subscribed component
+before passing a value snapshot to the common memoized task content.
+
+SyncedStore applies actions inside one Yjs transaction because shared objects
+cannot be reparented into replacement arrays. Fluxx and Unistore use native
+connector HOCs; Statty uses its native render-prop subscription. Component-local
+contexts convey those selected results to the common view.
+
+In addition to the timed oracle, every supported adapter runs an untimed browser
+scenario that edits task 736, changes status/assignee/checklist, replaces the
+selected subscription, searches the edited data, and bulk-updates a reversed
+page. This independently checks behavior outside the measured sequence.
+Superstate's documented failure remains required; it does not receive a score.

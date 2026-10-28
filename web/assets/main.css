@@ -474,3 +474,32 @@ thead th {
 .focused .library a:hover {
 	color: #fff;
 }
+
+/* Keep category labels and date accessible on narrow screens. */
+.toolbar {
+	flex-wrap: wrap;
+}
+.suite-switch {
+	max-width: 100%;
+}
+@media (max-width: 700px) {
+	.suite-switch button {
+		padding-inline: 8px;
+	}
+}
+
+.interaction-control {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	padding: 8px 12px;
+	border-bottom: 1px solid #e5e9e6;
+}
+.interaction-control span {
+	font-size: 12px;
+	color: #69766e;
+}
+.interaction-control select {
+	margin-left: 6px;
+}
