@@ -51,58 +51,83 @@ export function initialState(): State {
 		sort: "id",
 	};
 }
-export function reduce(state: State, action: Action): State {
+// The same domain operation can target immutable copies, observable objects or
+// per-task stores. Store adapters own notification and transaction semantics.
+export function applyAction(
+	state: State,
+	action: Action,
+	updateTask: (id: number, change: (task: Task) => void) => void,
+): void {
 	const value = action.value;
 	switch (action.type) {
 		case "query":
-			return { ...state, query: String(value) };
+			state.query = String(value);
+			return;
 		case "filterStatus":
-			return { ...state, status: String(value) };
+			state.status = String(value);
+			return;
 		case "filterAssignee":
-			return { ...state, assignee: String(value) };
+			state.assignee = String(value);
+			return;
 		case "sort":
-			return { ...state, sort: String(value) };
+			state.sort = String(value);
+			return;
 		case "select":
-			return { ...state, selected: Number(value) };
+			state.selected = Number(value);
+			return;
+		case "bulk":
+			for (const task of visible(state).slice(0, 20))
+				updateTask(task.id, (task) => {
+					task.status = "done";
+				});
+			return;
+		case "incoming":
+			for (const id of [
+				...Array.from({ length: 10 }, (_, i) => i),
+				...Array.from({ length: 10 }, (_, i) => 900 + i),
+			])
+				updateTask(id, (task) => {
+					task.title += " synced";
+					task.assignee = (task.assignee + 1) % 8;
+					task.status = "doing";
+				});
+			return;
 	}
-	const bulkIds =
-		action.type === "bulk"
-			? new Set(
-					visible(state)
-						.slice(0, 20)
-						.map((t) => t.id),
-				)
-			: null;
+	updateTask(state.selected, (task) => {
+		if (action.type === "edit") task.title = String(value);
+		else if (action.type === "status") task.status = String(value);
+		else if (action.type === "assignee") task.assignee = Number(value);
+		else if (action.type === "checklist") {
+			const item = task.checklist[Number(value)];
+			item.done = !item.done;
+		}
+	});
+}
+export function mutate(state: State, action: Action): void {
+	applyAction(state, action, (id, change) => change(state.tasks[id]));
+}
+export function copyTask(task: Task): Task {
 	return {
-		...state,
-		tasks: state.tasks.map((task) => {
-			if (action.type === "bulk")
-				return bulkIds!.has(task.id) ? { ...task, status: "done" } : task;
-			// Ten currently visible tasks and ten far outside the rendered page.
-			if (action.type === "incoming")
-				return task.id < 10 || (task.id >= 900 && task.id < 910)
-					? {
-							...task,
-							title: `${task.title} synced`,
-							assignee: (task.assignee + 1) % 8,
-							status: "doing",
-						}
-					: task;
-			if (task.id !== state.selected) return task;
-			if (action.type === "edit") return { ...task, title: String(value) };
-			if (action.type === "status") return { ...task, status: String(value) };
-			if (action.type === "assignee")
-				return { ...task, assignee: Number(value) };
-			if (action.type === "checklist")
-				return {
-					...task,
-					checklist: task.checklist.map((item, i) =>
-						i === Number(value) ? { ...item, done: !item.done } : item,
-					),
-				};
-			return task;
-		}),
+		id: task.id,
+		title: task.title,
+		project: task.project,
+		status: task.status,
+		assignee: task.assignee,
+		labels: task.labels,
+		checklist: task.checklist.map((item) => ({
+			title: item.title,
+			done: item.done,
+		})),
 	};
+}
+export function reduce(state: State, action: Action): State {
+	const next = { ...state };
+	applyAction(next, action, (id, change) => {
+		if (next.tasks === state.tasks) next.tasks = state.tasks.slice();
+		const task = (next.tasks[id] = copyTask(state.tasks[id]));
+		change(task);
+	});
+	return next;
 }
 export function matching(state: State) {
 	return state.tasks

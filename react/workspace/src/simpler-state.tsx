@@ -9,7 +9,7 @@ import { entity } from "simpler-state";
 const state = entity(initialState());
 export default mount(
 	workspace(
-		(select) => select(state.use()),
+		(select) => state.use(select),
 		(action) => state.set((s) => reduce(s, action)),
 	),
 );

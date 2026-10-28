@@ -12,7 +12,8 @@ const subscribe = (listener: () => void) => {
 const getSnapshot = () => state;
 export default mount(
 	workspace(
-		(select) => select(React.useSyncExternalStore(subscribe, getSnapshot)),
+		(select) =>
+			React.useSyncExternalStore(subscribe, () => select(getSnapshot())),
 		(action) => {
 			state = reduce(state, action);
 			for (const listener of listeners) listener();

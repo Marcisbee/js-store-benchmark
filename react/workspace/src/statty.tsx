@@ -9,23 +9,26 @@ import { workspace, mount } from "../view";
 import { Provider, State as Subscription } from "statty";
 const initial = initialState();
 const Context = React.createContext(null!);
-const wrap = (Component) => (props) => (
+const connectView = (Component, select) => (props) => (
 	<Subscription
-		render={(state, update) => (
-			<Context.Provider value={[state, update]}>
+		select={(state) => ({ value: select(state, props) })}
+		render={({ value }, update) => (
+			<Context.Provider value={[value, update]}>
 				<Component {...props} />
 			</Context.Provider>
 		)}
 	/>
 );
 const App = workspace(
-	(select) => select(React.useContext(Context)[0]),
+	() => React.useContext(Context)[0],
 	() => {},
-	wrap,
+	undefined,
 	() => {
 		const [, update] = React.useContext(Context);
 		return (action) => update((s) => reduce(s, action));
 	},
+	undefined,
+	connectView,
 );
 export default mount(() => (
 	<Provider state={initial}>

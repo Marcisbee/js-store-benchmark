@@ -3,21 +3,22 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/@m-c2/ripple/package.json";
-import { initialState, reduce } from "../model";
-import { mount } from "../view";
-import { hookWorkspace } from "../hooks";
+import { initialState, mutate, copyTask } from "../model";
+import { workspace, mount } from "../view";
 import { createRipples } from "@m-c2/ripple";
-const [{ useTasks }] = createRipples({ tasks: { state: initialState() } });
+const [{ useTasks }, { updateTasks }] = createRipples({
+	tasks: { state: initialState() },
+});
+const update = updateTasks();
 export default mount(
-	hookWorkspace(() => {
-		const [store, notify] = useTasks();
-		return [
-			store.state,
-			(action) => {
-				notify("replace", {
-					state: reduce(JSON.parse(JSON.stringify(store.state)), action),
-				});
-			},
-		];
-	}),
+	workspace(
+		(select) => select(useTasks()[0].state),
+		(action) =>
+			update((store) => {
+				mutate(store.state, action);
+			}),
+		undefined,
+		undefined,
+		(id) => copyTask(useTasks()[0].state.tasks[id]),
+	),
 );

@@ -5,15 +5,17 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/mobx/package.json";
-import { initialState, reduce } from "../model";
+import { initialState, mutate, copyTask } from "../model";
 import { workspace, mount } from "../view";
 const store = observable({ state: initialState() });
 export default mount(
 	workspace(
 		(select) => select(store.state),
 		action((a) => {
-			store.state = reduce(store.state, a);
+			mutate(store.state, a);
 		}),
 		observer,
+		undefined,
+		(id) => copyTask(store.state.tasks[id]),
 	),
 );

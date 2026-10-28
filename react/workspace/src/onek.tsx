@@ -6,11 +6,11 @@ export {
 import { initialState, reduce } from "../model";
 import { workspace, mount } from "../view";
 import { observable } from "onek";
-import { useObserver } from "onek/react";
+import { useObserver, useComputed } from "onek/react";
 const [state, set] = observable(initialState());
 export default mount(
 	workspace(
-		(select) => select(state(useObserver())),
+		(select) => useComputed(() => select(state()), [select])(useObserver()),
 		(action) => set(reduce(state(), action)),
 	),
 );

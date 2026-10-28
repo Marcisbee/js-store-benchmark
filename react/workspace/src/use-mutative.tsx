@@ -4,12 +4,21 @@ export {
 	homepage,
 } from "../../../node_modules/use-mutative/package.json";
 import * as React from "react";
-import { initialState } from "../model";
+import { initialState, mutate } from "../model";
 import { mount } from "../view";
-import { stateWorkspace } from "../hooks";
+import { hookWorkspace } from "../hooks";
 import { useMutative } from "use-mutative";
 const Context = React.createContext(null!);
-const App = stateWorkspace(() => React.useContext(Context));
+const App = hookWorkspace(() => {
+	const [state, set] = React.useContext(Context);
+	return [
+		state,
+		(action) =>
+			set((draft) => {
+				mutate(draft, action);
+			}),
+	];
+});
 export default mount(function Root() {
 	const pair = useMutative(initialState);
 	return (

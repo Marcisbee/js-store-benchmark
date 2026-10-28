@@ -3,16 +3,24 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/react-xs/package.json";
-import { initialState, reduce } from "../model";
+import { initialKeys, keyPatch, taskKey } from "../keyed";
 import { workspace, mount } from "../view";
 import $ from "react-xs";
-const state = $(initialState());
+const cells = Object.fromEntries(
+	Object.entries(initialKeys()).map(([key, value]) => [key, $(value)]),
+);
 export default mount(
 	workspace(
-		(select) => select(state.value),
-		(action) => {
-			state.value = reduce(state.value, action);
-		},
+		(select) => select(cells.state.value),
+		(action) =>
+			$.mutate(() => {
+				for (const [key, value] of Object.entries(
+					keyPatch(cells.state.value, action),
+				))
+					cells[key].value = value;
+			}),
 		$,
+		undefined,
+		(id) => cells[taskKey(id)].value,
 	),
 );

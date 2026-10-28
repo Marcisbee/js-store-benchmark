@@ -3,9 +3,29 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/swr-global-state/package.json";
-import { initialState } from "../model";
+import { initialState, reduce } from "../model";
 import { workspace, mount } from "../view";
-import { stateWorkspace } from "../hooks";
-import { createStore } from "swr-global-state";
-const useStore = createStore({ key: "workspace", initial: initialState() });
-export default mount(stateWorkspace(useStore));
+import { useStore } from "swr-global-state";
+const config = { key: "workspace", initial: initialState() };
+export default mount(
+	workspace(
+		(select) =>
+			select(
+				useStore(config, {
+					compare: (a, b) =>
+						a === undefined || b === undefined
+							? Object.is(a, b)
+							: Object.is(select(a), select(b)),
+				})[0],
+			),
+		() => {},
+		undefined,
+		() => {
+			const [, set] = useStore(config, {
+				compare: (a, b) =>
+					a === undefined || b === undefined ? Object.is(a, b) : true,
+			});
+			return (action) => set((s) => reduce(s, action));
+		},
+	),
+);

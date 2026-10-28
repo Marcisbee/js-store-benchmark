@@ -3,19 +3,16 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/rebloom/package.json";
-import { initialState, reduce } from "../model";
+import { initialKeys, keyPatch, taskKey } from "../keyed";
 import { workspace, mount } from "../view";
 import { getUse } from "rebloom";
-class Store {
-	use = getUse<Store>();
-	state = initialState();
-}
-const store = new Store();
+const store = { ...initialKeys(), use: getUse() };
 export default mount(
 	workspace(
 		(select) => select(store.use("state")),
-		(action) => {
-			store.state = reduce(store.state, action);
-		},
+		(action) => Object.assign(store, keyPatch(store.state, action)),
+		undefined,
+		undefined,
+		(id) => store.use(taskKey(id)),
 	),
 );

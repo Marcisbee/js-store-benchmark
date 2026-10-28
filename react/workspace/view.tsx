@@ -16,18 +16,26 @@ const summaryText = (s: State) =>
 		done: s.tasks.filter((t) => t.status === "done").length,
 		assigned: s.tasks.filter((t) => t.assignee === 0).length,
 	});
-const queryValue = (s: State) => s.query;
-const statusValue = (s: State) => s.status;
-const assigneeValue = (s: State) => s.assignee;
-const sortValue = (s: State) => s.sort;
+const controlsValue = (s: State) =>
+	JSON.stringify([s.query, s.status, s.assignee, s.sort]);
 type Selector = <T>(select: (state: State) => T) => T;
 export function workspace(
 	useSelect: Selector,
 	dispatch: (action: Action) => void,
 	wrap: (component: any) => any = React.memo,
 	useDispatch: () => (action: Action) => void = () => dispatch,
+	useTask: (id: number) => Task = (id) =>
+		useSelect(React.useCallback((s: State) => s.tasks[id], [id])),
+	connect?: (
+		component: any,
+		select: (state: State, props: any) => unknown,
+	) => any,
 ) {
-	const TaskContent = ({ task }: { task: Task }) => (
+	const bind = (
+		component: any,
+		select: (state: State, props: any) => unknown,
+	) => (connect ? connect(component, select) : wrap(component));
+	const TaskContent = React.memo(({ task }: { task: Task }) => (
 		<>
 			<span data-field="title">{task.title}</span>
 			<span data-field="project">Project {task.project + 1}</span>
@@ -38,91 +46,99 @@ export function workspace(
 				{task.checklist.filter((i) => i.done).length}/3
 			</span>
 		</>
+	));
+	const Row = bind(
+		function Row({ id }: { id: number }) {
+			const dispatch = useDispatch();
+			const task = useTask(id);
+			return (
+				<li data-task={id}>
+					<button onClick={() => dispatch({ type: "select", value: id })}>
+						Open {id + 1}
+					</button>
+					<TaskContent task={task} />
+				</li>
+			);
+		},
+		(s, { id }) => s.tasks[id],
 	);
-	const Row = wrap(function Row({ id }: { id: number }) {
-		const dispatch = useDispatch();
-		const task = useSelect(React.useCallback((s: State) => s.tasks[id], [id]));
-		return (
-			<li data-task={id}>
-				<button onClick={() => dispatch({ type: "select", value: id })}>
-					Open {id + 1}
-				</button>
-				<TaskContent task={task} />
-			</li>
-		);
-	});
-	const Detail = wrap(function Detail({ id }: { id: number }) {
-		const dispatch = useDispatch();
-		const task = useSelect(React.useCallback((s: State) => s.tasks[id], [id]));
-		return (
-			<aside data-detail={id} aria-label="Task detail">
-				<h2>Task detail</h2>
-				<TaskContent task={task} />
-				<label>
-					Title
-					<input
-						data-control="edit"
-						value={task.title}
-						onChange={(e) => dispatch({ type: "edit", value: e.target.value })}
-					/>
-				</label>
-				<label>
-					Status
-					<select
-						data-control="status"
-						value={task.status}
-						onChange={(e) =>
-							dispatch({ type: "status", value: e.target.value })
-						}
-					>
-						{["todo", "doing", "done"].map((v) => (
-							<option key={v}>{v}</option>
-						))}
-					</select>
-				</label>
-				<label>
-					Assignee
-					<select
-						data-control="assignee"
-						value={task.assignee}
-						onChange={(e) =>
-							dispatch({ type: "assignee", value: e.target.value })
-						}
-					>
-						{Array.from({ length: 8 }, (_, i) => (
-							<option key={i} value={i}>
-								Person {i + 1}
-							</option>
-						))}
-					</select>
-				</label>
-				{task.checklist.map((item, i) => (
-					<label key={i}>
+	const Detail = bind(
+		function Detail({ id }: { id: number }) {
+			const dispatch = useDispatch();
+			const task = useTask(id);
+			return (
+				<aside data-detail={id} aria-label="Task detail">
+					<h2>Task detail</h2>
+					<TaskContent task={task} />
+					<label>
+						Title
 						<input
-							data-check={i}
-							type="checkbox"
-							checked={item.done}
-							onChange={() => dispatch({ type: "checklist", value: i })}
+							data-control="edit"
+							value={task.title}
+							onChange={(e) =>
+								dispatch({ type: "edit", value: e.target.value })
+							}
 						/>
-						{item.title}
 					</label>
-				))}
-			</aside>
-		);
-	});
-	const Selected = wrap(function Selected() {
+					<label>
+						Status
+						<select
+							data-control="status"
+							value={task.status}
+							onChange={(e) =>
+								dispatch({ type: "status", value: e.target.value })
+							}
+						>
+							{["todo", "doing", "done"].map((v) => (
+								<option key={v}>{v}</option>
+							))}
+						</select>
+					</label>
+					<label>
+						Assignee
+						<select
+							data-control="assignee"
+							value={task.assignee}
+							onChange={(e) =>
+								dispatch({ type: "assignee", value: e.target.value })
+							}
+						>
+							{Array.from({ length: 8 }, (_, i) => (
+								<option key={i} value={i}>
+									Person {i + 1}
+								</option>
+							))}
+						</select>
+					</label>
+					{task.checklist.map((item, i) => (
+						<label key={i}>
+							<input
+								data-check={i}
+								type="checkbox"
+								checked={item.done}
+								onChange={() => dispatch({ type: "checklist", value: i })}
+							/>
+							{item.title}
+						</label>
+					))}
+				</aside>
+			);
+		},
+		(s, { id }) => s.tasks[id],
+	);
+	const Selected = bind(function Selected() {
 		const id = useSelect(selected);
 		return <Detail key={id} id={id} />;
-	});
-	const List = wrap(function List() {
+	}, selected);
+	const List = bind(function List() {
 		const ids = useSelect(pageIds);
 		return (
 			<ul aria-label="Tasks">
 				{ids && ids.split(",").map((id) => <Row key={id} id={Number(id)} />)}
 			</ul>
 		);
-	});
-	const Summary = wrap(function Summary() {
+	}, pageIds);
+	const Summary = bind(function Summary() {
 		const summary = useSelect(summaryText);
 		return (
 			<output data-summary>
@@ -133,13 +149,12 @@ export function workspace(
 				))}
 			</output>
 		);
-	});
-	const Controls = wrap(function Controls() {
+	}, summaryText);
+	const Controls = bind(function Controls() {
 		const dispatch = useDispatch();
-		const query = useSelect(queryValue),
-			status = useSelect(statusValue),
-			assignee = useSelect(assigneeValue),
-			sort = useSelect(sortValue);
+		const [query, status, assignee, sort] = JSON.parse(
+			useSelect(controlsValue),
+		);
 		return (
 			<nav aria-label="Task filters">
 				<label>
@@ -205,7 +220,7 @@ export function workspace(
 				</button>
 			</nav>
 		);
-	});
+	}, controlsValue);
 	return function Workspace() {
 		return (
 			<main className="workspace">

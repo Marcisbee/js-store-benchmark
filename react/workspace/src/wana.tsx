@@ -3,16 +3,28 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/wana/package.json";
-import { initialState, reduce } from "../model";
+import { initialState, mutate, copyTask } from "../model";
 import { workspace, mount } from "../view";
 import { o, withAuto } from "wana";
-const store = o({ state: initialState() });
+const initial = initialState();
+// Wana's o() is shallow: make each mutable level observable explicitly.
+initial.tasks = o(
+	initial.tasks.map((task) =>
+		o({
+			...task,
+			checklist: o(task.checklist.map((item) => o(item))),
+		}),
+	),
+);
+const store = { state: o(initial) };
 export default mount(
 	workspace(
 		(select) => select(store.state),
 		(action) => {
-			store.state = reduce(store.state, action);
+			mutate(store.state, action);
 		},
 		withAuto,
+		undefined,
+		(id) => copyTask(store.state.tasks[id]),
 	),
 );

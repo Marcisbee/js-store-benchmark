@@ -7,6 +7,92 @@ import chrome from "selenium-webdriver/chrome.js";
 import { build } from "../build.mjs";
 import { getSuite } from "../suites.mjs";
 
+// A second, untimed route through the real UI guards against adapters that
+// accidentally specialize updates or subscriptions to the measured sequence.
+async function verifyAlternateWorkspace(driver, url) {
+	await driver.get(`${url}&manual=true`);
+	const wait = async (expression) =>
+		driver.wait(
+			() => driver.executeScript(`return Boolean(${expression})`),
+			10000,
+		);
+	const set = async (control, value) =>
+		driver.executeScript(
+			`
+  const input = document.querySelector('[data-control="'+arguments[0]+'"]');
+  const prototype = input.tagName === 'SELECT' ? HTMLSelectElement.prototype : HTMLInputElement.prototype;
+  Object.getOwnPropertyDescriptor(prototype, 'value').set.call(input, arguments[1]);
+  input.dispatchEvent(new Event(input.tagName === 'SELECT' ? 'change' : 'input', {bubbles:true}));
+ `,
+			control,
+			value,
+		);
+	const click = async (selector) =>
+		driver.executeScript(
+			"document.querySelector(arguments[0]).click()",
+			selector,
+		);
+	await wait("document.querySelector('[data-summary]')");
+	await set("query", "Task 0737");
+	await wait(
+		"document.querySelectorAll('[data-task]').length === 1 && document.querySelector('[data-task=\"736\"]')",
+	);
+	await click('[data-task="736"] button');
+	await wait("document.querySelector('[data-detail=\"736\"]')");
+	await set("edit", "Review outside timed sequence");
+	await wait(
+		"document.querySelector('[data-detail] [data-field=title]').textContent === 'Review outside timed sequence' && document.querySelectorAll('[data-task]').length === 0",
+	);
+	await set("status", "done");
+	await wait(
+		"document.querySelector('[data-count=done]').textContent === 'done: 334' && document.querySelector('[data-count=doing]').textContent === 'doing: 332'",
+	);
+	await set("assignee", "6");
+	await wait(
+		"document.querySelector('[data-count=assigned]').textContent === 'assigned: 124'",
+	);
+	await click('[data-check="0"]');
+	await wait(
+		"document.querySelector('[data-detail] [data-field=checklist]').textContent === '1/3'",
+	);
+	await set("query", "outside timed");
+	await wait(
+		"document.querySelector('[data-task=\"736\"] [data-field=status]')?.textContent === 'done' && document.querySelector('[data-task=\"736\"] [data-field=assignee]')?.textContent === 'Person 7' && document.querySelector('[data-task=\"736\"] [data-field=checklist]')?.textContent === '1/3'",
+	);
+	await set("query", "Task 0001");
+	await wait("document.querySelector('[data-task=\"0\"]')");
+	await click('[data-task="0"] button');
+	await wait("document.querySelector('[data-detail=\"0\"]')");
+	await set("edit", "Another selected task");
+	await wait(
+		"document.querySelector('[data-detail] [data-field=title]').textContent === 'Another selected task'",
+	);
+	await set("query", "outside timed");
+	await wait(
+		"document.querySelector('[data-task=\"736\"] [data-field=title]')?.textContent === 'Review outside timed sequence'",
+	);
+	await set("query", "");
+	await wait("document.querySelectorAll('[data-task]').length === 50");
+	await set("sort", "reverse");
+	await wait(
+		"document.querySelector('[data-task]')?.getAttribute('data-task') === '999'",
+	);
+	await click("[data-action=bulk]");
+	await wait(
+		"document.querySelector('[data-count=done]').textContent === 'done: 347'",
+	);
+	const statuses = await driver.executeScript(
+		"return [...document.querySelectorAll('[data-task]')].map(row => [Number(row.dataset.task), row.querySelector('[data-field=status]').textContent])",
+	);
+	assert.equal(statuses.length, 50);
+	for (const [id, status] of statuses) {
+		assert.equal(
+			status,
+			id >= 980 ? "done" : ["todo", "doing", "done"][id % 3],
+		);
+	}
+}
+
 // Exercise the same production bundles and browser entry point as tachometer.
 const suites = (
 	process.argv.slice(2).length
@@ -146,6 +232,12 @@ try {
 						Object.values(times).every(
 							(value) => Number.isFinite(value) && value > 0,
 						),
+					);
+				}
+				if (suite.suite === "React Workspace") {
+					await verifyAlternateWorkspace(
+						driver,
+						`http://127.0.0.1:${server.address().port}/bench.html?${new URLSearchParams({ bench, run: suite.runPath })}`,
 					);
 				}
 				console.log(`PASS ${suite.suite}: ${name}`);

@@ -3,13 +3,13 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/easy-peasy/package.json";
-import { initialState, reduce } from "../model";
+import { initialState, mutate } from "../model";
 import { workspace, mount } from "../view";
 import { createStore, action, StoreProvider, useStoreState } from "easy-peasy";
 const store = createStore({
 	state: initialState(),
 	apply: action((s, a) => {
-		s.state = reduce(s.state, a);
+		mutate(s.state, a);
 	}),
 });
 const App = workspace(

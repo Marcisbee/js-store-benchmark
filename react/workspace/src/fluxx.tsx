@@ -10,22 +10,32 @@ import { GlobalStore, Action as event } from "fluxx";
 import connect from "fluxx/lib/ReactConnector";
 const apply = event("apply");
 const store = GlobalStore(initialState(), (on) => on(apply, reduce));
-const Context = React.createContext<State>(null!);
-// The library's native HOC owns each component subscription.
-const wrap = (Component) =>
-	connect(
-		({ snapshot, ...props }) => (
-			<Context.Provider value={snapshot}>
-				<Component {...props} />
-			</Context.Provider>
-		),
-		store,
-		(s) => ({ snapshot: s }),
+const Context = React.createContext(null!);
+// Fluxx's slicer has no props argument. Bind a connector to each row's id;
+// its native HOC still owns subscription, equality checks and cleanup.
+const connectView = (Component, select) => (props) => {
+	const Connected = React.useMemo(
+		() =>
+			connect(
+				({ value, ...props }) => (
+					<Context.Provider value={value}>
+						<Component {...props} />
+					</Context.Provider>
+				),
+				store,
+				(s) => ({ value: select(s, props) }),
+			),
+		[props.id],
 	);
+	return <Connected {...props} />;
+};
 export default mount(
 	workspace(
-		(select) => select(React.useContext(Context)),
+		() => React.useContext(Context),
 		(action) => apply(action),
-		wrap,
+		undefined,
+		undefined,
+		undefined,
+		connectView,
 	),
 );

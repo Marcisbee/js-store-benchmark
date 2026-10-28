@@ -15,5 +15,8 @@ export default mount(
 	workspace(
 		(select) => select(useStateListener("state", store)),
 		(action) => stateValue("state", store, (s) => reduce(s, action)),
+		undefined,
+		undefined,
+		(id) => useStateListener(`state.tasks.${id}`, store),
 	),
 );

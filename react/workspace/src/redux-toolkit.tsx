@@ -6,12 +6,12 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/@reduxjs/toolkit/package.json";
-import { initialState, reduce } from "../model";
+import { initialState, mutate } from "../model";
 import { workspace, mount } from "../view";
 const slice = createSlice({
 	name: "workspace",
 	initialState: initialState(),
-	reducers: { apply: (state, action) => reduce(state, action.payload) },
+	reducers: { apply: (state, action) => mutate(state, action.payload) },
 });
 const store = configureStore({ reducer: slice.reducer });
 const App = workspace(useSelector, (action) => {

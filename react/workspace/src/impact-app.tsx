@@ -3,19 +3,21 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/impact-app/package.json";
-import { initialState, reduce } from "../model";
-import { mount } from "../view";
-import { hookWorkspace } from "../hooks";
+import { initialKeys, keyPatch, taskKey } from "../keyed";
+import { workspace, mount } from "../view";
 import { globalStore } from "impact-app";
 const useStore = globalStore({
-	state: initialState(),
+	...initialKeys(),
 	apply(action) {
-		this.state = reduce(this.state, action);
+		Object.assign(this, keyPatch(this.state, action));
 	},
 });
 export default mount(
-	hookWorkspace(() => {
-		const store = useStore();
-		return [store.state, (action) => store.apply(action)];
-	}),
+	workspace(
+		(select) => select(useStore().state),
+		() => {},
+		undefined,
+		() => useStore().apply,
+		(id) => useStore()[taskKey(id)],
+	),
 );

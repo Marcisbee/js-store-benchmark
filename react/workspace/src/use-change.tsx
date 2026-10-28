@@ -3,9 +3,16 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/use-change/package.json";
-import { initialState } from "../model";
-import { mount } from "../view";
-import { stateWorkspace } from "../hooks";
+import { initialKeys, keyPatch, taskKey } from "../keyed";
+import { workspace, mount } from "../view";
 import useChange from "use-change";
-const store = { state: initialState() };
-export default mount(stateWorkspace(() => useChange(store, "state")));
+const store = initialKeys();
+export default mount(
+	workspace(
+		(select) => select(useChange(store, "state")[0]),
+		(action) => Object.assign(store, keyPatch(store.state, action)),
+		undefined,
+		undefined,
+		(id) => useChange(store, taskKey(id))[0],
+	),
+);

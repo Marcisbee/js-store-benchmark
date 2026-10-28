@@ -3,17 +3,32 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/@simplux/core/package.json";
-import { initialState, reduce } from "../model";
+import { initialState, mutate } from "../model";
 import { workspace, mount } from "../view";
-import { createSimpluxModule, createMutations } from "@simplux/core";
+import { useMemo } from "react";
+import {
+	createSimpluxModule,
+	createMutations,
+	createSelectors,
+} from "@simplux/core";
 import { SimpluxProvider, useSimplux } from "@simplux/react";
 const store = createSimpluxModule("workspace", { state: initialState() });
 const { apply } = createMutations(store, {
 	apply(s, action) {
-		s.state = reduce(s.state, action);
+		mutate(s.state, action);
 	},
 });
-const App = workspace((select) => select(useSimplux(store).state), apply);
+const App = workspace(
+	(select) =>
+		useSimplux(
+			useMemo(
+				() =>
+					createSelectors(store, { selected: (s) => select(s.state) }).selected,
+				[select],
+			),
+		),
+	apply,
+);
 export default mount(() => (
 	<SimpluxProvider>
 		<App />

@@ -55,7 +55,7 @@ export async function run(config) {
 					browser: {
 						extra: {
 							methodology: {
-								version: config.interactions?.length ? 5 : 3,
+								version: config.interactions?.length ? 6 : 3,
 								react: JSON.parse(
 									readFileSync("node_modules/react/package.json", "utf8"),
 								).version,

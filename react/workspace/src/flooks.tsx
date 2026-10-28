@@ -3,19 +3,21 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/flooks/package.json";
-import { initialState, reduce } from "../model";
-import { mount } from "../view";
-import { hookWorkspace } from "../hooks";
+import { initialKeys, keyPatch, taskKey } from "../keyed";
+import { workspace, mount } from "../view";
 import create from "flooks";
 const useStore = create((store) => ({
-	state: initialState(),
+	...initialKeys(),
 	apply(action) {
-		store({ state: reduce(store().state, action) });
+		store(keyPatch(store().state, action));
 	},
 }));
 export default mount(
-	hookWorkspace(() => {
-		const { state, apply } = useStore();
-		return [state, apply];
-	}),
+	workspace(
+		(select) => select(useStore().state),
+		() => {},
+		undefined,
+		() => useStore().apply,
+		(id) => useStore()[taskKey(id)],
+	),
 );

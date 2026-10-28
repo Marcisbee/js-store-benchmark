@@ -3,14 +3,14 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/@coaction/react/package.json";
-import { initialState, reduce } from "../model";
+import { initialState, mutate, copyTask } from "../model";
 import { workspace, mount } from "../view";
 import { create, observer } from "@coaction/react";
 const useStore = create((set) => ({
 	state: initialState(),
 	apply(action) {
 		set(() => {
-			this.state = reduce(this.state, action);
+			mutate(this.state, action);
 		});
 	},
 }));
@@ -19,5 +19,6 @@ const App = workspace(
 	() => {},
 	observer,
 	() => useStore().apply,
+	(id) => copyTask(useStore().state.tasks[id]),
 );
 export default mount(App);
