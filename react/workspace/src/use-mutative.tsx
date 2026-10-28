@@ -11,7 +11,7 @@ import { useMutative } from "use-mutative";
 const Context = React.createContext(null!);
 const App = stateWorkspace(() => React.useContext(Context));
 export default mount(function Root() {
-	const pair = useMutative(initialState());
+	const pair = useMutative(initialState);
 	return (
 		<Context.Provider value={pair}>
 			<App />
