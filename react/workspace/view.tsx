@@ -20,11 +20,12 @@ const queryValue = (s: State) => s.query;
 const statusValue = (s: State) => s.status;
 const assigneeValue = (s: State) => s.assignee;
 const sortValue = (s: State) => s.sort;
-type Selector = <T>(select: (state: State) => T) => T;
+export type Selector = <T>(select: (state: State) => T) => T;
 export function workspace(
 	useSelect: Selector,
 	dispatch: (action: Action) => void,
 	wrap: (component: any) => any = React.memo,
+	useDispatch: () => (action: Action) => void = () => dispatch,
 ) {
 	const TaskContent = ({ task }: { task: Task }) => (
 		<>
@@ -39,6 +40,7 @@ export function workspace(
 		</>
 	);
 	const Row = wrap(function Row({ id }: { id: number }) {
+		const dispatch = useDispatch();
 		const task = useSelect(React.useCallback((s: State) => s.tasks[id], [id]));
 		return (
 			<li data-task={id}>
@@ -50,6 +52,7 @@ export function workspace(
 		);
 	});
 	const Detail = wrap(function Detail({ id }: { id: number }) {
+		const dispatch = useDispatch();
 		const task = useSelect(React.useCallback((s: State) => s.tasks[id], [id]));
 		return (
 			<aside data-detail={id} aria-label="Task detail">
@@ -132,6 +135,7 @@ export function workspace(
 		);
 	});
 	const Controls = wrap(function Controls() {
+		const dispatch = useDispatch();
 		const query = useSelect(queryValue),
 			status = useSelect(statusValue),
 			assignee = useSelect(assigneeValue),

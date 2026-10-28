@@ -12,9 +12,11 @@ import { getStats } from "./stats.mjs";
 const cpuStats = getStats();
 
 /**
- * @param {{ suite: string, entryPoints: string[], outdir: string, runPath: string, manual: boolean, interactions?: string[] }} config
+ * @param {{ suite: string, entryPoints: string[], outdir: string, runPath: string, manual: boolean, interactions?: string[], unsupported?: {name: string, reason: string}[] }} config
  */
 export async function run(config) {
+	for (const entry of config.unsupported || [])
+		console.warn(`Excluded ${entry.name}: ${entry.reason}`);
 	const context = await build(config);
 	const distPaths = Object.keys(context.metafile.outputs);
 

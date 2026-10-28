@@ -189,14 +189,14 @@ There is no network activity, animation or virtualization in the workload.
 
 Run `npm run bench:workspace` for 20 measured samples per adapter after warmup,
 with the same 4× CPU throttle as the diagnostics. `node scripts/verify.mjs workspace`
-checks this category alone. The starting cohort is Exome, Jotai, MobX, Redux
-Toolkit, Valtio, Zustand and React useReducer with Context. Other libraries remain
-available in the diagnostics; absence here is not a performance result.
+checks this category alone. Workspace covers 67 of the 68 existing Counter adapters, including React
+baselines. Superstate is excluded for a reproduced subscription-cleanup failure;
+see the coverage notes below. A missing or excluded adapter is never a zero result.
 
 Every adapter uses the same React view and immutable domain transitions. Native
-hooks, selectors, derived atoms, observers and providers handle subscriptions;
-Exome uses a class action and Valtio/MobX use observable state containers. These
-initial implementations deliberately share the domain model; they do not claim
+hooks, selectors, derived atoms, observers, HOCs, render props and providers
+handle subscriptions. Hook-only updaters are obtained inside their consuming
+components. These implementations deliberately share the domain model; they do not claim
 to be each library's optimal normalized or per-task store design. Alternate
 idiomatic structures can be added while preserving the observable contract.
 
@@ -232,3 +232,31 @@ To explore an adapter manually after building it, serve the repository and open
 `/bench.html?bench=react/workspace/dist/zustand.mjs&run=react/workspace/index.mjs&manual=true`.
 The results page starts on the newest date containing workspace data; older
 dates without this category show an explicit empty state.
+
+### Workspace coverage and exclusions
+
+All existing Counter targets are accounted for: 67 runnable workspace adapters
+and one explicit exclusion. Suite discovery rejects a newly added Counter target
+unless Workspace has an adapter or a documented exclusion. `npm test` runs every
+supported adapter and reruns the excluded adapter, requiring its documented
+failure and verifying it cannot produce a score. If that failure disappears,
+the check fails so the adapter can be reconsidered for inclusion.
+
+| Excluded target | Reproduced limitation |
+| --- | --- |
+| Superstate (`@superstate/core` 0.1.0, `@superstate/react` 0.1.0) | Filtering unmounts multiple row subscriptions. Core unsubscribe callbacks retain array indexes; earlier removals shift those indexes, so subsequent cleanup removes still-mounted subscribers. The next status change leaves the selected detail stale. |
+
+The runnable reproduction is in `react/workspace/unsupported/superstate.tsx`;
+`unsupported.json` records the reason and expected DOM-validation failure.
+It remains available in Counter, whose single subscriber does not exercise
+this lifecycle. No custom subscription bridge or package patch hides the failure.
+
+The wider cohort preserves the same data, actions, DOM and measurement boundaries.
+Native integration differences remain measurable: SyncedStore applies the shared
+transition through field writes in one Yjs transaction because shared Yjs objects
+cannot be reparented into replacement arrays. Ripple serializes its proxy state
+before applying the immutable reducer and uses its native replacement API;
+serialization cost stays inside the timed interaction. Fluxx and Unistore use
+native connector HOCs; Statty uses its native render-prop subscription. These
+provide state through component-local React contexts to the common view.
+Optional LiquorStore history and Little State Machine persistence remain disabled.

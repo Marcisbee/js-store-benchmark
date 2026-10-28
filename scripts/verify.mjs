@@ -13,7 +13,14 @@ const suites = (
 		? process.argv.slice(2)
 		: ["counter", "fields", "workspace"]
 ).map(getSuite);
-for (const suite of suites) await build(suite);
+for (const suite of suites)
+	await build({
+		...suite,
+		entryPoints: [
+			...suite.entryPoints,
+			...suite.unsupported.map((entry) => entry.path),
+		],
+	});
 const root = resolve(".");
 const server = createServer(async (request, response) => {
 	try {
@@ -57,7 +64,10 @@ try {
 	 }).observe(document, {subtree: true, characterData: true});`,
 	});
 	for (const suite of suites) {
-		for (const entry of suite.entryPoints) {
+		for (const entry of [
+			...suite.entryPoints,
+			...suite.unsupported.map((entry) => entry.path),
+		]) {
 			const name = entry
 				.split("/")
 				.at(-1)
@@ -81,6 +91,22 @@ try {
      count: document.querySelector('h1')?.textContent,
      fields: [...document.querySelectorAll('input')].map(input => [input.value, input.defaultValue]),
     }`);
+				const exclusion = suite.unsupported.find((item) => item.path === entry);
+				if (exclusion) {
+					assert.ok(
+						result.error?.includes(exclusion.expectedError),
+						`Expected documented failure: ${exclusion.expectedError}; received ${result.error}`,
+					);
+					assert.equal(
+						result.measurements[2],
+						null,
+						"Excluded adapter must not produce a score",
+					);
+					console.log(
+						`PASS documented exclusion ${name}: ${exclusion.expectedError}`,
+					);
+					continue;
+				}
 				assert.equal(result.error, null);
 				assert.ok(
 					result.measurements.every(

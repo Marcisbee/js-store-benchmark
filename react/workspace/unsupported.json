@@ -1,0 +1,7 @@
+[
+	{
+		"name": "superstate",
+		"reason": "@superstate/core 0.1.0 captures subscriber array positions in unsubscribe callbacks. Removing multiple filtered rows can unsubscribe the still-mounted detail panel instead, leaving its status stale.",
+		"expectedError": "status: Task 0: incorrect status"
+	}
+]
