@@ -3,14 +3,27 @@ export {
 	name,
 	homepage,
 } from "../../../node_modules/@stated-library/base/package.json";
-import { initialState, reduce } from "../model";
+import { initialKeys, keyPatch, taskKey } from "../keyed";
 import { workspace, mount } from "../view";
 import { StatedLibBase } from "@stated-library/base";
 import { use as useObservable } from "@stated-library/react";
-const store = new StatedLibBase(initialState());
+const stores = Object.fromEntries(
+	Object.entries(initialKeys()).map(([key, value]) => [
+		key,
+		new StatedLibBase(value),
+	]),
+);
 export default mount(
 	workspace(
-		(select) => select(useObservable(store.state$)),
-		(action) => store.updateState((s) => reduce(s, action), action.type),
+		(select) => select(useObservable(stores.state.state$)),
+		(action) => {
+			for (const [key, value] of Object.entries(
+				keyPatch(stores.state.state, action),
+			))
+				stores[key].setState(value, action.type);
+		},
+		undefined,
+		undefined,
+		(id) => useObservable(stores[taskKey(id)].state$),
 	),
 );

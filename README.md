@@ -276,12 +276,12 @@ further application-level optimization is possible.
 | One native transaction for field writes | SyncedStore (Yjs), Ripple (native proxy apply; no JSON round trip) |
 | Native immutable-draft mutations and selected subscriptions | Easy Peasy, LiquorStore, Pullstate, Redux Toolkit, Simplux, Trashly |
 | Selected atoms, computed values or native selector hooks | Bit About State, Compostate, Effect Atom, Effector, Expressive, Hox, Jotai, Legend State, Little State Machine, Nano Stores, Onek, Preact Signals, React Signals App, Realar, Reatom, Recoil, Redux, Redux Zero, Rematch, Remini, Signia, Simpler State, Statofu, Statux, TanStack Store, Wire, XState, Zustand |
-| Task keys/cells in the library's own store, sharing immutable task references | Flooks, Impact, React Hooks Global State, React XS, Rebloom, Resso, Storeon, use-change |
+| Task keys/cells in the library's own store, sharing immutable task references | Flooks, Impact, React Hooks Global State, React XS, Rebloom, Resso, Stated Library, Storeon, use-change |
 | Native task-path subscriptions | Origami, Simplestack, State Ref, Teaful |
 | Native connector selects only the component's result | Fluxx, Unistore, Statty |
 | Native SWR comparison for each selected value; updater has no data dependency | SWR Global State |
 | Native proxy tracking over immutable state | React Tracked |
-| Hook/context providers or whole-observable API; no custom subscription bridge | Constate, Stated Library, Unstated Next, React Context, useReducer, useState |
+| Hook/context providers; no custom subscription bridge | Constate, Unstated Next, React Context, useReducer, useState |
 | Selected immutable snapshot using the React native external-store API | useSyncExternalStore |
 | Native draft mutation with React context subscriptions | use-mutative |
 
