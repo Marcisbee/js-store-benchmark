@@ -326,6 +326,7 @@ dd {
 
 .table-wrap {
 	overflow: auto;
+	overscroll-behavior: none;
 	max-height: 75vh;
 }
 table {

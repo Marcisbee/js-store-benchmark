@@ -208,7 +208,7 @@ export function App() {
 					target="_blank"
 					rel="noreferrer"
 				>
-					GitHub <span aria-hidden="true">↗</span>
+					GitHub
 				</a>
 			</header>
 			<section className="results" aria-label="Benchmark results">
@@ -316,7 +316,21 @@ export function App() {
 										>
 											{metrics[key].label}{" "}
 											<span className="sort-arrow" aria-hidden="true">
-												{metric === key ? (descending ? "↓" : "↑") : "↕"}
+												<svg
+													viewBox="0 0 10 14"
+													width="10"
+													height="14"
+													fill="none"
+													stroke="currentColor"
+													strokeWidth="1.2"
+												>
+													{(metric !== key || !descending) && (
+														<path d="m2 5 3-3 3 3" />
+													)}
+													{(metric !== key || descending) && (
+														<path d="m2 9 3 3 3-3" />
+													)}
+												</svg>
 											</span>
 											<span className="unit">
 												{metrics[key].unit || "Relative"}
