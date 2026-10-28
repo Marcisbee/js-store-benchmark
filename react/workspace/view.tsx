@@ -20,7 +20,7 @@ const queryValue = (s: State) => s.query;
 const statusValue = (s: State) => s.status;
 const assigneeValue = (s: State) => s.assignee;
 const sortValue = (s: State) => s.sort;
-export type Selector = <T>(select: (state: State) => T) => T;
+type Selector = <T>(select: (state: State) => T) => T;
 export function workspace(
 	useSelect: Selector,
 	dispatch: (action: Action) => void,

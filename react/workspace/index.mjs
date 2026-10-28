@@ -138,22 +138,34 @@ function input(target, key, value) {
 async function measure(target, state, trigger, label) {
 	return new Promise((resolve, reject) => {
 		let lastError;
+		let frame = 0;
 		const timer = setTimeout(() => {
 			observer.disconnect();
+			cancelAnimationFrame(frame);
 			reject(new Error(`${label}: ${lastError?.message || "No DOM commit"}`));
 		}, 5000);
-		const observer = new MutationObserver(() => {
+		const inspect = () => {
 			const committed = performance.now();
 			try {
 				check(target, state);
 			} catch (error) {
 				lastError = error;
+				// A controlled select can finish by changing only its value
+				// property, which emits no MutationObserver record. Recheck
+				// incomplete commits on a frame without delaying normal commits.
+				if (!frame)
+					frame = requestAnimationFrame(() => {
+						frame = 0;
+						inspect();
+					});
 				return;
 			}
 			observer.disconnect();
 			clearTimeout(timer);
+			cancelAnimationFrame(frame);
 			resolve(committed - start);
-		});
+		};
+		const observer = new MutationObserver(inspect);
 		observer.observe(target, {
 			subtree: true,
 			childList: true,

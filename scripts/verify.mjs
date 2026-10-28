@@ -64,6 +64,9 @@ try {
 	 }).observe(document, {subtree: true, characterData: true});`,
 	});
 	for (const suite of suites) {
+		await driver.sendDevToolsCommand("Emulation.setCPUThrottlingRate", {
+			rate: suite.suite === "React Workspace" ? 4 : 1,
+		});
 		for (const entry of [
 			...suite.entryPoints,
 			...suite.unsupported.map((entry) => entry.path),
@@ -152,6 +155,44 @@ try {
 		}
 	}
 	if (suites.some((suite) => suite.suite === "React Workspace")) {
+		// Model a delayed select-property commit after an incomplete mutation
+		// notification. This uses the real app/store; only the DOM notification
+		// ordering is controlled. Property writes emit no mutation records.
+		const { identifier } = await driver.sendDevToolsCommand(
+			"Page.addScriptToEvaluateOnNewDocument",
+			{
+				source: `const NativeObserver=MutationObserver;let injected=false;
+                window.MutationObserver=class extends NativeObserver {constructor(callback){super((records,observer)=>{
+                    const select=document.querySelector('[data-control="filterAssignee"]');
+                    if(!injected && select?.value==='0') {
+                        injected=true;window.propertyCommitInjected=true;select.value='';
+                        callback(records,observer);setTimeout(()=>{select.value='0'},0);
+                    } else callback(records,observer);
+                })}};`,
+			},
+		);
+		await driver.get(
+			`http://127.0.0.1:${server.address().port}/bench.html?bench=react/workspace/dist/use-reducer.mjs&run=react/workspace/index.mjs`,
+		);
+		await driver.wait(
+			() =>
+				driver.executeScript(
+					"return Boolean(window.tachometerError) || Number.isFinite(window.tachometerResultMemory)",
+				),
+			10000,
+		);
+		const completion = await driver.executeScript(
+			"return {injected:window.propertyCommitInjected,error:window.tachometerError,score:window.tachometerResultPerformance}",
+		);
+		assert.equal(completion.injected, true);
+		assert.equal(completion.error, null);
+		assert.ok(Number.isFinite(completion.score));
+		await driver.sendDevToolsCommand(
+			"Page.removeScriptToEvaluateOnNewDocument",
+			{ identifier },
+		);
+		console.log("PASS property-only select completion after a partial commit");
+
 		await driver.sendDevToolsCommand("Page.addScriptToEvaluateOnNewDocument", {
 			source: `document.addEventListener('click', event => { if (event.target.matches('[data-action="bulk"]')) event.stopImmediatePropagation(); }, true);`,
 		});

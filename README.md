@@ -179,7 +179,7 @@ CommonJS support and fixes the
 Remove these overrides when the upstream packages adopt safe dependencies.
 `npm test` checks both security regressions before running all browser targets.
 
-## Task workspace (methodology version 4)
+## Task workspace (methodology version 5)
 
 The default category is an in-memory issue tracker: 1,000 deterministic tasks
 across 10 projects, eight assignees, five labels, three statuses and three nested
@@ -213,20 +213,22 @@ return to an earlier task. Global status counts and the count assigned to Person
 
 Startup includes module loading, store creation and initial DOM mount. Each
 interaction starts immediately before its DOM event and ends at the mutation
-observer callback that sees the complete expected DOM. The callback timestamps
+observer callback that sees the complete expected DOM. If a partial commit is
+observed, frame callbacks also check for completion: select-value property writes
+do not emit mutation records. Ordinary complete commits need no frame wait. The callback timestamps
 before checking the DOM; successful validation is excluded. Partial commits do
 not end the timer. An independent oracle checks row identities/order, every
 rendered task field, controls, checklist, selected detail and summary counts at
 each checkpoint. Missing or stale updates time out and invalidate the run. The
 browser verifier also suppresses a bulk action to prove no score is produced.
-These are DOM-commit timings, not paint or input-to-next-paint measurements.
+These are observed DOM-commit timings, not paint or input-to-next-paint measurements.
 
 The Update measurement selector shows the sum for all interactions or one action
 type. Counts in parentheses are occurrences per run; values are totals, not
 per-event averages. The aggregate is the sum of those measured intervals,
 excluding between-action oracle work. Startup, memory and transfer stay separate.
 The score uses the displayed Update metric plus startup, memory and transfer.
-Version 4 workspace scores are not comparable with diagnostic or historical scores.
+Version 5 workspace scores are not comparable with diagnostic or historical scores.
 
 To explore an adapter manually after building it, serve the repository and open
 `/bench.html?bench=react/workspace/dist/zustand.mjs&run=react/workspace/index.mjs&manual=true`.
