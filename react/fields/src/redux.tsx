@@ -1,5 +1,9 @@
 import { combineReducers, createStore } from "redux";
-export { version, name, homepage } from "../../../node_modules/redux/package.json";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/redux/package.json";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
@@ -39,7 +43,10 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-function Field({ index, field: name }: { index: number; field: string }) {
+function Field({ index }: { index: number }) {
+	const name = useSelector(
+		(state: ReturnType<typeof store.getState>) => state.counter[index],
+	);
 	const dispatch = useDispatch();
 
 	return (
@@ -55,9 +62,8 @@ function Field({ index, field: name }: { index: number; field: string }) {
 }
 
 function App() {
-	const fields: string[] = useSelector(
-		(state: any) => state.counter,
-		() => false,
+	const length = useSelector(
+		(state: ReturnType<typeof store.getState>) => state.counter.length,
 	);
 
 	return (
@@ -66,8 +72,8 @@ function App() {
 				Last {`<App>`} render at: {new Date().toISOString()}
 			</div>
 			<br />
-			{fields.map((field, index) => (
-				<Field key={index} index={index} field={field} />
+			{Array.from({ length }, (_, index) => (
+				<Field key={index} index={index} />
 			))}
 			<h1>foot</h1>
 		</div>
@@ -83,8 +89,6 @@ export default async function (target: HTMLElement) {
 			<App />
 		</Provider>,
 	);
-
-	await new Promise((resolve) => setTimeout(resolve, 10));
 
 	return elementReady("h1");
 }

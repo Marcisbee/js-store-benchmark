@@ -1,5 +1,9 @@
 import { Trashly } from "trashly-react";
-export { version, name, homepage } from "../../../node_modules/trashly-react/package.json";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/trashly-react/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 
@@ -26,7 +30,7 @@ function Field({ index }: { index: number }) {
 }
 
 function App() {
-	const fields = store.useSelector((s) => s.fields);
+	const length = store.useSelector((s) => s.fields.length);
 
 	return (
 		<div>
@@ -34,7 +38,7 @@ function App() {
 				Last {`<App>`} render at: {new Date().toISOString()}
 			</div>
 			<br />
-			{fields.map((_, index) => (
+			{Array.from({ length }, (_, index) => (
 				<Field key={index} index={index} />
 			))}
 			<h1>foot</h1>
@@ -47,8 +51,6 @@ let key = 0;
 export default async function (target: HTMLElement) {
 	const root = ReactDom.createRoot(target);
 	root.render(<App key={key++} />);
-
-	await new Promise((resolve) => setTimeout(resolve, 10));
 
 	return elementReady("h1");
 }

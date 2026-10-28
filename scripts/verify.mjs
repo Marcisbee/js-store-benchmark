@@ -1,0 +1,114 @@
+import assert from "node:assert/strict";
+import { createServer } from "node:http";
+import { readFile } from "node:fs/promises";
+import { resolve, sep } from "node:path";
+import { Builder } from "selenium-webdriver";
+import chrome from "selenium-webdriver/chrome.js";
+import { build } from "../build.mjs";
+import { getSuite } from "../suites.mjs";
+
+// Exercise the same production bundles and browser entry point as tachometer.
+const suites = [getSuite("counter"), getSuite("fields")];
+for (const suite of suites) await build(suite);
+const root = resolve(".");
+const server = createServer(async (request, response) => {
+	try {
+		const path = resolve(
+			root,
+			`.${new URL(request.url, "http://localhost").pathname}`,
+		);
+		if (!path.startsWith(root + sep)) throw new Error("Invalid path");
+		response.setHeader(
+			"Content-Type",
+			path.endsWith(".html") ? "text/html" : "text/javascript",
+		);
+		response.end(await readFile(path));
+	} catch {
+		response.writeHead(404).end();
+	}
+});
+await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+let driver;
+let failed = 0;
+try {
+	const options = new chrome.Options().addArguments(
+		"--headless=new",
+		"--no-sandbox",
+		"--js-flags=--expose-gc",
+	);
+	if (process.env.CHROME_BIN)
+		options.setChromeBinaryPath(process.env.CHROME_BIN);
+	driver = await new Builder()
+		.forBrowser("chrome")
+		.setChromeOptions(options)
+		.build();
+	// Observe the existing render timestamps without adding work to timed runs.
+	await driver.sendDevToolsCommand("Page.addScriptToEvaluateOnNewDocument", {
+		source: `window.unrelatedFieldUpdates = 0;
+	 new MutationObserver(records => {
+	  for (const record of records) {
+	   const input = record.target.parentElement?.querySelector('input');
+	   if (input?.value.startsWith('Field #')) window.unrelatedFieldUpdates++;
+	  }
+	 }).observe(document, {subtree: true, characterData: true});`,
+	});
+	for (const suite of suites) {
+		for (const entry of suite.entryPoints) {
+			const name = entry
+				.split("/")
+				.at(-1)
+				.replace(/\.tsx$/, "");
+			const bench = `${suite.outdir}/${name}.mjs`;
+			try {
+				await driver.get(
+					`http://127.0.0.1:${server.address().port}/bench.html?${new URLSearchParams({ bench, run: suite.runPath })}`,
+				);
+				await driver.wait(
+					() =>
+						driver.executeScript(
+							"return Boolean(window.tachometerError) || Number.isFinite(window.tachometerResultMemory)",
+						),
+					30000,
+				);
+				const result = await driver.executeScript(`return {
+     error: window.tachometerError,
+     unrelatedFieldUpdates: window.unrelatedFieldUpdates,
+     measurements: [window.tachometerResultStartup, window.tachometerResultPerformance, window.tachometerResultMemory],
+     count: document.querySelector('h1')?.textContent,
+     fields: [...document.querySelectorAll('input')].map(input => [input.value, input.defaultValue]),
+    }`);
+				assert.equal(result.error, null);
+				assert.ok(
+					result.measurements.every(
+						(value) => Number.isFinite(value) && value >= 0,
+					),
+				);
+				if (suite.suite === "React Counter") assert.equal(result.count, "1000");
+				else {
+					assert.equal(result.fields.length, 1000);
+					assert.equal(
+						result.unrelatedFieldUpdates,
+						0,
+						"Unedited fields changed their render timestamps",
+					);
+					for (const [index, [value, committed]] of result.fields.entries()) {
+						assert.equal(
+							value,
+							index === 10 ? "Updated field #100" : `Field #${index + 1}`,
+						);
+						assert.equal(committed, value);
+					}
+				}
+				console.log(`PASS ${suite.suite}: ${name}`);
+			} catch (error) {
+				failed++;
+				console.error(`FAIL ${suite.suite}: ${name}: ${error.message}`);
+				console.error(await driver.manage().logs().get("browser"));
+			}
+		}
+	}
+} finally {
+	await driver?.quit();
+	await new Promise((resolve) => server.close(resolve));
+}
+if (failed) throw new Error(`${failed} benchmark targets failed`);

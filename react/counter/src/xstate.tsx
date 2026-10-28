@@ -1,6 +1,10 @@
 import { useMachine } from "@xstate/react";
 import { createMachine, assign } from "xstate";
-export { version, name, homepage } from "../../../node_modules/xstate/package.json";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/xstate/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 
@@ -14,7 +18,7 @@ const counterMachine = createMachine({
 		active: {
 			on: {
 				INCREMENT: {
-					actions: assign({ count: (ctx) => ctx.count + 1 }),
+					actions: assign({ count: ({ context }) => context.count + 1 }),
 				},
 			},
 		},
@@ -27,7 +31,7 @@ function App() {
 	return (
 		<h1
 			onClick={clickAction(() => {
-				send("INCREMENT");
+				send({ type: "INCREMENT" });
 			})}
 		>
 			{state.context.count}

@@ -1,8 +1,10 @@
 // @ts-check
 import * as colorette from "colorette";
 import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
-import esbuild from "esbuild";
+import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
+import { basename, dirname, resolve } from "node:path";
+import { build } from "./build.mjs";
 
 import { tachometer } from "./tachometer.mjs";
 import { getStats } from "./stats.mjs";
@@ -13,66 +15,31 @@ const cpuStats = getStats();
  * @param {{ suite: string, entryPoints: string[], outdir: string, runPath: string, manual: boolean }} config
  */
 export async function run(config) {
-	const context = await esbuild.build({
-		entryPoints: config.entryPoints,
-		outdir: config.outdir,
-		format: "esm",
-		minify: true,
-		bundle: true,
-		outExtension: {
-			".js": ".mjs",
-		},
-		// Legal comments should not be part of bundle as we compare raw size too
-		legalComments: "none",
-		sourcemap: false,
-		define: {
-			"process.env.NODE_ENV": '"production"',
-		},
-		platform: "browser",
-		metafile: true,
-		plugins: [
-			{
-				name: "package-json",
-				setup({ onResolve, onLoad }) {
-					onResolve({ filter: /\/package\.json$/ }, (args) => ({
-						namespace: "package-json",
-						path: join(args.resolveDir, args.path),
-					}));
-
-					onLoad({ filter: /./, namespace: "package-json" }, async (args) => {
-						try {
-							const { name, version, homepage } = JSON.parse(
-								readFileSync(args.path, "utf-8"),
-							);
-
-							return {
-								contents: JSON.stringify({ name, version, homepage }),
-								loader: "json",
-							};
-						} catch (err) {
-							// err = { errors, warnings }
-							return err;
-						}
-					});
-				},
-			},
-		],
-	});
-
+	const context = await build(config);
 	const distPaths = Object.keys(context.metafile.outputs);
 
 	/** @type {Partial<import('tachometer/src/config').Config>} */
 	const tachometerConfig = {
-		sampleSize: 10,
+		sampleSize: 20,
 		timeout: 0,
 		mode: config.manual ? "manual" : undefined,
 		benchmarks: await Promise.all(
 			distPaths.map(async (path) => {
+				// Read package metadata without executing browser-only modules in Node.
+				const entryPoint = context.metafile.outputs[path].entryPoint;
+				const source = readFileSync(entryPoint, "utf8");
+				const packagePath = source.match(
+					/from\s+["']([^"']*node_modules\/[^"']+\/package\.json)["']/,
+				)?.[1];
 				const {
 					version,
 					name: npmName,
 					homepage,
-				} = await import(resolve(path));
+				} = packagePath
+					? JSON.parse(
+							readFileSync(resolve(dirname(entryPoint), packagePath), "utf8"),
+						)
+					: {};
 
 				return {
 					name: [basename(path).replace(/\..*$/, ""), version]
@@ -85,6 +52,23 @@ export async function run(config) {
 					},
 					browser: {
 						extra: {
+							methodology: {
+								version: 3,
+								react: JSON.parse(
+									readFileSync("node_modules/react/package.json", "utf8"),
+								).version,
+								operations: config.suite.toLowerCase().includes("counter")
+									? 1000
+									: 100,
+								sampleSize: 20,
+								cpuThrottlingRate: 4,
+								sourceRevision: execFileSync("git", ["rev-parse", "HEAD"], {
+									encoding: "utf8",
+								}).trim(),
+								lockfileSha256: createHash("sha256")
+									.update(readFileSync("package-lock.json"))
+									.digest("hex"),
+							},
 							npm: {
 								npmName,
 								version,
@@ -121,17 +105,20 @@ export async function run(config) {
 						{
 							mode: "expression",
 							name: "performance",
-							expression: "window.tachometerResultPerformance",
+							expression:
+								"(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultPerformance; })()",
 						},
 						{
 							mode: "expression",
 							name: "startup",
-							expression: "window.tachometerResultStartup",
+							expression:
+								"(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultStartup; })()",
 						},
 						{
 							mode: "expression",
 							name: "memory",
-							expression: "window.tachometerResultMemory",
+							expression:
+								"(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultMemory; })()",
 						},
 					],
 				};
@@ -204,7 +191,7 @@ export async function run(config) {
 			[
 				colorette.blue(colorette.bold(nameOnly)),
 				colorette.dim(paddingOnly),
-				colorette.yellow(`${performance.stats.mean.toFixed(1)} ms/ops`),
+				colorette.yellow(`${performance.stats.mean.toFixed(1)} ms/batch`),
 				`±${performance.stats.standardDeviation.toFixed(1)}`,
 				// "|",
 				// colorette.yellow(`${startup.stats.mean.toFixed(2)} ms`),

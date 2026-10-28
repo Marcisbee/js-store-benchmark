@@ -1,5 +1,9 @@
 import { atom, RecoilRoot, useRecoilState } from "recoil";
-export { version, name, homepage } from "../../../node_modules/recoil/package.json";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/recoil/package.json";
 import * as React from "react";
 import * as ReactDom from "react-dom/client";
 
@@ -52,8 +56,6 @@ export default async function (target: HTMLElement) {
 			<App />
 		</RecoilRoot>,
 	);
-
-	await new Promise((resolve) => setTimeout(resolve, 10));
 
 	return elementReady("h1");
 }

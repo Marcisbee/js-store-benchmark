@@ -1,19 +1,24 @@
 import resso from "resso";
-export { version, name, homepage } from "../../../node_modules/resso/package.json";
+export {
+	version,
+	name,
+	homepage,
+} from "../../../node_modules/resso/package.json";
 import * as React from "react";
-import { unstable_batchedUpdates as batch } from "react-dom";
 import * as ReactDom from "react-dom/client";
 
 import { elementReady } from "./utils/wait-for-element";
 import { clickAction } from "./utils/click-action";
 
-resso.config({ batch });
-
-const store = resso({ count: 0, text: "hello" });
+const store = resso({ count: 0 });
 
 function App() {
-	const { count } = store;
-	return <h1 onClick={clickAction(() => ++store.count)}>{count}</h1>;
+	const { count } = store.useStore();
+	return (
+		<h1 onClick={clickAction(() => store("count", (count) => count + 1))}>
+			{count}
+		</h1>
+	);
 }
 
 let key = 0;
