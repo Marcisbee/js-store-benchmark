@@ -165,3 +165,15 @@ winner. Compare raw metrics and their variation for the workload you care about.
 The starred-repository selection and exclusions are documented in
 [benchmark targets](BENCHMARKS.md). No framework, database, or custom React bridge
 is substituted for a library's supported React integration.
+
+## Security overrides
+
+Trashly Core 0.1.6 depends on the unpatched standalone `lodash.set` package
+([advisory](https://github.com/advisories/GHSA-p6mc-m468-83gw)). Its scoped npm
+override uses `vendor/lodash-set`, a callable compatibility entry point for the
+maintained `lodash/set.js` implementation. It does not change the Trashly adapter.
+Data Transport 5.0.3 (used by Coaction) is scoped to UUID 11.1.1, which retains
+CommonJS support and fixes the
+[buffer bounds advisory](https://github.com/advisories/GHSA-w5hq-g745-h8pq).
+Remove these overrides when the upstream packages adopt safe dependencies.
+`npm test` checks both security regressions before running all browser targets.
