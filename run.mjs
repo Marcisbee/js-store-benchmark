@@ -12,7 +12,7 @@ import { getStats } from "./stats.mjs";
 const cpuStats = getStats();
 
 /**
- * @param {{ suite: string, entryPoints: string[], outdir: string, runPath: string, manual: boolean }} config
+ * @param {{ suite: string, entryPoints: string[], outdir: string, runPath: string, manual: boolean, interactions?: string[] }} config
  */
 export async function run(config) {
 	const context = await build(config);
@@ -53,13 +53,15 @@ export async function run(config) {
 					browser: {
 						extra: {
 							methodology: {
-								version: 3,
+								version: config.interactions?.length ? 4 : 3,
 								react: JSON.parse(
 									readFileSync("node_modules/react/package.json", "utf8"),
 								).version,
 								operations: config.suite.toLowerCase().includes("counter")
 									? 1000
-									: 100,
+									: config.interactions?.length
+										? 21
+										: 100,
 								sampleSize: 20,
 								cpuThrottlingRate: 4,
 								sourceRevision: execFileSync("git", ["rev-parse", "HEAD"], {
@@ -102,6 +104,11 @@ export async function run(config) {
 						cpuThrottlingRate: 4,
 					},
 					measurement: [
+						...(config.interactions || []).map((name) => ({
+							mode: "expression",
+							name,
+							expression: `(() => { if (window.tachometerError) throw new Error(window.tachometerError); return window.tachometerResultInteractions?.${name}; })()`,
+						})),
 						{
 							mode: "expression",
 							name: "performance",
@@ -172,6 +179,10 @@ export async function run(config) {
 		},
 		{},
 	);
+
+	for (const measurements of Object.values(groupedResults))
+		for (const measurement of Object.values(measurements))
+			delete measurement.differences;
 
 	const sortedResults = Object.entries(groupedResults).sort(
 		([, a], [, b]) => a.performance.stats.mean - b.performance.stats.mean,

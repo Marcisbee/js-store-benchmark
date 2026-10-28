@@ -44,6 +44,19 @@ const metrics = {
 	},
 };
 type Metric = keyof typeof metrics;
+const interactions = {
+	performance: "All interactions",
+	edit: "Edit title (2)",
+	checklist: "Checklist (1)",
+	status: "Change status (2)",
+	assignee: "Change assignee (1)",
+	search: "Search (4)",
+	filter: "Filter (4)",
+	sort: "Sort (2)",
+	bulk: "Bulk update (1)",
+	incoming: "Incoming batch (1)",
+	selection: "Switch task (3)",
+};
 const metricKeys = Object.keys(metrics) as Metric[];
 type Measurement = {
 	stats: { mean: number; standardDeviation: number };
@@ -55,10 +68,7 @@ type Measurement = {
 		};
 	};
 };
-type ResultRow = [
-	string,
-	Record<"performance" | "startup" | "memory", Measurement>,
-];
+type ResultRow = [string, Record<string, Measurement>];
 type Suite = { type: string; name: string; content: ResultRow[] };
 const dates = Object.keys(results).sort().reverse();
 const cache = new Map<string, Promise<Suite[]>>();
@@ -88,8 +98,9 @@ function dateLabel(date: string) {
 		new Date(`${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`),
 	);
 }
-function prepare(rows: ResultRow[]) {
+function prepare(rows: ResultRow[], interaction = "performance") {
 	const data = rows.map(([id, measurements]) => {
+		const update = measurements[interaction] || measurements.performance;
 		const match = id.match(/^(.*)-v(.+)$/);
 		return {
 			id,
@@ -97,14 +108,14 @@ function prepare(rows: ResultRow[]) {
 			version: match?.[2],
 			homepage: measurements.performance.result.browser.extra?.npm?.homepage,
 			values: {
-				performance: measurements.performance.stats.mean,
+				performance: update.stats.mean,
 				startup: measurements.startup.stats.mean,
 				memory: measurements.memory.stats.mean,
 				size: measurements.performance.result.bytesSent,
 				score: 0,
 			},
 			deviations: {
-				performance: measurements.performance.stats.standardDeviation,
+				performance: update.stats.standardDeviation,
 				startup: measurements.startup.stats.standardDeviation,
 				memory: measurements.memory.stats.standardDeviation,
 			},
@@ -138,8 +149,13 @@ export function App() {
 		window.addEventListener("popstate", syncFocus);
 		return () => window.removeEventListener("popstate", syncFocus);
 	}, []);
-	const [date, setDate] = useState(dates[0]);
-	const [suite, setSuite] = useState("counter");
+	const [date, setDate] = useState(
+		dates.find((date) =>
+			results[date].some((item) => item.name === "workspace"),
+		) || dates[0],
+	);
+	const [suite, setSuite] = useState("workspace");
+	const [interaction, setInteraction] = useState("performance");
 	const [metric, setMetric] = useState<Metric>("score");
 	const [descending, setDescending] = useState(false);
 	const [search, setSearch] = useState("");
@@ -172,7 +188,10 @@ export function App() {
 	const source =
 		data.find((item) => item.type === "react" && item.name === suite)
 			?.content || [];
-	const rows = useMemo(() => prepare(source), [source]);
+	const rows = useMemo(
+		() => prepare(source, suite === "workspace" ? interaction : "performance"),
+		[source, suite, interaction],
+	);
 	const ranges = useMemo(
 		() =>
 			Object.fromEntries(
@@ -250,7 +269,16 @@ export function App() {
 					>
 						<button
 							type="button"
+							data-suite="workspace"
+							aria-pressed={suite === "workspace"}
+							onClick={() => setSuite("workspace")}
+						>
+							Task workspace
+						</button>
+						<button
+							type="button"
 							aria-pressed={suite === "counter"}
+							data-suite="counter"
 							onClick={() => setSuite("counter")}
 						>
 							Counter
@@ -258,6 +286,7 @@ export function App() {
 						<button
 							type="button"
 							aria-pressed={suite === "fields"}
+							data-suite="fields"
 							onClick={() => setSuite("fields")}
 						>
 							Fields
@@ -277,12 +306,36 @@ export function App() {
 						</select>
 					</label>
 				</div>
+				{suite === "workspace" && (
+					<div className="interaction-control">
+						<label>
+							Update measurement{" "}
+							<select
+								aria-label="Update measurement"
+								value={interaction}
+								onChange={(event) => setInteraction(event.target.value)}
+							>
+								{Object.entries(interactions).map(([key, label]) => (
+									<option key={key} value={key}>
+										{label}
+									</option>
+								))}
+							</select>
+						</label>
+						<span>
+							Totals per run · counts in parentheses · Counter and Fields are
+							diagnostics
+						</span>
+					</div>
+				)}
 				<div className="table-tools">
 					<div className="workload">
 						<h2>
-							{suite === "counter"
-								? "1,000 increments"
-								: "100 edits · 1,000 fields"}
+							{suite === "workspace"
+								? "1,000 tasks · 50 visible · 10 projects"
+								: suite === "counter"
+									? "1,000 increments"
+									: "100 edits · 1,000 fields"}
 						</h2>
 						<span aria-live="polite">
 							{!loading && !error ? `${filtered.length} targets` : "\u00a0"}
@@ -312,8 +365,12 @@ export function App() {
 				>
 					<table>
 						<caption className="sr-only">
-							{suite === "counter" ? "Counter" : "Fields"} results,{" "}
-							{date && dateLabel(date)}. Lower values are better.
+							{suite === "workspace"
+								? "Task workspace"
+								: suite === "counter"
+									? "Counter"
+									: "Fields"}{" "}
+							results, {date && dateLabel(date)}. Lower values are better.
 						</caption>
 						<thead>
 							<tr>
@@ -471,7 +528,7 @@ export function App() {
 							<p className="empty" role="status">
 								{source.length
 									? "No matching libraries."
-									: "No results for this suite."}
+									: "No results for this suite on this date."}
 							</p>
 						)
 					)}

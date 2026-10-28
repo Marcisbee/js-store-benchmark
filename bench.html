@@ -32,13 +32,15 @@
 			// Let passive-effect subscriptions settle before the first interaction.
 			await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)));
 
-			window.gc();
-			const performanceStart = performance.now();
-			await run(app);
-			window.tachometerResultPerformance = performance.now() - performanceStart;
-			validate(app);
-			window.gc();
-			window.tachometerResultMemory = window.performance.memory.usedJSHeapSize;
+			if (params.manual !== "true") {
+				window.gc();
+				const performanceStart = performance.now();
+				const measured = await run(app);
+				window.tachometerResultPerformance = measured ?? performance.now() - performanceStart;
+				validate(app);
+				window.gc();
+				window.tachometerResultMemory = window.performance.memory.usedJSHeapSize;
+			}
 		} catch (error) {
 			window.tachometerError = error.stack || String(error);
 			console.error(error);

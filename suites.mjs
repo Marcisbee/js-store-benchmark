@@ -1,7 +1,7 @@
 import { readdirSync } from "node:fs";
 
 export function getSuite(name) {
-	if (!["counter", "fields"].includes(name))
+	if (!["counter", "fields", "workspace"].includes(name))
 		throw new Error(`Unknown suite: ${name}`);
 	const directory = `./react/${name}`;
 	return {
@@ -13,5 +13,20 @@ export function getSuite(name) {
 		outdir: `${directory}/dist`,
 		runPath: `react/${name}/index.mjs`,
 		manual: false,
+		interactions:
+			name === "workspace"
+				? [
+						"edit",
+						"checklist",
+						"status",
+						"assignee",
+						"search",
+						"filter",
+						"sort",
+						"bulk",
+						"incoming",
+						"selection",
+					]
+				: [],
 	};
 }

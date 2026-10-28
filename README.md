@@ -56,7 +56,7 @@ valtio-v1.11.2 ....... 3824.6 ms/ops ±36.6 | 175.6 KB
 
 Benchmarks are run on `darwin 24.1.0, Apple M1 (8 core) arm64`
 
-I know counter doesn't really show real world app performance, but I didn't want to waste much time re-creating real world app for each state so this will have to do.
+Task workspace is now the default comparison. Counter and Fields remain smaller diagnostic workloads.
 
 # Running benchmarks
 There's a cli to run and return results. Tests run on top of `tachometer` library from Google via Chromium in browser environment.
@@ -70,6 +70,7 @@ npm ci
 
 And to run tests:
 ```
+node run.react.workspace.mjs
 node run.react.counter.mjs
 node run.react.fields.mjs
 ```
@@ -82,9 +83,9 @@ Selenium Manager obtains a driver matching the installed browser on first use;
 that first run needs network access. Set `CHROME_BIN` to select another Chrome
 binary.
 
-Both suites discover every `.tsx` target in their `src` directory, including
+All suites discover every `.tsx` target in their `src` directory, including
 Impact, Superstate, Teaful, and Ripple. `npm test` builds the same production
-bundles as the timing runner and checks all discovered counter and field targets in
+bundles as the timing runner and checks all discovered workspace, counter and field targets in
 Chrome. It requires each counter to reach 1,000 and each field target to commit
 100 edits while preserving the other 999 fields. A stalled mount or update
 fails with a deadline instead of leaving the benchmark waiting indefinitely.
@@ -177,3 +178,57 @@ CommonJS support and fixes the
 [buffer bounds advisory](https://github.com/advisories/GHSA-w5hq-g745-h8pq).
 Remove these overrides when the upstream packages adopt safe dependencies.
 `npm test` checks both security regressions before running all browser targets.
+
+## Task workspace (methodology version 4)
+
+The default category is an in-memory issue tracker: 1,000 deterministic tasks
+across 10 projects, eight assignees, five labels, three statuses and three nested
+checklist items per task. It renders the first 50 matching tasks (or fewer if the
+filter has fewer matches), a selected-task detail panel, filters and live counts.
+There is no network activity, animation or virtualization in the workload.
+
+Run `npm run bench:workspace` for 20 measured samples per adapter after warmup,
+with the same 4× CPU throttle as the diagnostics. `node scripts/verify.mjs workspace`
+checks this category alone. The starting cohort is Exome, Jotai, MobX, Redux
+Toolkit, Valtio, Zustand and React useReducer with Context. Other libraries remain
+available in the diagnostics; absence here is not a performance result.
+
+Every adapter uses the same React view and immutable domain transitions. Native
+hooks, selectors, derived atoms, observers and providers handle subscriptions;
+Exome uses a class action and Valtio/MobX use observable state containers. These
+initial implementations deliberately share the domain model; they do not claim
+to be each library's optimal normalized or per-task store design. Alternate
+idiomatic structures can be added while preserving the observable contract.
+
+A run contains 21 sequential user actions: two title edits, one nested checklist
+toggle, two status changes, one assignee change, four searches, four filter
+changes, two sorts, one bulk update, one incoming batch and three selections.
+Bulk updates complete the first 20 visible tasks in one action. The incoming
+batch updates tasks 0–9 and 900–909; a subsequent search brings all incoming
+records into view. Status and assignee changes run with matching filters active,
+so the edited task leaves the list while the detail panel and counts update.
+Selections unmount the old detail subscriber, mount the new one, edit it, and
+return to an earlier task. Global status counts and the count assigned to Person
+1 are displayed alongside the current matching count.
+
+Startup includes module loading, store creation and initial DOM mount. Each
+interaction starts immediately before its DOM event and ends at the mutation
+observer callback that sees the complete expected DOM. The callback timestamps
+before checking the DOM; successful validation is excluded. Partial commits do
+not end the timer. An independent oracle checks row identities/order, every
+rendered task field, controls, checklist, selected detail and summary counts at
+each checkpoint. Missing or stale updates time out and invalidate the run. The
+browser verifier also suppresses a bulk action to prove no score is produced.
+These are DOM-commit timings, not paint or input-to-next-paint measurements.
+
+The Update measurement selector shows the sum for all interactions or one action
+type. Counts in parentheses are occurrences per run; values are totals, not
+per-event averages. The aggregate is the sum of those measured intervals,
+excluding between-action oracle work. Startup, memory and transfer stay separate.
+The score uses the displayed Update metric plus startup, memory and transfer.
+Version 4 workspace scores are not comparable with diagnostic or historical scores.
+
+To explore an adapter manually after building it, serve the repository and open
+`/bench.html?bench=react/workspace/dist/zustand.mjs&run=react/workspace/index.mjs&manual=true`.
+The results page starts on the newest date containing workspace data; older
+dates without this category show an explicit empty state.

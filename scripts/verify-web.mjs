@@ -58,20 +58,20 @@ try {
 	await driver.manage().window().setRect({ width: 1280, height: 900 });
 	await driver.get(`http://127.0.0.1:${server.address().port}/`);
 	await ready();
+	assert.equal(
+		await driver
+			.findElement(By.css('[data-suite="workspace"]'))
+			.getAttribute("aria-pressed"),
+		"true",
+	);
 	const dates = (await readdir("results"))
 		.filter((date) => /^\d{8}$/.test(date))
 		.sort()
 		.reverse();
 	for (const date of dates) {
 		await choose(".date-control select", date);
-		for (const suite of ["counter", "fields"]) {
-			await driver
-				.findElement(
-					By.css(
-						`.suite-switch button:nth-child(${suite === "counter" ? 1 : 2})`,
-					),
-				)
-				.click();
+		for (const suite of ["workspace", "counter", "fields"]) {
+			await driver.findElement(By.css(`[data-suite="${suite}"]`)).click();
 			let rows = [];
 			try {
 				rows = JSON.parse(
@@ -90,6 +90,32 @@ try {
 					id,
 				);
 				assert.ok(actual, `${date}/${suite}: Exome row`);
+				if (suite === "workspace") {
+					for (const key of [
+						"edit",
+						"checklist",
+						"status",
+						"assignee",
+						"search",
+						"filter",
+						"sort",
+						"bulk",
+						"incoming",
+						"selection",
+					]) {
+						await choose('[aria-label="Update measurement"]', key);
+						const value = await driver.executeScript(
+							`return [...document.querySelectorAll('tbody tr')].find(row => row.querySelector('.library').textContent.replace('v', '-v') === arguments[0]).querySelector('.metric .value').textContent`,
+							id,
+						);
+						assert.equal(
+							value,
+							measurements[key].stats.mean.toFixed(1),
+							`${suite}: ${key}`,
+						);
+					}
+					await choose('[aria-label="Update measurement"]', "performance");
+				}
 				assert.equal(
 					actual[0],
 					`${measurements.performance.stats.mean.toFixed(1)}± ${measurements.performance.stats.standardDeviation.toFixed(1)}`,
@@ -105,8 +131,14 @@ try {
 			}
 		}
 	}
-	await choose(".date-control select", dates[0]);
-	await driver.findElement(By.css(".suite-switch button")).click();
+	const counterDates = [];
+	for (const date of dates) {
+		if ((await readdir(`results/${date}`)).includes("react.counter.json"))
+			counterDates.push(date);
+	}
+	const counterDate = counterDates[0];
+	await choose(".date-control select", counterDate);
+	await driver.findElement(By.css('[data-suite="counter"]')).click();
 	const search = await driver.findElement(By.css('input[type="search"]'));
 	await search.sendKeys("EXOME");
 	assert.equal(await rowCount(), 1);
@@ -187,6 +219,8 @@ try {
 	assert.match(await focusedName(), /^exome/);
 	await driver.navigate().refresh();
 	await ready();
+	await choose(".date-control select", counterDate);
+	await driver.findElement(By.css('[data-suite="counter"]')).click();
 	assert.match(await focusedName(), /^exome/);
 	await driver.manage().window().setRect({ width: 390, height: 844 });
 	await driver.findElement(By.css("thead th:nth-child(3) button")).click();

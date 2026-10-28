@@ -8,7 +8,11 @@ import { build } from "../build.mjs";
 import { getSuite } from "../suites.mjs";
 
 // Exercise the same production bundles and browser entry point as tachometer.
-const suites = [getSuite("counter"), getSuite("fields")];
+const suites = (
+	process.argv.slice(2).length
+		? process.argv.slice(2)
+		: ["counter", "fields", "workspace"]
+).map(getSuite);
 for (const suite of suites) await build(suite);
 const root = resolve(".");
 const server = createServer(async (request, response) => {
@@ -84,7 +88,7 @@ try {
 					),
 				);
 				if (suite.suite === "React Counter") assert.equal(result.count, "1000");
-				else {
+				else if (suite.suite === "React Fields") {
 					assert.equal(result.fields.length, 1000);
 					assert.equal(
 						result.unrelatedFieldUpdates,
@@ -99,6 +103,20 @@ try {
 						assert.equal(committed, value);
 					}
 				}
+				if (suite.interactions.length) {
+					const times = await driver.executeScript(
+						"return window.tachometerResultInteractions",
+					);
+					assert.deepEqual(
+						Object.keys(times).sort(),
+						[...suite.interactions].sort(),
+					);
+					assert.ok(
+						Object.values(times).every(
+							(value) => Number.isFinite(value) && value > 0,
+						),
+					);
+				}
 				console.log(`PASS ${suite.suite}: ${name}`);
 			} catch (error) {
 				failed++;
@@ -106,6 +124,31 @@ try {
 				console.error(await driver.manage().logs().get("browser"));
 			}
 		}
+	}
+	if (suites.some((suite) => suite.suite === "React Workspace")) {
+		await driver.sendDevToolsCommand("Page.addScriptToEvaluateOnNewDocument", {
+			source: `document.addEventListener('click', event => { if (event.target.matches('[data-action="bulk"]')) event.stopImmediatePropagation(); }, true);`,
+		});
+		await driver.get(
+			`http://127.0.0.1:${server.address().port}/bench.html?bench=react/workspace/dist/use-reducer.mjs&run=react/workspace/index.mjs`,
+		);
+		await driver.wait(
+			() => driver.executeScript("return Boolean(window.tachometerError)"),
+			10000,
+		);
+		assert.match(
+			await driver.executeScript("return window.tachometerError"),
+			/bulk: No DOM commit/,
+		);
+		assert.equal(
+			await driver.executeScript(
+				"return window.tachometerResultMemory ?? null",
+			),
+			null,
+		);
+		console.log(
+			"PASS skipped bulk update is rejected without producing a score",
+		);
 	}
 } finally {
 	await driver?.quit();
