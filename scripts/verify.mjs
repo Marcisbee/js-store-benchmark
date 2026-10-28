@@ -13,14 +13,16 @@ const suites = (
 		? process.argv.slice(2)
 		: ["counter", "fields", "workspace"]
 ).map(getSuite);
-for (const suite of suites)
-	await build({
-		...suite,
-		entryPoints: [
-			...suite.entryPoints,
-			...suite.unsupported.map((entry) => entry.path),
-		],
-	});
+for (const suite of suites) {
+	await build(suite);
+	// Keep the public bundle paths identical to the timing runner. Combining
+	// src/ and unsupported/ changes esbuild's inferred entry-point base.
+	if (suite.unsupported.length)
+		await build({
+			...suite,
+			entryPoints: suite.unsupported.map((entry) => entry.path),
+		});
+}
 const root = resolve(".");
 const server = createServer(async (request, response) => {
 	try {
