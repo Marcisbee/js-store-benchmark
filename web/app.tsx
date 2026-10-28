@@ -1,6 +1,6 @@
 import "./livereload.ts";
 import { results } from "@js-store-benchmark/results";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { hexToColor, lerpMultipleColors } from "./utils/color-lerp.ts";
 
 const heatColor = lerpMultipleColors({
@@ -122,8 +122,22 @@ function prepare(rows: ResultRow[]) {
 	}
 	return data;
 }
-const focus = new URLSearchParams(location.search).get("focus");
+function focusUrl(name: string) {
+	const url = new URL(location.href);
+	url.searchParams.set("focus", name);
+	return `${url.pathname}${url.search}${url.hash}`;
+}
 export function App() {
+	const [focus, setFocus] = useState(() =>
+		new URLSearchParams(location.search).get("focus"),
+	);
+	const tableRef = useRef<HTMLDivElement>(null);
+	useEffect(() => {
+		const syncFocus = () =>
+			setFocus(new URLSearchParams(location.search).get("focus"));
+		window.addEventListener("popstate", syncFocus);
+		return () => window.removeEventListener("popstate", syncFocus);
+	}, []);
 	const [date, setDate] = useState(dates[0]);
 	const [suite, setSuite] = useState("counter");
 	const [metric, setMetric] = useState<Metric>("score");
@@ -192,6 +206,21 @@ export function App() {
 	const filtered = sorted.filter((row) =>
 		row.id.toLowerCase().includes(search.trim().toLowerCase()),
 	);
+	useEffect(() => {
+		const container = tableRef.current;
+		const row = container?.querySelector<HTMLElement>("tr.focused");
+		if (!container || !row) return;
+		const headerHeight =
+			container.querySelector("thead")?.getBoundingClientRect().height || 0;
+		const top =
+			row.getBoundingClientRect().top -
+			container.getBoundingClientRect().top +
+			container.scrollTop;
+		container.scrollTop =
+			top -
+			headerHeight -
+			(container.clientHeight - headerHeight - row.offsetHeight) / 2;
+	}, [focus, sorted, search, loading]);
 	const environment = source[0]?.[1].performance.result;
 	function selectMetric(value: Metric) {
 		setMetric(value);
@@ -274,6 +303,7 @@ export function App() {
 					</label>
 				</div>
 				<div
+					ref={tableRef}
 					className="table-wrap"
 					aria-busy={loading}
 					tabIndex={0}
@@ -348,10 +378,38 @@ export function App() {
 									<tr
 										key={row.id}
 										className={
-											focus && row.id.startsWith(focus) ? "focused" : undefined
+											focus === row.name || focus === row.id
+												? "focused"
+												: undefined
 										}
 									>
-										<td className="rank">{sorted.indexOf(row) + 1}</td>
+										<td className="rank">
+											<a
+												href={focusUrl(row.name)}
+												aria-label={`Focus ${row.name}`}
+												aria-current={
+													focus === row.name || focus === row.id
+														? "true"
+														: undefined
+												}
+												onClick={(event) => {
+													if (
+														event.button !== 0 ||
+														event.metaKey ||
+														event.ctrlKey ||
+														event.shiftKey ||
+														event.altKey
+													)
+														return;
+													event.preventDefault();
+													if (focus !== row.name)
+														history.pushState(null, "", focusUrl(row.name));
+													setFocus(row.name);
+												}}
+											>
+												{sorted.indexOf(row) + 1}
+											</a>
+										</td>
 										<th scope="row" className="library">
 											{row.homepage ? (
 												<a href={row.homepage} target="_blank" rel="noreferrer">

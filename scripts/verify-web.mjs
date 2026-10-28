@@ -174,6 +174,41 @@ try {
 			.getAttribute("aria-sort"),
 		"descending",
 	);
+	const focusLink = await driver.findElement(
+		By.css('a[aria-label="Focus exome"]'),
+	);
+	await focusLink.sendKeys(Key.ENTER);
+	assert.equal(
+		new URL(await driver.getCurrentUrl()).searchParams.get("focus"),
+		"exome",
+	);
+	const focusedName = () =>
+		driver.findElement(By.css("tbody tr.focused .library")).getText();
+	assert.match(await focusedName(), /^exome/);
+	await driver.navigate().refresh();
+	await ready();
+	assert.match(await focusedName(), /^exome/);
+	await driver.manage().window().setRect({ width: 390, height: 844 });
+	await driver.findElement(By.css("thead th:nth-child(3) button")).click();
+	assert.equal(
+		await driver.executeScript(`
+		const row = document.querySelector('tr.focused').getBoundingClientRect();
+		const wrap = document.querySelector('.table-wrap').getBoundingClientRect();
+		const head = document.querySelector('thead').getBoundingClientRect();
+		return row.top >= head.bottom && row.bottom <= wrap.bottom;
+	`),
+		true,
+		"focused row stays visible after sorting on mobile",
+	);
+	await driver
+		.findElement(By.css('a[aria-label="Focus zustand"]'))
+		.sendKeys(Key.ENTER);
+	assert.match(await focusedName(), /^zustand/);
+	await driver.navigate().back();
+	await driver.wait(
+		async () => (await focusedName()).startsWith("exome"),
+		5000,
+	);
 	const errors = (await driver.manage().logs().get("browser")).filter(
 		(entry) =>
 			entry.level.name === "SEVERE" && !entry.message.includes("favicon.ico"),
